@@ -1,0 +1,1471 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FitLuh — Plano de Treino | Luana</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+:root {
+  --bg-dark:#fdf0f5;--bg-card:#ffffff;--bg-card-hover:#fff5f9;
+  --primary:#e91e8c;--primary-dim:#c2185b;--secondary:#9c27b0;--accent:#ff6b9d;
+  --text:#3a2a35;--text-dim:#7a6a75;--text-muted:#b0a0aa;
+  --border:#f0d8e5;--glow:rgba(233,30,140,0.08);--glow-purple:rgba(156,39,176,0.08);--glow-pink:rgba(255,107,157,0.08);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',sans-serif;background:var(--bg-dark);color:var(--text);line-height:1.6;background-image:radial-gradient(circle at 20% 0%,rgba(233,30,140,0.04) 0%,transparent 50%),radial-gradient(circle at 80% 50%,rgba(156,39,176,0.03) 0%,transparent 50%),radial-gradient(circle at 50% 100%,rgba(255,107,157,0.03) 0%,transparent 50%);min-height:100vh}
+.container{max-width:1200px;margin:0 auto;padding:20px}
+.header{text-align:center;padding:60px 20px 40px;position:relative;overflow:hidden}
+.header::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:conic-gradient(from 0deg,transparent 0%,var(--glow) 15%,transparent 30%,var(--glow-purple) 50%,transparent 70%);animation:rotate 20s linear infinite;opacity:0.6;z-index:-1}
+@keyframes rotate{to{transform:rotate(360deg)}}
+.header h1{font-size:3rem;font-weight:900;letter-spacing:-2px;background:linear-gradient(135deg,var(--primary),var(--secondary));-webkit-background-clip:text;-webkit-text-fill-color:transparent;text-transform:uppercase;margin-bottom:10px}
+.header .subtitle{font-size:1.1rem;color:var(--text-dim);font-weight:400;letter-spacing:1px}
+.header .badge{display:inline-block;margin-top:15px;padding:6px 20px;background:linear-gradient(135deg,var(--primary),var(--primary-dim));color:white;font-weight:700;font-size:0.8rem;border-radius:20px;text-transform:uppercase;letter-spacing:1px}
+.info-bar{display:flex;flex-wrap:wrap;gap:15px;justify-content:center;margin:30px 0}
+.info-card{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:16px 24px;text-align:center;min-width:140px;transition:all 0.3s;box-shadow:0 2px 8px rgba(233,30,140,0.05)}
+.info-card:hover{background:var(--bg-card-hover);border-color:var(--primary);transform:translateY(-2px);box-shadow:0 4px 16px rgba(233,30,140,0.12)}
+.info-card .label{font-size:0.7rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:5px}
+.info-card .value{font-size:1.3rem;font-weight:700;color:var(--primary)}
+.info-card .value.purple{color:var(--secondary)}
+.info-card .value.pink{color:var(--accent)}
+.tabs{display:flex;gap:8px;margin:40px 0 20px;flex-wrap:wrap;justify-content:center}
+.tab-btn{padding:12px 24px;background:var(--bg-card);border:1px solid var(--border);border-radius:12px;color:var(--text-dim);font-family:'Inter',sans-serif;font-weight:600;font-size:0.9rem;cursor:pointer;transition:all 0.3s;display:flex;align-items:center;gap:8px;box-shadow:0 2px 6px rgba(233,30,140,0.04)}
+.tab-btn:hover{background:var(--bg-card-hover);color:var(--text);box-shadow:0 4px 12px rgba(233,30,140,0.08)}
+.tab-btn.active{background:linear-gradient(135deg,var(--primary),var(--primary-dim));color:white;border-color:var(--primary);box-shadow:0 4px 20px rgba(233,30,140,0.25)}
+.tab-btn .day-tag{font-size:0.7rem;opacity:0.7}
+.tab-content{display:none;animation:fadeIn 0.4s}
+.tab-content.active{display:block}
+@keyframes fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.workout-title{display:flex;align-items:center;gap:15px;margin-bottom:30px}
+.workout-title .icon{width:50px;height:50px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;flex-shrink:0}
+.workout-title h2{font-size:1.8rem;font-weight:800}
+.workout-title .meta{font-size:0.85rem;color:var(--text-muted);margin-top:3px}
+.icon-pink{background:var(--glow);border:1px solid var(--primary)}
+.icon-purple{background:var(--glow-purple);border:1px solid var(--secondary)}
+.exercise{background:var(--bg-card);border:1px solid var(--border);border-radius:16px;margin-bottom:16px;overflow:hidden;transition:all 0.3s;box-shadow:0 2px 8px rgba(233,30,140,0.04)}
+.exercise:hover{border-color:var(--primary);box-shadow:0 4px 16px rgba(233,30,140,0.08)}
+.exercise-header{display:flex;align-items:center;gap:15px;padding:18px 22px;cursor:pointer}
+.exercise-num{width:36px;height:36px;border-radius:10px;background:var(--bg-dark);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:1rem;color:var(--primary);flex-shrink:0}
+.exercise-info{flex:1}
+.exercise-info h3{font-size:1.1rem;font-weight:700}
+.exercise-info .tags{display:flex;gap:8px;margin-top:4px;flex-wrap:wrap}
+.tag{display:inline-flex;align-items:center;gap:3px;font-size:0.7rem;padding:3px 10px;border-radius:6px;font-weight:600}
+.tag-sets{background:var(--glow);color:var(--primary)}
+.tag-reps{background:var(--glow-purple);color:var(--secondary)}
+.tag-rest{background:var(--glow-pink);color:var(--accent)}
+.tag-load{background:rgba(176,160,170,0.15);color:var(--text-dim)}
+.exercise-body{max-height:0;overflow:hidden;transition:max-height 0.4s ease}
+.exercise.open .exercise-body{max-height:1200px}
+.exercise-body-inner{padding:0 22px 22px 73px}
+.exercise-detail{background:var(--bg-dark);border-radius:10px;padding:14px 18px;margin-bottom:10px;border-left:3px solid var(--primary)}
+.exercise-detail h4{font-size:0.8rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px}
+.exercise-detail p{font-size:0.9rem;color:var(--text);line-height:1.7}
+.yt-link{display:inline-flex;align-items:center;gap:6px;margin-top:8px;padding:6px 14px;background:#e91e8c;color:white!important;border-radius:8px;font-size:0.8rem;font-weight:600;text-decoration:none;transition:all 0.2s}
+.yt-link:hover{background:#c2185b;transform:translateY(-1px);box-shadow:0 4px 12px rgba(233,30,140,0.3)}
+.alternatives{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}
+.alt-card{background:var(--bg-dark);border:1px solid var(--border);border-radius:10px;padding:12px 16px;transition:all 0.2s}
+.alt-card:hover{border-color:var(--secondary);background:var(--bg-card-hover)}
+.alt-card .alt-label{font-size:0.65rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:3px}
+.alt-card .alt-name{font-size:0.9rem;font-weight:600;color:var(--secondary)}
+.alt-card .alt-desc{font-size:0.75rem;color:var(--text-dim);margin-top:2px}
+.alt-card .yt-link{font-size:0.7rem;padding:4px 10px}
+.section-title{font-size:1.4rem;font-weight:800;margin:50px 0 20px;padding-bottom:10px;border-bottom:2px solid var(--border);display:flex;align-items:center;gap:10px;color:var(--primary)}
+.section-title .dot{width:10px;height:10px;border-radius:50%;background:var(--primary)}
+.guidelines-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;margin-bottom:30px}
+.guideline-card{background:var(--bg-card);border:1px solid var(--border);border-radius:14px;padding:20px;transition:all 0.3s;box-shadow:0 2px 8px rgba(233,30,140,0.04)}
+.guideline-card:hover{border-color:var(--primary);transform:translateY(-2px);box-shadow:0 4px 16px rgba(233,30,140,0.08)}
+.guideline-card .gl-icon{font-size:1.5rem;margin-bottom:10px}
+.guideline-card h4{font-size:0.95rem;font-weight:700;margin-bottom:8px;color:var(--primary)}
+.guideline-card p{font-size:0.85rem;color:var(--text-dim);line-height:1.6}
+.schedule-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin-bottom:30px}
+.day-card{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:16px;text-align:center;transition:all 0.3s;box-shadow:0 2px 6px rgba(233,30,140,0.04)}
+.day-card:hover{transform:translateY(-3px);border-color:var(--primary);box-shadow:0 4px 12px rgba(233,30,140,0.08)}
+.day-card.rest{opacity:0.6}
+.day-card .day-name{font-size:0.75rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px}
+.day-card .day-workout{font-size:0.85rem;font-weight:600;color:var(--text)}
+.day-card .day-cardio{font-size:0.7rem;color:var(--text-dim);margin-top:4px}
+.day-card.rest .day-workout{color:var(--accent)}
+.volume-table{width:100%;border-collapse:collapse;margin-bottom:30px;background:var(--bg-card);border-radius:12px;overflow:hidden;box-shadow:0 2px 8px rgba(233,30,140,0.04)}
+.volume-table th{background:var(--bg-dark);padding:14px 16px;text-align:left;font-size:0.75rem;text-transform:uppercase;letter-spacing:1px;color:var(--primary);border-bottom:1px solid var(--border)}
+.volume-table td{padding:12px 16px;font-size:0.9rem;border-bottom:1px solid var(--border)}
+.volume-table tr:last-child td{border-bottom:none}
+.volume-table tr:hover{background:var(--bg-card-hover)}
+.volume-table .highlight{color:var(--primary);font-weight:700}
+.meal-card{background:var(--bg-card);border:1px solid var(--border);border-radius:14px;padding:20px;margin-bottom:16px;box-shadow:0 2px 8px rgba(233,30,140,0.04)}
+.meal-card h3{font-size:1rem;color:var(--primary);margin-bottom:8px}
+.meal-card .meal-time{font-size:0.8rem;color:var(--text-muted);margin-bottom:10px}
+.meal-card p{font-size:0.85rem;color:var(--text-dim);line-height:1.7}
+.meal-card .meal-options{background:var(--bg-dark);border-radius:10px;padding:12px 16px;margin-top:10px;border-left:3px solid var(--primary)}
+.meal-card .meal-options strong{color:var(--secondary)}
+.alert-card{background:linear-gradient(135deg,rgba(233,30,140,0.08),rgba(156,39,176,0.05));border:1px solid var(--primary);border-radius:14px;padding:20px;margin:20px 0}
+.alert-card h3{color:var(--primary);font-size:1rem;margin-bottom:10px}
+.alert-card p{color:var(--text-dim);font-size:0.85rem;line-height:1.7}
+.footer{text-align:center;padding:40px 20px;color:var(--text-muted);font-size:0.8rem;border-top:1px solid var(--border);margin-top:40px}
+@media print{body{background:white;color:black}.tab-content{display:block!important}.tabs{display:none}.header::before{display:none}.exercise-body{max-height:none!important}}
+@media (max-width:768px){.header h1{font-size:2rem}.alternatives{grid-template-columns:1fr}.info-card{min-width:100px;padding:12px}.exercise-body-inner{padding:0 16px 16px}.tabs{gap:4px}.tab-btn{padding:10px 14px;font-size:0.75rem}}
+
+/* MOBILE FIXES */
+*{-webkit-tap-highlight-color:transparent}
+.exercise-header,.tab-btn{touch-action:manipulation;cursor:pointer;-webkit-user-select:none;user-select:none}
+.exercise-body{-webkit-overflow-scrolling:touch}
+@media (max-width:768px){
+.header::before{display:none!important}
+.tab-btn{white-space:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch}
+.tabs{overflow-x:auto;-webkit-overflow-scrolling:touch;flex-wrap:nowrap;scroll-snap-type:x mandatory}
+.tab-btn{scroll-snap-align:start;flex-shrink:0}
+}
+
+/* ================= FITLUH MODERN REDESIGN (neon + fixes) ================= */
+:root{
+  --bg:#fdf3f8;--bg-2:#fff;--panel:rgba(255,255,255,.78);--panel-2:rgba(255,255,255,.94);
+  --border-strong:#eec2df;
+  --neon:#ff2ec4;--magenta:#e91e8c;--purple:#b455ff;--violet:#9c27b0;--rose:#ff6b9d;--amber:#ffb02e;
+  --bg-dark:#fdf3f8;--bg-card:#ffffff;--bg-card-hover:#fff5f9;
+  --primary:#ff2ec4;--primary-dim:#e91e8c;--secondary:#b455ff;--accent:#ff6b9d;
+  --text:#3a2a35;--text-dim:#7a6a75;--text-muted:#b3a0ad;
+  --border:#f6d9eb;
+  --glow:rgba(255,46,196,.1);--glow-purple:rgba(180,85,255,.1);--glow-pink:rgba(255,107,157,.1);
+}
+*{-webkit-tap-highlight-color:transparent}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh;overflow-x:hidden}
+.container{max-width:1180px;margin:0 auto;padding:0 22px}
+
+/* background FX */
+.bg-layer{position:fixed;inset:0;z-index:-2;pointer-events:none;overflow:hidden}
+.bg-layer::before{content:'';position:absolute;inset:0;
+  background-image:linear-gradient(rgba(255,46,196,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,46,196,.05) 1px,transparent 1px);
+  background-size:46px 46px;mask-image:radial-gradient(ellipse at 50% 0%,#000 0%,transparent 75%);-webkit-mask-image:radial-gradient(ellipse at 50% 0%,#000 0%,transparent 75%)}
+.orb{position:absolute;border-radius:50%;filter:blur(90px);opacity:.5;animation:drift 18s ease-in-out infinite}
+.orb.g{width:520px;height:520px;background:rgba(255,46,196,.16);top:-160px;left:-120px}
+.orb.c{width:460px;height:460px;background:rgba(180,85,255,.14);top:30%;right:-160px;animation-delay:-6s}
+.orb.p{width:420px;height:420px;background:rgba(255,107,157,.15);bottom:-140px;left:20%;animation-delay:-12s}
+@keyframes drift{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(40px,30px) scale(1.12)}}
+#particles{position:fixed;inset:0;z-index:-1;pointer-events:none}
+.cursor-glow{position:fixed;width:520px;height:520px;border-radius:50%;pointer-events:none;z-index:-1;opacity:0;
+  background:radial-gradient(circle,rgba(255,46,196,.13),rgba(180,85,255,.07) 42%,transparent 70%);
+  transform:translate(-50%,-50%);transition:opacity .4s ease}
+.cursor-glow.on{opacity:1}
+.scroll-progress{position:fixed;top:0;left:0;height:3px;width:0;z-index:70;
+  background:linear-gradient(90deg,var(--neon),var(--purple),var(--rose));box-shadow:0 0 14px rgba(255,46,196,.5)}
+
+/* nav */
+.nav{position:sticky;top:0;z-index:50;background:rgba(253,243,248,.82);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-bottom:1px solid var(--border)}
+.nav-inner{max-width:1180px;margin:0 auto;padding:12px 22px;display:flex;align-items:center;justify-content:space-between;gap:14px}
+.brand{display:flex;align-items:center;gap:10px;font-family:'Poppins',sans-serif;font-weight:700;letter-spacing:1px;font-size:1.05rem;white-space:nowrap}
+.brand .bolt{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;font-size:1rem;background:linear-gradient(135deg,var(--neon),var(--purple));box-shadow:0 0 18px rgba(255,46,196,.45)}
+.brand span.grad{background:linear-gradient(90deg,var(--magenta),var(--purple));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.nav-tabs{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none}
+.nav-tabs::-webkit-scrollbar{display:none}
+.nav-tabs button{font-family:'Poppins',sans-serif;font-weight:600;font-size:.82rem;padding:8px 14px;border-radius:99px;border:1px solid transparent;cursor:pointer;background:transparent;color:var(--text-dim);white-space:nowrap;transition:.25s}
+.nav-tabs button:hover{color:var(--magenta);background:rgba(255,46,196,.08)}
+.nav-tabs button.active{color:#fff;background:linear-gradient(135deg,var(--neon),var(--purple));box-shadow:0 0 20px rgba(255,46,196,.35);font-weight:700}
+
+/* header / hero */
+.header{padding:64px 0 46px;text-align:center;position:relative;overflow:visible}
+.header::before{display:none}
+.header h1{font-family:'Poppins',sans-serif;font-weight:800;text-transform:uppercase;font-size:clamp(2.4rem,7vw,4.4rem);line-height:1;letter-spacing:1px;margin-bottom:6px;
+  background:linear-gradient(100deg,var(--magenta) 0%,var(--neon) 45%,var(--purple) 100%);background-size:220% auto;
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+  animation:shimmer 7s linear infinite;filter:drop-shadow(0 4px 18px rgba(255,46,196,.22))}
+@keyframes shimmer{to{background-position:220% center}}
+.header .subtitle{font-size:1rem;color:var(--text-dim);margin-top:14px;letter-spacing:.5px}
+.header .subtitle b{color:var(--text)}
+.header .badge{display:inline-block;margin-top:22px;padding:9px 24px;border-radius:99px;font-size:.72rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--magenta);border:1px solid var(--border-strong);background:rgba(255,255,255,.72);backdrop-filter:blur(8px);box-shadow:0 0 24px rgba(255,46,196,.12)}
+
+/* stats */
+.info-bar{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:12px;margin:30px 0 8px}
+.info-card{position:relative;border-radius:16px;padding:18px 12px 24px;text-align:center;min-width:0;
+  background:linear-gradient(160deg,var(--panel-2),var(--panel));border:1px solid var(--border);backdrop-filter:blur(10px);transition:.3s;overflow:hidden;box-shadow:0 2px 12px rgba(255,46,196,.06)}
+.info-card::after{content:'';position:absolute;left:20%;right:20%;bottom:0;height:2px;border-radius:2px;background:linear-gradient(90deg,transparent,var(--neon),transparent);opacity:.7}
+.info-card:hover{transform:translateY(-4px);border-color:var(--border-strong);box-shadow:0 12px 30px rgba(255,46,196,.14)}
+.info-card .label{font-size:.64rem;letter-spacing:2px;text-transform:uppercase;color:var(--text-muted);font-weight:600;margin-bottom:4px}
+.info-card .value{font-family:'Poppins',sans-serif;font-weight:700;font-size:1.25rem;line-height:1.2;margin-top:6px;color:var(--neon);overflow-wrap:anywhere;word-break:break-word}
+.info-card .value.purple{color:var(--purple)}
+.info-card .value.pink{color:var(--rose)}
+
+/* section titles */
+.section-title{font-family:'Poppins',sans-serif;font-size:1.35rem;font-weight:800;margin:54px 0 22px;padding-bottom:10px;display:flex;align-items:center;gap:10px;color:var(--magenta);border-bottom:2px solid var(--border)}
+.section-title .dot{width:10px;height:10px;border-radius:50%;background:linear-gradient(135deg,var(--neon),var(--purple));box-shadow:0 0 12px rgba(255,46,196,.5)}
+
+/* schedule */
+.schedule-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-bottom:30px}
+.day-card{position:relative;border-radius:16px;padding:16px;text-align:center;background:var(--panel);border:1px solid var(--border);transition:.3s;overflow:hidden;box-shadow:0 2px 10px rgba(255,46,196,.05)}
+.day-card:hover{transform:translateY(-4px);border-color:var(--border-strong);box-shadow:0 12px 26px rgba(255,46,196,.12)}
+.day-card .day-name{font-family:'Poppins',sans-serif;font-size:.68rem;letter-spacing:2px;text-transform:uppercase;color:var(--text-muted);font-weight:700;margin-bottom:6px}
+.day-card .day-workout{font-family:'Poppins',sans-serif;font-weight:700;font-size:.92rem;letter-spacing:.3px;overflow-wrap:anywhere}
+.day-card .day-cardio{font-size:.74rem;color:var(--text-dim);margin-top:4px}
+.day-card.rest{opacity:1;border-color:rgba(255,176,46,.4);background:rgba(255,176,46,.06)}
+.day-card.rest .day-workout{color:var(--amber)}
+.day-card.rest .day-cardio{color:var(--amber)}
+
+/* volume table */
+.volume-table{width:100%;border-collapse:collapse;margin-bottom:30px;background:var(--panel-2);border-radius:16px;overflow:hidden;border:1px solid var(--border);box-shadow:0 6px 20px rgba(255,46,196,.06)}
+.volume-table th{font-family:'Poppins',sans-serif;background:rgba(255,46,196,.05);padding:14px 18px;text-align:left;font-size:.7rem;text-transform:uppercase;letter-spacing:1.5px;color:var(--magenta);border-bottom:1px solid var(--border)}
+.volume-table td{padding:13px 18px;font-size:.9rem;border-bottom:1px solid var(--border);vertical-align:middle}
+.volume-table tr:last-child td{border-bottom:none}
+.volume-table tbody tr{transition:.2s}
+.volume-table tbody tr:hover{background:rgba(255,46,196,.04)}
+.volume-table .highlight{color:var(--neon);font-weight:800;font-family:'Poppins',sans-serif}
+.bar-cell{min-width:130px}
+.bar-track{height:7px;border-radius:99px;background:rgba(58,42,53,.08);overflow:hidden}
+.bar-fill{height:100%;border-radius:99px;background:linear-gradient(90deg,var(--neon),var(--purple));box-shadow:0 0 12px rgba(255,46,196,.45);width:0;transition:width 1s cubic-bezier(.2,.8,.2,1)}
+
+/* tabs */
+.tabs{display:flex;gap:8px;margin:30px 0 26px;flex-wrap:wrap;justify-content:center}
+.tab-btn{display:flex;align-items:center;gap:8px;padding:12px 18px;border-radius:99px;cursor:pointer;background:var(--panel-2);border:1px solid var(--border);color:var(--text-dim);font-family:'Poppins',sans-serif;font-weight:600;font-size:.85rem;transition:.28s;box-shadow:0 2px 8px rgba(255,46,196,.05)}
+.tab-btn:hover{color:var(--magenta);border-color:var(--border-strong);transform:translateY(-2px)}
+.tab-btn.active{color:#fff;border-color:transparent;background:linear-gradient(135deg,var(--neon),var(--purple));box-shadow:0 0 26px rgba(255,46,196,.35)}
+.tab-content{display:none}
+.tab-content.active{display:block;animation:rise .45s ease}
+@keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+
+/* workout title */
+.workout-title{display:flex;align-items:center;gap:16px;margin-bottom:26px}
+.workout-title .icon{width:56px;height:56px;border-radius:18px;display:flex;align-items:center;justify-content:center;font-size:1.6rem;flex-shrink:0;background:var(--panel-2);border:1px solid var(--border-strong);box-shadow:0 0 26px rgba(255,46,196,.2)}
+.workout-title h2{font-family:'Poppins',sans-serif;font-weight:700;font-size:1.4rem;letter-spacing:.5px}
+.workout-title .meta{font-size:.8rem;color:var(--text-muted);margin-top:2px}
+.icon-pink{background:rgba(255,46,196,.08);border:1px solid var(--neon)}
+.icon-purple{background:rgba(180,85,255,.1);border:1px solid var(--purple)}
+
+/* exercise cards */
+.exercise{position:relative;border-radius:18px;margin-bottom:14px;overflow:hidden;background:var(--panel-2);border:1px solid var(--border);transition:.3s;box-shadow:0 2px 10px rgba(255,46,196,.05)}
+.exercise::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(180deg,var(--neon),transparent);opacity:.85;box-shadow:0 0 14px rgba(255,46,196,.5)}
+.exercise:hover{border-color:var(--border-strong);transform:translateY(-2px);box-shadow:0 0 0 1px rgba(255,46,196,.12),0 14px 30px rgba(255,46,196,.1)}
+.exercise-header{display:flex;align-items:center;gap:15px;padding:17px 20px 17px 22px;cursor:pointer;user-select:none}
+.exercise-num{width:38px;height:38px;border-radius:12px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-family:'Poppins',sans-serif;font-weight:700;font-size:1.05rem;color:var(--neon);background:rgba(255,46,196,.07);border:1px solid rgba(255,46,196,.3)}
+.exercise-info{flex:1;min-width:0}
+.exercise-info h3{font-size:1.02rem;font-weight:700;letter-spacing:.2px}
+.tags{display:flex;gap:6px;margin-top:7px;flex-wrap:wrap}
+.tag{display:inline-flex;align-items:center;gap:4px;font-size:.68rem;font-weight:600;letter-spacing:.5px;padding:3px 10px;border-radius:99px}
+.tag-sets{color:var(--magenta);background:rgba(233,30,140,.08);border:1px solid rgba(233,30,140,.25)}
+.tag-reps{color:var(--purple);background:rgba(180,85,255,.1);border:1px solid rgba(180,85,255,.3)}
+.tag-rest{color:var(--rose);background:rgba(255,107,157,.1);border:1px solid rgba(255,107,157,.3)}
+.tag-load{color:var(--text-dim);background:rgba(122,106,117,.08);border:1px solid var(--border)}
+.exercise-body{max-height:0;overflow:hidden;transition:max-height .5s cubic-bezier(.2,.8,.2,1)}
+.exercise.open .exercise-body{max-height:1400px}
+.exercise-body-inner{padding:2px 20px 20px 74px}
+.exercise-detail{border-radius:12px;padding:13px 16px;margin-bottom:10px;background:rgba(253,243,248,.6);border:1px solid var(--border);border-left:3px solid var(--neon)}
+.exercise-detail h4{font-family:'Poppins',sans-serif;font-size:.72rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--magenta);margin-bottom:5px}
+.exercise-detail p{font-size:.88rem;color:var(--text);line-height:1.65}
+.yt-link{display:inline-flex;align-items:center;gap:7px;margin-top:8px;padding:7px 15px;border-radius:99px;background:var(--magenta);color:#fff!important;font-size:.78rem;font-weight:700;text-decoration:none;transition:.25s}
+.yt-link:hover{background:var(--neon);transform:translateY(-1px);box-shadow:0 6px 18px rgba(255,46,196,.4)}
+.alternatives{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}
+.alt-card{border-radius:12px;padding:12px 14px;background:rgba(255,255,255,.6);border:1px solid var(--border);transition:.25s}
+.alt-card:hover{border-color:var(--purple);background:#fff}
+.alt-card .alt-label{font-size:.6rem;letter-spacing:2px;text-transform:uppercase;color:var(--text-muted);font-weight:600}
+.alt-card .alt-name{font-size:.88rem;font-weight:600;color:var(--purple);margin-top:3px}
+.alt-card .alt-desc{font-size:.74rem;color:var(--text-dim);margin-top:2px}
+.alt-card .yt-link{font-size:.7rem;padding:5px 11px;margin-top:6px}
+
+/* guidelines */
+.guidelines-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin-bottom:30px}
+.guideline-card{position:relative;border-radius:16px;padding:20px;background:var(--panel-2);border:1px solid var(--border);transition:.3s;overflow:hidden;box-shadow:0 2px 10px rgba(255,46,196,.05)}
+.guideline-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--neon),var(--purple),transparent);opacity:0;transition:.3s}
+.guideline-card:hover{transform:translateY(-4px);border-color:var(--border-strong);box-shadow:0 14px 30px rgba(255,46,196,.12)}
+.guideline-card:hover::before{opacity:1}
+.guideline-card .gl-icon{font-size:1.5rem;margin-bottom:10px}
+.guideline-card h4{font-family:'Poppins',sans-serif;font-size:1rem;letter-spacing:.5px;color:var(--magenta);margin-bottom:7px}
+.guideline-card p{font-size:.84rem;color:var(--text-dim);line-height:1.6}
+
+/* meals + alerts */
+.meal-card{border-radius:16px;padding:20px;margin-bottom:16px;background:var(--panel-2);border:1px solid var(--border);transition:.3s;box-shadow:0 2px 10px rgba(255,46,196,.05)}
+.meal-card:hover{border-color:var(--border-strong);box-shadow:0 12px 26px rgba(255,46,196,.08)}
+.meal-card h3{font-family:'Poppins',sans-serif;font-size:1.05rem;color:var(--magenta);margin-bottom:6px}
+.meal-card .meal-time{font-size:.8rem;color:var(--text-muted);margin-bottom:10px}
+.meal-card p{font-size:.85rem;color:var(--text-dim);line-height:1.7}
+.meal-card .meal-options{background:rgba(253,243,248,.7);border-radius:12px;padding:14px 16px;margin-top:10px;border-left:3px solid var(--purple)}
+.meal-card .meal-options strong{color:var(--purple)}
+.alert-card{background:linear-gradient(135deg,rgba(255,46,196,.08),rgba(180,85,255,.06));border:1px solid var(--neon);border-radius:16px;padding:20px;margin:20px 0}
+.alert-card h3{font-family:'Poppins',sans-serif;color:var(--magenta);font-size:1rem;margin-bottom:10px}
+.alert-card p{color:var(--text-dim);font-size:.85rem;line-height:1.7}
+
+/* footer */
+.footer{text-align:center;padding:46px 20px 50px;color:var(--text-muted);font-size:.78rem;border-top:1px solid var(--border);margin-top:50px;position:relative}
+.footer::before{content:'';position:absolute;top:-1px;left:50%;transform:translateX(-50%);width:180px;height:2px;background:linear-gradient(90deg,transparent,var(--neon),var(--purple),transparent);box-shadow:0 0 14px rgba(255,46,196,.5)}
+
+/* FX: reveal + tilt */
+.reveal{opacity:0;transform:translateY(36px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.8,.2,1)}
+.reveal.visible{opacity:1;transform:none}
+.tilt{will-change:transform}
+
+/* scrollbar */
+::-webkit-scrollbar{width:10px;height:8px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:linear-gradient(var(--neon),var(--purple));border-radius:99px;border:2px solid var(--bg)}
+
+/* responsive */
+@media (max-width:768px){
+  .header h1{font-size:2.2rem}
+  .alternatives{grid-template-columns:1fr}
+  .exercise-body-inner{padding:2px 14px 16px 16px}
+  .nav-inner{flex-direction:column;align-items:stretch}
+  .tabs{flex-wrap:nowrap;overflow-x:auto;justify-content:flex-start;-webkit-overflow-scrolling:touch;scroll-snap-type:x mandatory}
+  .tab-btn{flex-shrink:0;scroll-snap-align:start;white-space:nowrap}
+  .info-card{min-width:0}
+  .volume-table th,.volume-table td{padding:11px 10px}
+  .bar-cell{min-width:70px}
+}
+
+/* print */
+@media print{
+  body{background:#fff;color:#000}
+  .nav,.bg-layer,#particles,.cursor-glow,.scroll-progress,.tabs{display:none}
+  .tab-content{display:block!important}
+  .exercise-body{max-height:none!important}
+  .header h1{-webkit-text-fill-color:#e91e8c}
+}
+
+/* reduced motion */
+@media (prefers-reduced-motion:reduce){
+  .reveal{opacity:1;transform:none;transition:none}
+  .header h1{animation:none!important}
+  .orb{animation:none!important}
+}
+</style>
+</head>
+<body>
+<canvas id="particles"></canvas>
+<div class="cursor-glow" id="cursorGlow"></div>
+<div class="scroll-progress" id="scrollProgress"></div>
+<div class="bg-layer"><div class="orb g"></div><div class="orb c"></div><div class="orb p"></div></div>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="brand"><div class="bolt">💗</div><span class="grad">FitLuh</span></div>
+    <div class="nav-tabs" id="navTabs">
+      <button class="active" data-tab="tab-A">🦵 A</button>
+      <button data-tab="tab-B">💪 B</button>
+      <button data-tab="tab-C">🍑 C</button>
+      <button data-tab="tab-D">🔙 D</button>
+      <button data-tab="tab-E">🍑 E</button>
+      <button data-tab="tab-F">✨ F</button>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+<header class="header">
+<h1 data-parallax="0.22">FitLuh</h1>
+<div class="subtitle" data-parallax="0.30">Plano de Treino & Nutrição · Luana Marino</div>
+<div class="badge" data-parallax="0.38">Recomposição Corporal · Cutting 442 kcal · Jejum 16:8</div>
+</header>
+<div class="info-bar">
+<div class="info-card"><div class="label">Nível</div><div class="value">Iniciante</div></div>
+<div class="info-card"><div class="label">Séries</div><div class="value purple">3</div></div>
+<div class="info-card"><div class="label">Reps</div><div class="value purple">12-15</div></div>
+<div class="info-card"><div class="label">Dias/sem</div><div class="value">6 treinos</div></div>
+<div class="info-card"><div class="label">Meta kcal</div><div class="value purple">1.350</div></div>
+<div class="info-card"><div class="label">Meta prot</div><div class="value">128g</div></div>
+<div class="info-card"><div class="label">Cruzeiro</div><div class="value pink">20/11</div></div>
+</div>
+<div class="section-title"><span class="dot"></span>Distribuição Semanal (Rotação ABCDEF)</div>
+<div class="schedule-grid">
+<div class="day-card"><div class="day-name">Dia 1</div><div class="day-workout">A — Quadríceps</div><div class="day-cardio">15 min caminhada</div></div>
+<div class="day-card"><div class="day-name">Dia 2</div><div class="day-workout">B — Peito + Tríceps</div><div class="day-cardio">15 min caminhada</div></div>
+<div class="day-card"><div class="day-name">Dia 3</div><div class="day-workout">C — Posterior + Ombros</div><div class="day-cardio">15 min caminhada</div></div>
+<div class="day-card"><div class="day-name">Dia 4</div><div class="day-workout">D — Costas + Bíceps</div><div class="day-cardio">15 min caminhada</div></div>
+<div class="day-card"><div class="day-name">Dia 5</div><div class="day-workout">E — Glúteo</div><div class="day-cardio">15 min caminhada</div></div>
+<div class="day-card"><div class="day-name">Dia 6</div><div class="day-workout">F — Full-Body Leve</div><div class="day-cardio">Sem cardio</div></div>
+<div class="day-card rest"><div class="day-name">Dia 7</div><div class="day-workout">Descanso</div><div class="day-cardio">Cardio opcional</div></div>
+</div>
+<div class="section-title"><span class="dot"></span>Volume Semanal</div>
+<table class="volume-table">
+<thead><tr><th>Músculo</th><th>Exercícios</th><th>Sets/semana</th><th>Faixa ótima</th></tr></thead>
+<tbody>
+<tr><td>Quadríceps</td><td>5</td><td class="highlight">16</td><td>10-20</td></tr>
+<tr><td>Peito + Tríceps</td><td>6</td><td class="highlight">20</td><td>10-20</td></tr>
+<tr><td>Posterior + Ombros</td><td>6</td><td class="highlight">20</td><td>10-20</td></tr>
+<tr><td>Costas + Bíceps</td><td>6</td><td class="highlight">20</td><td>10-20</td></tr>
+<tr><td>Glúteo</td><td>5</td><td class="highlight">16</td><td>10-20</td></tr>
+</tbody>
+</table>
+<div class="tabs">
+<button class="tab-btn active" onclick="openTab(event,'tab-A')"><span>🦵 A — Quadríceps</span></button>
+<button class="tab-btn" onclick="openTab(event,'tab-B')"><span>💪 B — Peito + Tríceps</span></button>
+<button class="tab-btn" onclick="openTab(event,'tab-C')"><span>🍑 C — Posterior + Ombros</span></button>
+<button class="tab-btn" onclick="openTab(event,'tab-D')"><span>🔙 D — Costas + Bíceps</span></button>
+<button class="tab-btn" onclick="openTab(event,'tab-E')"><span>🍑 E — Glúteo</span></button>
+<button class="tab-btn" onclick="openTab(event,'tab-F')"><span>✨ F — Full-Body Leve</span></button>
+</div>
+<div id="tab-A" class="tab-content active">
+  <div class="workout-title">
+    <div class="icon icon-pink">🦵</div>
+    <div><h2>Treino A — Quadríceps</h2><div class="meta">Ex: Segunda · ~40 min + 15 min cardio</div></div>
+  </div>
+  <div class="exercise" onclick="toggleEx(this)">
+    <div class="exercise-header">
+      <div class="exercise-num">1</div>
+      <div class="exercise-info">
+        <h3>Agachamento no Smith</h3>
+        <div class="tags">
+          <span class="tag tag-sets">📊 3 séries</span>
+          <span class="tag tag-reps">12 reps</span>
+          <span class="tag tag-rest">⏱ 90s</span>
+          <span class="tag tag-load">🏋️ Moderada</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-body"><div class="exercise-body-inner">
+      <div class="exercise-detail"><h4>🎯 Músculo alvo</h4><p>Quadríceps + Glúteos</p></div>
+      <div class="exercise-detail"><h4>📋 Execução</h4><p>Barra guiada no Smith, pés na largura dos ombros. Desce controlado até 90°, sobe sem travar.</p></div>
+      <div class="exercise-detail"><h4>💡 Dicas da personal</h4><p>Mantém a coluna ereta. Não deixa os joelhos passarem os pés. RIR 1.</p></div>
+      <div class="exercise-detail"><h4>🎬 Como fazer</h4><a class="yt-link" href="https://www.youtube.com/results?search_query=agachamento+smith+execucao+iniciante" target="_blank">▶ Ver no YouTube</a></div>
+      <div class="exercise-detail"><h4>🔄 Alternativas (se a máquina estiver ocupada)</h4><div class="alternatives"><div class="alt-card"><div class="alt-label">Alternativa</div><div class="alt-name">Leg Press 45°</div><div class="alt-desc">Mesma função, mais suporte de coluna.</div><a class="yt-link" href="https://www.youtube.com/results?search_query=leg+press+45+execucao" target="_blank">▶ YouTube</a></div><div class="alt-card"><div class="alt-label">Alternativa</div><div class="alt-name">Agachamento Livre (barra)</div><div class="alt-desc">Mais estabilização, exige técnica.</div><a class="yt-link" href="https://www.youtube.com/results?search_query=agachamento+livre+barra+execucao" target="_blank">▶ YouTube</a></div></div></div>
+    </div></div>
+  </div>
+  <div class="exercise" onclick="toggleEx(this)">
+    <div class="exercise-header">
+      <div class="exercise-num">2</div>
+      <div class="exercise-info">
+        <h3>Leg Press 45°</h3>
+        <div class="tags">
+          <span class="tag tag-sets">📊 3 séries</span>
+          <span class="tag tag-reps">12 reps</span>
+          <span class="tag tag-rest">⏱ 90s</span>
+          <span class="tag tag-load">🏋️ Moderada</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-body"><div class="exercise-body-inner">
+      <div class="exercise-detail"><h4>🎯 Músculo alvo</h4><p>Quadríceps + Glúteos</p></div>
+      <div class="exercise-detail"><h4>📋 Execução</h4><p>Costas apoiadas, pés na largura dos ombros. Desce até 90°, sobe sem travar.</p></div>
+      <div class="exercise-detail"><h4>💡 Dicas da personal</h4><p>Não force os joelhos. RIR 1.</p></div>
+      <div class="exercise-detail"><h4>🎬 Como fazer</h4><a class="yt-link" href="https://www.youtube.com/results?search_query=leg+press+45+execucao+correta" target="_blank">▶ Ver no YouTube</a></div>
+      <div class="exercise-detail"><h4>🔄 Alternativas (se a máquina estiver ocupada)</h4><div class="alternatives"><div class="alt-card"><div class="alt-label">Alternativa</div><div class="alt-name">Hack Squat</div><div class="alt-desc">Suporte de coluna, mais estável.</div><a class="yt-link" href="https://www.youtube.com/results?search_query=hack+squat+execucao" target="_blank">▶ YouTube</a></div><div class="alt-card"><div class="alt-label">Alternativa</div><div class="alt-name">Agachamento no Smith (já é o ex 1)</div><div class="alt-desc">Se preferir, repete o Smith com mais carga.</div><a class="yt-link" href="https://www.youtube.com/results?search_query=agachamento+smith+execucao" target="_blank">▶ YouTube</a></div></div></div>
+    </div></div>
+  </div>
+  <div class="exercise" onclick="toggleEx(this)">
+    <div class="exercise-header">
+      <div class="exercise-num">3</div>
+      <div class="exercise-info">
+        <h3>Cadeira Extensora</h3>
+        <div class="tags">
+          <span class="tag tag-sets">📊 3 séries</span>
+          <span class="tag tag-reps">15 reps</span>
+          <span class="tag tag-rest">⏱ 60s</span>
+          <span class="tag tag-load">🏋️ Moderada</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-body"><div class="exercise-body-inner">
+      <div class="exercise-detail"><h4>🎯 Músculo alvo</h4><p>Quadríceps (reto femoral)</p></div>
+      <div class="exercise-detail"><h4>📋 Execução</h4><p>Sentada, estende as pernas até quase travar. Desce controlado.</p></div>
+      <div class="exercise-detail"><h4>💡 Dicas da personal</h4><p>Não balance o corpo. RIR 1.</p></div>
+      <div class="exercise-detail"><h4>🎬 Como fazer</h4><a class="yt-link" href="https://www.youtube.com/results?search_query=cadeira+extensora+execucao" target="_blank">▶ Ver no YouTube</a></div>
+      <div class="exercise-detail"><h4>🔄 Alternativas (se a máquina estiver ocupada)</h4><div class="alternatives"><div class="alt-card"><div class="alt-label">Alternativa</div><div class="alt-name">Extensão na Polia c/ Tornozeleira</div><div class="alt-desc">Polia baixa.</div><a class="yt-link" href="https://www.youtube.com/results?search_query=extensao+perna+polia" target="_blank">▶ YouTube</a></div><div class="alt-card"><div class="alt-label">Alternativa</div><div class="alt-name">Cadeira Extensora Unilateral</div><div class="alt-desc">Uma perna por vez.</div><a class="yt-link" href="https://www.youtube.com/results?search_query=cadeira+extensora+unilateral" target="_blank">▶ YouTube</a></div></div></div>
+    </div></div>
+  </div>
+  <div class="exercise" onclick="toggleEx(this)">
+    <div class="exercise-header">
+      <div class="exercise-num">4</div>
+      <div class="exercise-info">
+        <h3>Avanço no Smith</h3>
+        <div class="tags">
+          <span class="tag tag-sets">📊 3 séries</span>
+          <span class="tag tag-reps">12 reps</span>
+          <span class="tag tag-rest">⏱ 90s</span>
+          <span class="tag tag-load">🏋️ Moderada</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-body"><div class="exercise-body-inner">
+      <div class="exercise-detail"><h4>🎯 Músculo alvo</h4><p>Quadríceps + Glúteos</p></div>
+      <div class="exercise-detail"><h4>📋 Execução</h4><p>No Smith, dá um passo à frente e desce em afundo. Alternar pernas.</p></div>
+      <div class="exercise-detail"><h4>💡 Dicas da personal</h4><p>Joelho da frente não passa o pé. RIR 1.</p></div>
+      <div class="exercise-detail"><h4>🎬 Como fazer</h4><a class="yt-link" href="https://www.youtube.com/results?search_query=avanco+smith+lunge+execucao" target="_blank">▶ Ver no YouTube</a></div>
+      <div class="exercise-detail"><h4>🔄 Alternativas (se a máquina estiver ocupada)</h4><div class="alternatives"><div class="alt-card"><div class="alt-label">Alternativa</div><div class="alt-name">Avanço c/ Halteres</div><div class="alt-desc">Halteres nas mãos, mais estabilização.</div><a class="yt-link" href="https://www.youtube.com/results?search_query=avanco+halteres+lunge" target="_blank">▶ YouTube</a></div><div class="alt-card"><div class="alt-label">Alternativa</div><div class="alt-name">Avanço na Polia</div><div class="alt-desc">Polia baixa com tornozeleira.</div><a class="yt-link" href="https://www.youtube.com/results?search_query=cable+lunge+avanco+polia" target="_blank">▶ YouTube</a></div></div></div>
+    </div></div>
+  </div>
+  <div class="exercise" onclick="toggleEx(this)">
+    <div class="exercise-header">
+      <div class="exercise-num">5</div>
+      <div class="exercise-info">
+        <h3>Cadeira Extensora (Unilateral)</h3>
+        <div class="tags">
+          <span class="tag tag-sets">📊 3 séries</span>
+          <span class="tag tag-reps">12 reps</span>
+          <span class="tag tag-rest">⏱ 60s</span>
+          <span class="tag tag-load">🏋️ Moderada</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-body"><div class="exercise-body-inner">
+      <div class="exercise-detail"><h4>🎯 Músculo alvo</h4><p>Quadríceps (foco unilateral)</p></div>
+      <div class="exercise-detail"><h4>📋 Execução</h4><p>Uma perna por vez na cadeira extensora. Mesma execução, mas isola cada perna.</p></div>
+      <div class="exercise-detail"><h4>💡 Dicas da personal</h4><p>Foco na perna mais fraca primeiro. RIR 1.</p></div>
+      <div class="exercise-detail"><h4>🎬 Como fazer</h4><a class="yt-link" href="https://www.youtube.com/results?search_query=cadeira+extensora+unilateral+execucao" target="_blank">▶ Ver no YouTube</a></div>
+      <div class="exercise-detail"><h4>🔄 Alternativas (se a máquina estiver ocupada)</h4><div class="alternatives"><div class="alt-card"><div class="alt-label">Alternativa</div><div class="alt-name">Extensão Unilateral na Polia</div><div class="alt-desc">Polia com tornozeleira, uma perna.</div><a class="yt-link" href="https://www.youtube.com/results?search_query=extensao+unilateral+polia" target="_blank">▶ YouTube</a></div><div class="alt-card"><div class="alt-label">Alternativa</div><div class="alt-name">Cadeira Extensora Bilateral (mais carga)</div><div class="alt-desc">Se a máquina não permitir unilateral.</div><a class="yt-link" href="https://www.youtube.com/results?search_query=cadeira+extensora+execucao" target="_blank">▶ YouTube</a></div></div></div>
+    </div></div>
+  </div>
+  <div class="exercise" onclick="toggleEx(this)">
+    <div class="exercise-header">
+      <div class="exercise-num">6</div>
+      <div class="exercise-info">
+        <h3>Abdominal na Máquina</h3>
+        <div class="tags">
+          <span class="tag tag-sets">📊 3 séries</span>
+          <span class="tag tag-reps">15 reps</span>
+          <span class="tag tag-rest">⏱ 60s</span>
+          <span class="tag tag-load">🏋️ Moderada</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-body"><div class="exercise-body-inner">
+      <div class="exercise-detail"><h4>🎯 Músculo alvo</h4><p>Reto abdominal</p></div>
+      <div class="exercise-detail"><h4>📋 Execução</h4><p>Sentada na máquina, flexiona o tronco contraindo o abdômen. Volta controlado.</p></div>
+      <div class="exercise-detail"><h4>💡 Dicas da personal</h4><p>O abdômen faz o movimento. RIR 1.</p></div>
+      <div class="exercise-detail"><h4>🎬 Como fazer</h4><a class="yt-link" href="https://www.youtube.com/results?search_query=abdominal+maquina+execucao" target="_blank">▶ Ver no YouTube</a></div>
+      <div class="exercise-detail"><h4>🔄 Alternativas (se a máquina estiver ocupada)</h4><div class="alternatives"><div class="alt-card"><div class="alt-label">Alternativa</div><div class="alt-name">Abdominal na Polia (ajoelhado)</div><div class="alt-desc">Cable crunch ajoelhado.</div><a class="yt-link" href="https://www.youtube.com/results?search_query=cable+crunch+abdominal" target="_blank">▶ YouTube</a></div><div class="alt-card"><div class="alt-label">Alternativa</div><div class="alt-name">Crunch no Solo</div><div class="alt-desc">Sem peso, mais reps.</div><a class="yt-link" href="https://www.youtube.com/results?search_query=crunch+abdominal+solo" target="_blank">▶ YouTube</a></div></div></div>
+    </div></div>
+  </div>
+</div>
+<div id="tab-B" class="tab-content">
+  <div class="workout-title">
+    <div class="icon icon-purple">💪</div>
+    <div><h2>Treino B — Peito + Tríceps</h2><div class="meta">Ex: Terça · ~35 min + 15 min cardio</div></div>
+  </div>
+  <div class="exercise" onclick="toggleEx(this)">
+    <div class="exercise-header">
+      <div class="exercise-num">1</div>
+      <div class="exercise-info">
+        <h3>Supino Reto na Máquina</h3>
+        <div class="tags">
+          <span class="tag tag-sets">📊 3 séries</span>
+          <span class="tag tag-reps">12 reps</span>
+          <span class="tag tag-rest">⏱ 90s</span>
+          <span class="tag tag-load">🏋️ Moderada</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-body"><div class="exercise-body-inner">
+      <div class="exercise-detail"><h4>🎯 Músculo alvo</h4><p>Peitoral maior + deltoide anterior</p></div>
+      <div class="exercise-detail"><h4>📋 Execução</h4><p>Sentada na máquina, empurra os pegadores para frente. Volta controlado.</p></div>
+      <div class="exercise-detail"><h4>💡 Dicas da personal</h4><p>Contrai o peito no final. RIR 1.</p></div>
+      <div class="exercise-detail"><h4>🎬 Como fazer</h4><a class="yt-link" href="https://www.youtube.com/results?search_query=supino+reto+maquina+execucao" target="_blank">▶ Ver no YouTube</a></div>
+      <div class="exercise-detail"><h4>🔄 Alternativas (se a máquina estiver ocupada)</h4><div class="alternatives"><div class="alt-card"><div class="alt-label">Alternativa</div><div class="alt-name">Supino c/ Halteres (banco plano)</div><div class="alt-desc">Amplitude maior.</div><a class="yt-link" href="https://www.youtube.com/results?search_query=supino+halteres+banco+plano" target="_blank">▶ YouTube</a></div><div class="alt-card"><div class="alt-label">Alternativa</div><div class="alt-name">Supino no Smith</div><div class="alt-desc">Barra guiada, mais seguro.</div><a class="yt-link" href="https://www.youtube.com/results?search_query=supino+smith+execucao" target="_blank">▶ YouTube</a></div></div></div>
+    </div></div>
+  </div>
+  <div class="exercise" onclick="toggleEx(this)">
+    <div class="exercise-header">
+      <div class="exercise-num">2</div>
+      <div class="exercise-info">
+        <h3>Supino Inclinado na Máquina</h3>
+        <div class="tags">
+          <span class="tag tag-sets">📊 3 séries</span>
+          <span class="tag tag-reps">12 reps</span>
+          <span class="tag tag-rest">⏱ 90s</span>
+          <span class="tag tag-load">🏋️ Moderada</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-body"><div class="exercise-body-inner">
+      <div class="exercise-detail"><h4>🎯 Músculo alvo</h4><p>Peitoral superior (clavicular)</p></div>
+      <div class="exercise-detail"><h4>📋 Execução</h4><p>Mesma máquina mas no banco inclinado. Empurra para cima. Volta controlado.</p></div>
+      <div class="exercise-detail"><h4>💡 Dicas da personal</h4><p>Foca na parte de cima do peito. RIR 1.</p></div>
+      <div class="exercise-detail"><h4>🎬 Como fazer</h4><a class="yt-link" href="https://www.youtube.com/results?search_query=supino+inclinado+maquina+execucao" target="_blank">▶ Ver no YouTube</a></div>
+      <div class="exercise-detail"><h4>🔄 Alternativas (se a máquina estiver ocupada)</h4><div class="alternatives"><div class="alt-card"><div class="alt-label">Alternativa</div><div class="alt-name">Supino Inclinado c/ Halteres</div><div class="alt-desc">Amplitude maior no inclinado.</div><a class="yt-link" href="https://www.youtube.com/results?search_query=supino+inclinado+halteres" target="_blank">▶ YouTube</a></div><div class="alt-card"><div class="alt-label">Alternativa</div><div class="alt-name">Cross Over na Polia Alta</div><div class="alt-desc">Polia alta, cruzando à frente.</div><a class="yt-link" href="https://www.youtube.com/results?search_query=crossover+polia+alta+execucao" target="_blank">▶ YouTube</a></div></div></div>
+    </div></div>
+  </div>
+  <div class="exercise" onclick="toggleEx(this)">
+    <div class="exercise-header">
+      <div class="exercise-num">3</div>
+      <div class="exercise-info">
+        <h3>Peck Deck (Crucifixo na Máquina)</h3>
+        <div class="tags">
+          <span class="tag tag-sets">📊 3 séries</span>
+          <span class="tag tag-reps">12 reps</span>
+          <span class="tag tag-rest">⏱ 60s</span>
+          <span class="tag tag-load">🏋️ Moderada</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-body"><div class="exercise-body-inner">
+      <div class="exercise-detail"><h4>🎯 Músculo alvo</h4><p>Peitoral central</p></div>
+      <div class="exercise-detail"><h4>📋 Execução</h4><p>Sentada, antebraços nas almofadas. Joga os braços pra frente contraindo o peito.</p></div>
+      <div class="exercise-detail"><h4>💡 Dicas da personal</h4><p>Foca em CONTRAIR o peito. RIR 1.</p></div>
+      <div class="exercise-detail"><h4>🎬 Como fazer</h4><a class="yt-link" href="https://www.youtube.com/results?search_query=peck+deck+crucifixo+maquina+execucao" target="_blank">▶ Ver no YouTube</a></div>
+      <div class="exercise-detail"><h4>🔄 Alternativas (se a máquina estiver ocupada)</h4><div class="alternatives"><div class="alt-card"><div class="alt-label">Alternativa</div><div class="alt-name">Crucifixo c/ Halteres</div><div class="alt-desc">Mais amplitude e alongamento.</div><a class="yt-link" href="https://www.youtube.com/results?search_query=crucifixo+halteres+execucao" target="_blank">▶ YouTube</a></div><div class="alt-card"><div class="alt-label">Alternativa</div><div class="alt-name">Crossover na Polia</div><div class="alt-desc">Polia alta cruzando à frente.</div><a class="yt-link" href="https://www.youtube.com/results?search_query=crossover+polia+execucao" target="_blank">▶ YouTube</a></div></div></div>
+    </div></div>
+  </div>
+  <div class="exercise" onclick="toggleEx(this)">
+    <div class="exercise-header">
+      <div class="exercise-num">4</div>
+      <div class="exercise-info">
+        <h3>Tríceps Corda</h3>
+        <div class="tags">
+          <span class="tag tag-sets">📊 3 séries</span>
+          <span class="tag tag-reps">12 reps</span>
+          <span class="tag tag-rest">⏱ 60s</span>
+          <span class="tag tag-load">🏋️ Moderada</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-body"><div class="exercise-body-inner">
+      <div class="exercise-detail"><h4>🎯 Músculo alvo</h4><p>Tríceps (cabeça lateral)</p></div>
+      <div class="exercise-detail"><h4>📋 Execução</h4><p>Em pé, cotovelos colados. Empurra a corda para baixo abrindo as mãos no final.</p></div>
+      <div class="exercise-detail"><h4>💡 Dicas da personal</h4><p>O segredo é a abertura no final. RIR 1.</p></div>
+      <div class="exercise-detail"><h4>🎬 Como fazer</h4><a class="yt-link" href="https://www.youtube.com/results?search_query=triceps+corda+execucao" target="_blank">▶ Ver no YouTube</a></div>
+      <div class="exercise-detail"><h4>🔄 Alternativas (se a máquina estiver ocupada)</h4><div class="alternatives"><div class="alt-card"><div class="alt-label">Alternativa</div><div class="alt-name">Tríceps Pulley c/ Barra</div><div class="alt-desc">Barra reta ou W, mesma função.</div><a class="yt-link" href="https://www.youtube.com/results?search_query=triceps+pulley+barra" target="_blank">▶ YouTube</a></div><div class="alt-card"><div class="alt-label">Alternativa</div><div class="alt-name">Tríceps no Banco (dips)</div><div class="alt-desc">Peso corporal no banco.</div><a class="yt-link" href="https://www.youtube.com/results?search_query=triceps+banco+dips" target="_blank">▶ YouTube</a></div></div></div>
+    </div></div>
+  </div>
+  <div class="exercise" onclick="toggleEx(this)">
+    <div class="exercise-header">
+      <div class="exercise-num">5</div>
+      <div class="exercise-info">
+        <h3>Tríceps Testa na Máquina</h3>
+        <div class="tags">
+          <span class="tag tag-sets">📊 3 séries</span>
+          <span class="tag tag-reps">12 reps</span>
+          <span class="tag tag-rest">⏱ 60s</span>
+          <span class="tag tag-load">🏋️ Moderada</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-body"><div class="exercise-body-inner">
+      <div class="exercise-detail"><h4>🎯 Músculo alvo</h4><p>Tríceps (cabeça longa)</p></div>
+      <div class="exercise-detail"><h4>📋 Execução</h4><p>Deitada na máquina, estende os cotovelos empurrando o peso. Volta controlado.</p></div>
+      <div class="exercise-detail"><h4>💡 Dicas da personal</h4><p>Cotovelos fixos. RIR 1.</p></div>
+      <div class="exercise-detail"><h4>🎬 Como fazer</h4><a class="yt-link" href="https://www.youtube.com/results?search_query=triceps+testa+maquina+execucao" target="_blank">▶ Ver no YouTube</a></div>
+      <div class="exercise-detail"><h4>🔄 Alternativas (se a máquina estiver ocupada)</h4><div class="alternatives"><div class="alt-card"><div class="alt-label">Alternativa</div><div class="alt-name">Tríceps Testa c/ Barra W (deitado)</div><div class="alt-desc">Barra W no banco.</div><a class="yt-link" href="https://www.youtube.com/results?search_query=triceps+testa+barra+W" target="_blank">▶ YouTube</a></div><div class="alt-card"><div class="alt-label">Alternativa</div><div class="alt-name">Tríceps Francês c/ Halter</div><div class="alt-desc">Halter deitado, desce atrás da cabeça.</div><a class="yt-link" href="https://www.youtube.com/results?search_query=triceps+frances+halter" target="_blank">▶ YouTube</a></div></div></div>
+    </div></div>
+  </div>
+  <div class="exercise" onclick="toggleEx(this)">
+    <div class="exercise-header">
+      <div class="exercise-num">6</div>
+      <div class="exercise-info">
+        <h3>Tríceps Francês na Máquina</h3>
+        <div class="tags">
+          <span class="tag tag-sets">📊 3 séries</span>
+          <span class="tag tag-reps">12 reps</span>
+          <span class="tag tag-rest">⏱ 60s</span>
+          <span class="tag tag-load">🏋️ Moderada</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-body"><div class="exercise-body-inner">
+      <div class="exercise-detail"><h4>🎯 Músculo alvo</h4><p>Tríceps (cabeça longa)</p></div>
+      <div class="exercise-detail"><h4>📋 Execução</h4><p>Na máquina, braço elevado. Estende os cotovelos empurrando o peso. Braço estacionário.</p></div>
+      <div class="exercise-detail"><h4>💡 Dicas da personal</h4><p>Só o antebraço se move. RIR 0 (falha) permitido — último do tríceps.</p></div>
+      <div class="exercise-detail"><h4>🎬 Como fazer</h4><a class="yt-link" href="https://www.youtube.com/results?search_query=triceps+frances+maquina+overhead" target="_blank">▶ Ver no YouTube</a></div>
+      <div class="exercise-detail"><h4>🔄 Alternativas (se a máquina estiver ocupada)</h4><div class="alternatives"><div class="alt-card"><div class="alt-label">Alternativa</div><div class="alt-name">Tríceps Francês c/ Halter</div><div class="alt-desc">Sentada com halter atrás da cabeça.</div><a class="yt-link" href="https://www.youtube.com/results?search_query=triceps+frances+halter+sentado" target="_blank">▶ YouTube</a></div><div class="alt-card"><div class="alt-label">Alternativa</div><div class="alt-name">Tríceps na Polia c/ Corda (overhead)</div><div class="alt-desc">De costas pra polia, corda acima da cabeça.</div><a class="yt-link" href="https://www.youtube.com/results?search_query=overhead+triceps+cable+rope" target="_blank">▶ YouTube</a></div></div></div>
+    </div></div>
+  </div>
+</div>
+<div id="tab-C" class="tab-content">
+  <div class="workout-title">
+    <div class="icon icon-pink">🍑</div>
+    <div><h2>Treino C — Posterior + Ombros</h2><div class="meta">Ex: Quarta · ~40 min + 15 min cardio</div></div>
+  </div>
+  <div class="exercise" onclick="toggleEx(this)">
+    <div class="exercise-header">
+      <div class="exercise-num">1</div>
+      <div class="exercise-info">
+        <h3>Mesa Flexora</h3>
+        <div class="tags">
+          <span class="tag tag-sets">📊 3 séries</span>
+          <span class="tag tag-reps">12 reps</span>
+          <span class="tag tag-rest">⏱ 90s</span>
+          <span class="tag tag-load">🏋️ Moderada</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-body"><div class="exercise-body-inner">
+      <div class="exercise-detail"><h4>🎯 Músculo alvo</h4><p>Isquiotibiais (posterior da coxa)</p></div>
+      <div class="exercise-detail"><h4>📋 Execução</h4><p>Deitada de bruços, flexiona os joelhos trazendo os calcanhares ao glúteo.</p></div>
+      <div class="exercise-detail"><h4>💡 Dicas da personal</h4><p>Não arqueie a lombar. RIR 1.</p></div>
+      <div class="exercise-detail"><h4>🎬 Como fazer</h4><a class="yt-link" href="https://www.youtube.com/results?search_query=mesa+flexora+execucao" target="_blank">▶ Ver no YouTube</a></div>
+      <div class="exercise-detail"><h4>🔄 Alternativas (se a máquina estiver ocupada)</h4><div class="alternatives"><div class="alt-card"><div class="alt-label">Alternativa</div><div class="alt-name">Cadeira Flexora Sentada</div><div class="alt-desc">Mesma função, sentada.</div><a class="yt-link" href="https://www.youtube.com/results?search_query=cadeira+flexora+sentada" target="_blank">▶ YouTube</a></div><div class="alt-card"><div class="alt-label">Alternativa</div><div class="alt-name">Flexão de Perna na Polia</div><div class="alt-desc">Polia baixa com tornozeleira.</div><a class="yt-link" href="https://www.youtube.com/results?search_query=leg+curl+cable+polia" target="_blank">▶ YouTube</a></div></div></div>
+    </div></div>
+  </div>
+  <div class="exercise" onclick="toggleEx(this)">
+    <div class="exercise-header">
+      <div class="exercise-num">2</div>
+      <div class="exercise-info">
+        <h3>Cadeira Flexora</h3>
+        <div class="tags">
+          <span class="tag tag-sets">📊 3 séries</span>
+          <span class="tag tag-reps">15 reps</span>
+          <span class="tag tag-rest">⏱ 60s</span>
+          <span class="tag tag-load">🏋️ Moderada</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-body"><div class="exercise-body-inner">
+      <div class="exercise-detail"><h4>🎯 Músculo alvo</h4><p>Isquiotibiais</p></div>
+      <div class="exercise-detail"><h4>📋 Execução</h4><p>Sentada na máquina, flexiona os joelhos. Desce controlado.</p></div>
+      <div class="exercise-detail"><h4>💡 Dicas da personal</h4><p>Ângulo diferente da mesa flexora. RIR 1.</p></div>
+      <div class="exercise-detail"><h4>🎬 Como fazer</h4><a class="yt-link" href="https://www.youtube.com/results?search_query=cadeira+flexora+execucao" target="_blank">▶ Ver no YouTube</a></div>
+      <div class="exercise-detail"><h4>🔄 Alternativas (se a máquina estiver ocupada)</h4><div class="alternatives"><div class="alt-card"><div class="alt-label">Alternativa</div><div class="alt-name">Mesa Flexora (já é o ex 1)</div><div class="alt-desc">Se preferir, repete com mais carga.</div><a class="yt-link" href="https://www.youtube.com/results?search_query=mesa+flexora" target="_blank">▶ YouTube</a></div><div class="alt-card"><div class="alt-label">Alternativa</div><div class="alt-name">Stiff c/ Halteres</div><div class="alt-desc">Em pé, desce com halteres. Exige técnica.</div><a class="yt-link" href="https://www.youtube.com/results?search_query=stiff+halteres+execucao" target="_blank">▶ YouTube</a></div></div></div>
+    </div></div>
+  </div>
+  <div class="exercise" onclick="toggleEx(this)">
+    <div class="exercise-header">
+      <div class="exercise-num">3</div>
+      <div class="exercise-info">
+        <h3>Stiff no Smith</h3>
+        <div class="tags">
+          <span class="tag tag-sets">📊 3 séries</span>
+          <span class="tag tag-reps">12 reps</span>
+          <span class="tag tag-rest">⏱ 90s</span>
+          <span class="tag tag-load">🏋️ Moderada</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-body"><div class="exercise-body-inner">
+      <div class="exercise-detail"><h4>🎯 Músculo alvo</h4><p>Isquiotibiais + Glúteos + Lombar</p></div>
+      <div class="exercise-detail"><h4>📋 Execução</h4><p>Barra guiada no Smith. Em pé, desce a barra alongando a posterior, sobe contraindo o glúteo.</p></div>
+      <div class="exercise-detail"><h4>💡 Dicas da personal</h4><p>Coluna ereta, desce empurrando o quadril pra trás. RIR 1.</p></div>
+      <div class="exercise-detail"><h4>🎬 Como fazer</h4><a class="yt-link" href="https://www.youtube.com/results?search_query=stiff+smith+execucao" target="_blank">▶ Ver no YouTube</a></div>
+      <div class="exercise-detail"><h4>🔄 Alternativas (se a máquina estiver ocupada)</h4><div class="alternatives"><div class="alt-card"><div class="alt-label">Alternativa</div><div class="alt-name">Stiff c/ Halteres</div><div class="alt-desc">Halteres, mais estabilização.</div><a class="yt-link" href="https://www.youtube.com/results?search_query=stiff+halteres" target="_blank">▶ YouTube</a></div><div class="alt-card"><div class="alt-label">Alternativa</div><div class="alt-name">Levantamento Terra Romeno c/ Barra</div><div class="alt-desc">Barra livre, mais técnico.</div><a class="yt-link" href="https://www.youtube.com/results?search_query=romanian+deadlift+execucao" target="_blank">▶ YouTube</a></div></div></div>
+    </div></div>
+  </div>
+  <div class="exercise" onclick="toggleEx(this)">
+    <div class="exercise-header">
+      <div class="exercise-num">4</div>
+      <div class="exercise-info">
+        <h3>Desenvolvimento na Máquina</h3>
+        <div class="tags">
+          <span class="tag tag-sets">📊 3 séries</span>
+          <span class="tag tag-reps">12 reps</span>
+          <span class="tag tag-rest">⏱ 90s</span>
+          <span class="tag tag-load">🏋️ Moderada</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-body"><div class="exercise-body-inner">
+      <div class="exercise-detail"><h4>🎯 Músculo alvo</h4><p>Deltoide anterior + tríceps</p></div>
+      <div class="exercise-detail"><h4>📋 Execução</h4><p>Sentada, empurra os pegadores para cima. Desce até altura dos ombros.</p></div>
+      <div class="exercise-detail"><h4>💡 Dicas da personal</h4><p>Não arqueie a lombar. RIR 1.</p></div>
+      <div class="exercise-detail"><h4>🎬 Como fazer</h4><a class="yt-link" href="https://www.youtube.com/results?search_query=desenvolvimento+ombro+maquina+execucao" target="_blank">▶ Ver no YouTube</a></div>
+      <div class="exercise-detail"><h4>🔄 Alternativas (se a máquina estiver ocupada)</h4><div class="alternatives"><div class="alt-card"><div class="alt-label">Alternativa</div><div class="alt-name">Desenvolvimento c/ Halteres Sentado</div><div class="alt-desc">Mais estabilização.</div><a class="yt-link" href="https://www.youtube.com/results?search_query=desenvolvimento+halteres+sentado" target="_blank">▶ YouTube</a></div><div class="alt-card"><div class="alt-label">Alternativa</div><div class="alt-name">Desenvolvimento Arnold</div><div class="alt-desc">Rotação do punho, maior amplitude.</div><a class="yt-link" href="https://www.youtube.com/results?search_query=desenvolvimento+arnold" target="_blank">▶ YouTube</a></div></div></div>
+    </div></div>
+  </div>
+  <div class="exercise" onclick="toggleEx(this)">
+    <div class="exercise-header">
+      <div class="exercise-num">5</div>
+      <div class="exercise-info">
+        <h3>Elevação Lateral na Máquina</h3>
+        <div class="tags">
+          <span class="tag tag-sets">📊 3 séries</span>
+          <span class="tag tag-reps">15 reps</span>
+          <span class="tag tag-rest">⏱ 60s</span>
+          <span class="tag tag-load">🏋️ Moderada</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-body"><div class="exercise-body-inner">
+      <div class="exercise-detail"><h4>🎯 Músculo alvo</h4><p>Deltoide medial (largura do ombro)</p></div>
+      <div class="exercise-detail"><h4>📋 Execução</h4><p>Sentada na máquina, sobe os braços até a altura dos ombros. Desce controlado.</p></div>
+      <div class="exercise-detail"><h4>💡 Dicas da personal</h4><p>Não use o tronco. RIR 1.</p></div>
+      <div class="exercise-detail"><h4>🎬 Como fazer</h4><a class="yt-link" href="https://www.youtube.com/results?search_query=elevacao+lateral+maquina+execucao" target="_blank">▶ Ver no YouTube</a></div>
+      <div class="exercise-detail"><h4>🔄 Alternativas (se a máquina estiver ocupada)</h4><div class="alternatives"><div class="alt-card"><div class="alt-label">Alternativa</div><div class="alt-name">Elevação Lateral c/ Halteres</div><div class="alt-desc">Em pé com halteres.</div><a class="yt-link" href="https://www.youtube.com/results?search_query=elevacao+lateral+halteres" target="_blank">▶ YouTube</a></div><div class="alt-card"><div class="alt-label">Alternativa</div><div class="alt-name">Elevação Lateral na Polia</div><div class="alt-desc">Polia cruzada, tensão constante.</div><a class="yt-link" href="https://www.youtube.com/results?search_query=elevacao+lateral+polia" target="_blank">▶ YouTube</a></div></div></div>
+    </div></div>
+  </div>
+  <div class="exercise" onclick="toggleEx(this)">
+    <div class="exercise-header">
+      <div class="exercise-num">6</div>
+      <div class="exercise-info">
+        <h3>Elevação Frontal na Máquina</h3>
+        <div class="tags">
+          <span class="tag tag-sets">📊 3 séries</span>
+          <span class="tag tag-reps">12 reps</span>
+          <span class="tag tag-rest">⏱ 60s</span>
+          <span class="tag tag-load">🏋️ Moderada</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-body"><div class="exercise-body-inner">
+      <div class="exercise-detail"><h4>🎯 Músculo alvo</h4><p>Deltoide anterior</p></div>
+      <div class="exercise-detail"><h4>📋 Execução</h4><p>Na máquina, sobe os braços à frente até altura dos olhos. Desce controlado.</p></div>
+      <div class="exercise-detail"><h4>💡 Dicas da personal</h4><p>RIR 1.</p></div>
+      <div class="exercise-detail"><h4>🎬 Como fazer</h4><a class="yt-link" href="https://www.youtube.com/results?search_query=elevacao+frontal+maquina+execucao" target="_blank">▶ Ver no YouTube</a></div>
+      <div class="exercise-detail"><h4>🔄 Alternativas (se a máquina estiver ocupada)</h4><div class="alternatives"><div class="alt-card"><div class="alt-label">Alternativa</div><div class="alt-name">Elevação Frontal c/ Halteres</div><div class="alt-desc">Em pé com halteres.</div><a class="yt-link" href="https://www.youtube.com/results?search_query=elevacao+frontal+halteres" target="_blank">▶ YouTube</a></div><div class="alt-card"><div class="alt-label">Alternativa</div><div class="alt-name">Elevação Frontal na Polia c/ Corda</div><div class="alt-desc">Polia baixa com corda.</div><a class="yt-link" href="https://www.youtube.com/results?search_query=elevacao+frontal+polia+corda" target="_blank">▶ YouTube</a></div></div></div>
+    </div></div>
+  </div>
+</div>
+<div id="tab-D" class="tab-content">
+  <div class="workout-title">
+    <div class="icon icon-purple">🔙</div>
+    <div><h2>Treino D — Costas + Bíceps</h2><div class="meta">Ex: Quinta · ~35 min + 15 min cardio</div></div>
+  </div>
+  <div class="exercise" onclick="toggleEx(this)">
+    <div class="exercise-header">
+      <div class="exercise-num">1</div>
+      <div class="exercise-info">
+        <h3>Puxada Frente (Pulley)</h3>
+        <div class="tags">
+          <span class="tag tag-sets">📊 3 séries</span>
+          <span class="tag tag-reps">12 reps</span>
+          <span class="tag tag-rest">⏱ 90s</span>
+          <span class="tag tag-load">🏋️ Moderada</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-body"><div class="exercise-body-inner">
+      <div class="exercise-detail"><h4>🎯 Músculo alvo</h4><p>Latíssimo do dorso</p></div>
+      <div class="exercise-detail"><h4>📋 Execução</h4><p>Sentada, pega a barra e puxa até a altura do peito. Cotovelos pra baixo.</p></div>
+      <div class="exercise-detail"><h4>💡 Dicas da personal</h4><p>Puxa com os cotovelos, não com as mãos. RIR 1.</p></div>
+      <div class="exercise-detail"><h4>🎬 Como fazer</h4><a class="yt-link" href="https://www.youtube.com/results?search_query=puxada+frente+pulley+lat+pulldown+execucao" target="_blank">▶ Ver no YouTube</a></div>
+      <div class="exercise-detail"><h4>🔄 Alternativas (se a máquina estiver ocupada)</h4><div class="alternatives"><div class="alt-card"><div class="alt-label">Alternativa</div><div class="alt-name">Barra Fixa (assistida)</div><div class="alt-desc">Se conseguir, ou com assistência.</div><a class="yt-link" href="https://www.youtube.com/results?search_query=barra+fixa+assistida" target="_blank">▶ YouTube</a></div><div class="alt-card"><div class="alt-label">Alternativa</div><div class="alt-name">Puxada c/ Pegada Neutra</div><div class="alt-desc">Menos estresse no cotovelo.</div><a class="yt-link" href="https://www.youtube.com/results?search_query=lat+pulldown+neutral+grip" target="_blank">▶ YouTube</a></div></div></div>
+    </div></div>
+  </div>
+  <div class="exercise" onclick="toggleEx(this)">
+    <div class="exercise-header">
+      <div class="exercise-num">2</div>
+      <div class="exercise-info">
+        <h3>Remada Sentada na Máquina</h3>
+        <div class="tags">
+          <span class="tag tag-sets">📊 3 séries</span>
+          <span class="tag tag-reps">12 reps</span>
+          <span class="tag tag-rest">⏱ 90s</span>
+          <span class="tag tag-load">🏋️ Moderada</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-body"><div class="exercise-body-inner">
+      <div class="exercise-detail"><h4>🎯 Músculo alvo</h4><p>Latíssimo + romboides + trapézio</p></div>
+      <div class="exercise-detail"><h4>📋 Execução</h4><p>Sentada na máquina, puxa os pegadores para trás. Junta as omoplatas.</p></div>
+      <div class="exercise-detail"><h4>💡 Dicas da personal</h4><p>Coluna ereta. Contrai as costas no final. RIR 1.</p></div>
+      <div class="exercise-detail"><h4>🎬 Como fazer</h4><a class="yt-link" href="https://www.youtube.com/results?search_query=remada+sentada+maquina+execucao" target="_blank">▶ Ver no YouTube</a></div>
+      <div class="exercise-detail"><h4>🔄 Alternativas (se a máquina estiver ocupada)</h4><div class="alternatives"><div class="alt-card"><div class="alt-label">Alternativa</div><div class="alt-name">Remada Baixa c/ Triângulo</div><div class="alt-desc">Polia baixa com triângulo.</div><a class="yt-link" href="https://www.youtube.com/results?search_query=remada+baixa+triangulo" target="_blank">▶ YouTube</a></div><div class="alt-card"><div class="alt-label">Alternativa</div><div class="alt-name">Remada c/ Halter (banco)</div><div class="alt-desc">Unilateral com halter.</div><a class="yt-link" href="https://www.youtube.com/results?search_query=remada+halter+banco" target="_blank">▶ YouTube</a></div></div></div>
+    </div></div>
+  </div>
+  <div class="exercise" onclick="toggleEx(this)">
+    <div class="exercise-header">
+      <div class="exercise-num">3</div>
+      <div class="exercise-info">
+        <h3>Remada Baixa na Máquina</h3>
+        <div class="tags">
+          <span class="tag tag-sets">📊 3 séries</span>
+          <span class="tag tag-reps">12 reps</span>
+          <span class="tag tag-rest">⏱ 90s</span>
+          <span class="tag tag-load">🏋️ Moderada</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-body"><div class="exercise-body-inner">
+      <div class="exercise-detail"><h4>🎯 Músculo alvo</h4><p>Latíssimo + romboides</p></div>
+      <div class="exercise-detail"><h4>📋 Execução</h4><p>Sentada na máquina de remada, puxa o peso para o abdômen. Volta esticando.</p></div>
+      <div class="exercise-detail"><h4>💡 Dicas da personal</h4><p>Não balance o tronco. RIR 1.</p></div>
+      <div class="exercise-detail"><h4>🎬 Como fazer</h4><a class="yt-link" href="https://www.youtube.com/results?search_query=remada+baixa+maquina+execucao" target="_blank">▶ Ver no YouTube</a></div>
+      <div class="exercise-detail"><h4>🔄 Alternativas (se a máquina estiver ocupada)</h4><div class="alternatives"><div class="alt-card"><div class="alt-label">Alternativa</div><div class="alt-name">Remada na Polia c/ Triângulo</div><div class="alt-desc">Polia baixa, triângulo.</div><a class="yt-link" href="https://www.youtube.com/results?search_query=remada+polia+triangulo" target="_blank">▶ YouTube</a></div><div class="alt-card"><div class="alt-label">Alternativa</div><div class="alt-name">Remada Curvada c/ Barra</div><div class="alt-desc">Barra livre, tronco 45°.</div><a class="yt-link" href="https://www.youtube.com/results?search_query=remada+curvada+barra" target="_blank">▶ YouTube</a></div></div></div>
+    </div></div>
+  </div>
+  <div class="exercise" onclick="toggleEx(this)">
+    <div class="exercise-header">
+      <div class="exercise-num">4</div>
+      <div class="exercise-info">
+        <h3>Rosca Direta na Máquina</h3>
+        <div class="tags">
+          <span class="tag tag-sets">📊 3 séries</span>
+          <span class="tag tag-reps">12 reps</span>
+          <span class="tag tag-rest">⏱ 60s</span>
+          <span class="tag tag-load">🏋️ Moderada</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-body"><div class="exercise-body-inner">
+      <div class="exercise-detail"><h4>🎯 Músculo alvo</h4><p>Bíceps (cabeça longa + curta)</p></div>
+      <div class="exercise-detail"><h4>📋 Execução</h4><p>Sentada na máquina, flexiona o cotovelo subindo o peso. Desce controlado.</p></div>
+      <div class="exercise-detail"><h4>💡 Dicas da personal</h4><p>Cotovelos fixos. RIR 1.</p></div>
+      <div class="exercise-detail"><h4>🎬 Como fazer</h4><a class="yt-link" href="https://www.youtube.com/results?search_query=rosca+direta+maquina+execucao" target="_blank">▶ Ver no YouTube</a></div>
+      <div class="exercise-detail"><h4>🔄 Alternativas (se a máquina estiver ocupada)</h4><div class="alternatives"><div class="alt-card"><div class="alt-label">Alternativa</div><div class="alt-name">Rosca Direta c/ Halteres</div><div class="alt-desc">Em pé com halteres.</div><a class="yt-link" href="https://www.youtube.com/results?search_query=rosca+direta+halteres" target="_blank">▶ YouTube</a></div><div class="alt-card"><div class="alt-label">Alternativa</div><div class="alt-name">Rosca Direta na Polia</div><div class="alt-desc">Polia baixa com barra.</div><a class="yt-link" href="https://www.youtube.com/results?search_query=rosca+direta+polia" target="_blank">▶ YouTube</a></div></div></div>
+    </div></div>
+  </div>
+  <div class="exercise" onclick="toggleEx(this)">
+    <div class="exercise-header">
+      <div class="exercise-num">5</div>
+      <div class="exercise-info">
+        <h3>Rosca Martelo na Máquina</h3>
+        <div class="tags">
+          <span class="tag tag-sets">📊 3 séries</span>
+          <span class="tag tag-reps">12 reps</span>
+          <span class="tag tag-rest">⏱ 60s</span>
+          <span class="tag tag-load">🏋️ Moderada</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-body"><div class="exercise-body-inner">
+      <div class="exercise-detail"><h4>🎯 Músculo alvo</h4><p>Braquial + braquiorradial</p></div>
+      <div class="exercise-detail"><h4>📋 Execução</h4><p>Mesma máquina mas com pegada neutra. Flexiona o cotovelo sem rotacionar.</p></div>
+      <div class="exercise-detail"><h4>💡 Dicas da personal</h4><p>Não rotaciona o punho. RIR 1.</p></div>
+      <div class="exercise-detail"><h4>🎬 Como fazer</h4><a class="yt-link" href="https://www.youtube.com/results?search_query=rosca+martelo+maquina+execucao" target="_blank">▶ Ver no YouTube</a></div>
+      <div class="exercise-detail"><h4>🔄 Alternativas (se a máquina estiver ocupada)</h4><div class="alternatives"><div class="alt-card"><div class="alt-label">Alternativa</div><div class="alt-name">Rosca Martelo c/ Halteres</div><div class="alt-desc">Em pé com halteres, pegada neutra.</div><a class="yt-link" href="https://www.youtube.com/results?search_query=rosca+martelo+halteres" target="_blank">▶ YouTube</a></div><div class="alt-card"><div class="alt-label">Alternativa</div><div class="alt-name">Rosca Martelo na Polia c/ Corda</div><div class="alt-desc">Polia baixa com corda.</div><a class="yt-link" href="https://www.youtube.com/results?search_query=rosca+martelo+polia+corda" target="_blank">▶ YouTube</a></div></div></div>
+    </div></div>
+  </div>
+  <div class="exercise" onclick="toggleEx(this)">
+    <div class="exercise-header">
+      <div class="exercise-num">6</div>
+      <div class="exercise-info">
+        <h3>Rosca Scott na Máquina</h3>
+        <div class="tags">
+          <span class="tag tag-sets">📊 3 séries</span>
+          <span class="tag tag-reps">12 reps</span>
+          <span class="tag tag-rest">⏱ 60s</span>
+          <span class="tag tag-load">🏋️ Moderada</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-body"><div class="exercise-body-inner">
+      <div class="exercise-detail"><h4>🎯 Músculo alvo</h4><p>Bíceps (região distal)</p></div>
+      <div class="exercise-detail"><h4>📋 Execução</h4><p>Sentada no banco Scott, braços apoiados. Flexiona o cotovelo. Desce controlado.</p></div>
+      <div class="exercise-detail"><h4>💡 Dicas da personal</h4><p>Isola o bíceps. RIR 0 (falha) permitido.</p></div>
+      <div class="exercise-detail"><h4>🎬 Como fazer</h4><a class="yt-link" href="https://www.youtube.com/results?search_query=rosca+scott+maquina+preacher+curl" target="_blank">▶ Ver no YouTube</a></div>
+      <div class="exercise-detail"><h4>🔄 Alternativas (se a máquina estiver ocupada)</h4><div class="alternatives"><div class="alt-card"><div class="alt-label">Alternativa</div><div class="alt-name">Rosca Scott c/ Barra W</div><div class="alt-desc">Banco Scott com barra livre.</div><a class="yt-link" href="https://www.youtube.com/results?search_query=rosca+scott+barra+W" target="_blank">▶ YouTube</a></div><div class="alt-card"><div class="alt-label">Alternativa</div><div class="alt-name">Rosca Concentrada c/ Halter</div><div class="alt-desc">Cotovelo na coxa.</div><a class="yt-link" href="https://www.youtube.com/results?search_query=rosca+concentrada+halter" target="_blank">▶ YouTube</a></div></div></div>
+    </div></div>
+  </div>
+</div>
+<div id="tab-E" class="tab-content">
+  <div class="workout-title">
+    <div class="icon icon-pink">🍑</div>
+    <div><h2>Treino E — Glúteo</h2><div class="meta">Ex: Sexta · ~35 min + 15 min cardio</div></div>
+  </div>
+  <div class="exercise" onclick="toggleEx(this)">
+    <div class="exercise-header">
+      <div class="exercise-num">1</div>
+      <div class="exercise-info">
+        <h3>Elevação Pélvica (Máquina ou Smith)</h3>
+        <div class="tags">
+          <span class="tag tag-sets">📊 3 séries</span>
+          <span class="tag tag-reps">12 reps</span>
+          <span class="tag tag-rest">⏱ 90s</span>
+          <span class="tag tag-load">🏋️ Moderada</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-body"><div class="exercise-body-inner">
+      <div class="exercise-detail"><h4>🎯 Músculo alvo</h4><p>Glúteo máximo</p></div>
+      <div class="exercise-detail"><h4>📋 Execução</h4><p>Deitada de costas, pés apoiados. Sobe o quadril contraindo o glúteo. Desce controlado.</p></div>
+      <div class="exercise-detail"><h4>💡 Dicas da personal</h4><p>Aperta o glúteo no topo por 1s. RIR 1.</p></div>
+      <div class="exercise-detail"><h4>🎬 Como fazer</h4><a class="yt-link" href="https://www.youtube.com/results?search_query=elevacao+pelvica+hip+thrust+execucao" target="_blank">▶ Ver no YouTube</a></div>
+      <div class="exercise-detail"><h4>🔄 Alternativas (se a máquina estiver ocupada)</h4><div class="alternatives"><div class="alt-card"><div class="alt-label">Alternativa</div><div class="alt-name">Elevação Pélvica c/ Barra Livre</div><div class="alt-desc">Barra sobre o quadril.</div><a class="yt-link" href="https://www.youtube.com/results?search_query=hip+thrust+barra" target="_blank">▶ YouTube</a></div><div class="alt-card"><div class="alt-label">Alternativa</div><div class="alt-name">Glute Bridge no Solo (peso corporal)</div><div class="alt-desc">Sem peso, mais reps.</div><a class="yt-link" href="https://www.youtube.com/results?search_query=glute+bridge+execucao" target="_blank">▶ YouTube</a></div></div></div>
+    </div></div>
+  </div>
+  <div class="exercise" onclick="toggleEx(this)">
+    <div class="exercise-header">
+      <div class="exercise-num">2</div>
+      <div class="exercise-info">
+        <h3>Cadeira Abdutora</h3>
+        <div class="tags">
+          <span class="tag tag-sets">📊 3 séries</span>
+          <span class="tag tag-reps">15 reps</span>
+          <span class="tag tag-rest">⏱ 60s</span>
+          <span class="tag tag-load">🏋️ Moderada</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-body"><div class="exercise-body-inner">
+      <div class="exercise-detail"><h4>🎯 Músculo alvo</h4><p>Glúteo médio + mínimo</p></div>
+      <div class="exercise-detail"><h4>📋 Execução</h4><p>Sentada na máquina, abre as pernas empurrando as almofadas para fora. Volta controlado.</p></div>
+      <div class="exercise-detail"><h4>💡 Dicas da personal</h4><p>Contrai o glúteo na abertura. RIR 1.</p></div>
+      <div class="exercise-detail"><h4>🎬 Como fazer</h4><a class="yt-link" href="https://www.youtube.com/results?search_query=cadeira+abdutora+execucao" target="_blank">▶ Ver no YouTube</a></div>
+      <div class="exercise-detail"><h4>🔄 Alternativas (se a máquina estiver ocupada)</h4><div class="alternatives"><div class="alt-card"><div class="alt-label">Alternativa</div><div class="alt-name">Abdução de Perna na Polia</div><div class="alt-desc">Polia baixa com tornozeleira.</div><a class="yt-link" href="https://www.youtube.com/results?search_query=abducao+perna+polia" target="_blank">▶ YouTube</a></div><div class="alt-card"><div class="alt-label">Alternativa</div><div class="alt-name">Abdução em Pé c/ Halter</div><div class="alt-desc">Em pé, eleva a perna lateralmente.</div><a class="yt-link" href="https://www.youtube.com/results?search_query=abducao+perna+halter" target="_blank">▶ YouTube</a></div></div></div>
+    </div></div>
+  </div>
+  <div class="exercise" onclick="toggleEx(this)">
+    <div class="exercise-header">
+      <div class="exercise-num">3</div>
+      <div class="exercise-info">
+        <h3>Avanço no Smith (foco glúteo)</h3>
+        <div class="tags">
+          <span class="tag tag-sets">📊 3 séries</span>
+          <span class="tag tag-reps">12 reps</span>
+          <span class="tag tag-rest">⏱ 90s</span>
+          <span class="tag tag-load">🏋️ Moderada</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-body"><div class="exercise-body-inner">
+      <div class="exercise-detail"><h4>🎯 Músculo alvo</h4><p>Glúteo máximo + quadríceps</p></div>
+      <div class="exercise-detail"><h4>📋 Execução</h4><p>No Smith, passo largo à frente. Desce enfatizando o glúteo. Alternar pernas.</p></div>
+      <div class="exercise-detail"><h4>💡 Dicas da personal</h4><p>Passo mais largo = mais glúteo. RIR 1.</p></div>
+      <div class="exercise-detail"><h4>🎬 Como fazer</h4><a class="yt-link" href="https://www.youtube.com/results?search_query=avanco+smith+gluteo+lunge" target="_blank">▶ Ver no YouTube</a></div>
+      <div class="exercise-detail"><h4>🔄 Alternativas (se a máquina estiver ocupada)</h4><div class="alternatives"><div class="alt-card"><div class="alt-label">Alternativa</div><div class="alt-name">Avanço c/ Halteres (foco glúteo)</div><div class="alt-desc">Passo largo com halteres.</div><a class="yt-link" href="https://www.youtube.com/results?search_query=lunge+halteres+glute" target="_blank">▶ YouTube</a></div><div class="alt-card"><div class="alt-label">Alternativa</div><div class="alt-name">Búlgaro no Smith</div><div class="alt-desc">Pé de trás no banco, foca glúteo.</div><a class="yt-link" href="https://www.youtube.com/results?search_query=bulgarian+split+squat+smith" target="_blank">▶ YouTube</a></div></div></div>
+    </div></div>
+  </div>
+  <div class="exercise" onclick="toggleEx(this)">
+    <div class="exercise-header">
+      <div class="exercise-num">4</div>
+      <div class="exercise-info">
+        <h3>Kickback Glúteo na Máquina</h3>
+        <div class="tags">
+          <span class="tag tag-sets">📊 3 séries</span>
+          <span class="tag tag-reps">12 reps</span>
+          <span class="tag tag-rest">⏱ 60s</span>
+          <span class="tag tag-load">🏋️ Moderada</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-body"><div class="exercise-body-inner">
+      <div class="exercise-detail"><h4>🎯 Músculo alvo</h4><p>Glúteo máximo</p></div>
+      <div class="exercise-detail"><h4>📋 Execução</h4><p>Na máquina de kickback, empurra a perna para trás contraindo o glúteo. Volta controlado.</p></div>
+      <div class="exercise-detail"><h4>💡 Dicas da personal</h4><p>Aperta o glúteo no final. RIR 1.</p></div>
+      <div class="exercise-detail"><h4>🎬 Como fazer</h4><a class="yt-link" href="https://www.youtube.com/results?search_query=kickback+gluteo+maquina+execucao" target="_blank">▶ Ver no YouTube</a></div>
+      <div class="exercise-detail"><h4>🔄 Alternativas (se a máquina estiver ocupada)</h4><div class="alternatives"><div class="alt-card"><div class="alt-label">Alternativa</div><div class="alt-name">Kickback na Polia c/ Tornozeleira</div><div class="alt-desc">Polia baixa, empurra pra trás.</div><a class="yt-link" href="https://www.youtube.com/results?search_query=cable+kickback+glute" target="_blank">▶ YouTube</a></div><div class="alt-card"><div class="alt-label">Alternativa</div><div class="alt-name">Elevação Pélvica Unilateral</div><div class="alt-desc">Uma perna no chão, sobe.</div><a class="yt-link" href="https://www.youtube.com/results?search_query=single+leg+glute+bridge" target="_blank">▶ YouTube</a></div></div></div>
+    </div></div>
+  </div>
+  <div class="exercise" onclick="toggleEx(this)">
+    <div class="exercise-header">
+      <div class="exercise-num">5</div>
+      <div class="exercise-info">
+        <h3>Cadeira Abdutora (Unilateral)</h3>
+        <div class="tags">
+          <span class="tag tag-sets">📊 3 séries</span>
+          <span class="tag tag-reps">15 reps</span>
+          <span class="tag tag-rest">⏱ 60s</span>
+          <span class="tag tag-load">🏋️ Moderada</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-body"><div class="exercise-body-inner">
+      <div class="exercise-detail"><h4>🎯 Músculo alvo</h4><p>Glúteo médio (foco unilateral)</p></div>
+      <div class="exercise-detail"><h4>📋 Execução</h4><p>Uma perna por vez na abdutora. Abre a perna empurrando a almofada.</p></div>
+      <div class="exercise-detail"><h4>💡 Dicas da personal</h4><p>Foco no lado mais fraco. RIR 1.</p></div>
+      <div class="exercise-detail"><h4>🎬 Como fazer</h4><a class="yt-link" href="https://www.youtube.com/results?search_query=cadeira+abdutora+unilateral" target="_blank">▶ Ver no YouTube</a></div>
+      <div class="exercise-detail"><h4>🔄 Alternativas (se a máquina estiver ocupada)</h4><div class="alternatives"><div class="alt-card"><div class="alt-label">Alternativa</div><div class="alt-name">Abdução na Polia (unilateral)</div><div class="alt-desc">Polia com tornozeleira, uma perna.</div><a class="yt-link" href="https://www.youtube.com/results?search_query=cable+hip+abduction" target="_blank">▶ YouTube</a></div><div class="alt-card"><div class="alt-label">Alternativa</div><div class="alt-name">Cadeira Abdutora Bilateral</div><div class="alt-desc">Se a máquina não permitir unilateral.</div><a class="yt-link" href="https://www.youtube.com/results?search_query=cadeira+abdutora+execucao" target="_blank">▶ YouTube</a></div></div></div>
+    </div></div>
+  </div>
+  <div class="exercise" onclick="toggleEx(this)">
+    <div class="exercise-header">
+      <div class="exercise-num">6</div>
+      <div class="exercise-info">
+        <h3>Prancha</h3>
+        <div class="tags">
+          <span class="tag tag-sets">📊 3 séries</span>
+          <span class="tag tag-reps">30s reps</span>
+          <span class="tag tag-rest">⏱ 45s</span>
+          <span class="tag tag-load">🏋️ Peso corporal</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-body"><div class="exercise-body-inner">
+      <div class="exercise-detail"><h4>🎯 Músculo alvo</h4><p>Core (transverso + reto)</p></div>
+      <div class="exercise-detail"><h4>📋 Execução</h4><p>Posição de prancha, antebraços no solo. Corpo reto. Segura 30 segundos.</p></div>
+      <div class="exercise-detail"><h4>💡 Dicas da personal</h4><p>Não deixe o quadril cair. RIR 0 (falha) permitido.</p></div>
+      <div class="exercise-detail"><h4>🎬 Como fazer</h4><a class="yt-link" href="https://www.youtube.com/results?search_query=prancha+plank+execucao" target="_blank">▶ Ver no YouTube</a></div>
+      <div class="exercise-detail"><h4>🔄 Alternativas (se a máquina estiver ocupada)</h4><div class="alternatives"><div class="alt-card"><div class="alt-label">Alternativa</div><div class="alt-name">Prancha Lateral</div><div class="alt-desc">De lado, trabalha oblíquos.</div><a class="yt-link" href="https://www.youtube.com/results?search_query=side+plank+execucao" target="_blank">▶ YouTube</a></div><div class="alt-card"><div class="alt-label">Alternativa</div><div class="alt-name">Prancha c/ Elevação de Quadril</div><div class="alt-desc">Sobe e desce o quadril na prancha.</div><a class="yt-link" href="https://www.youtube.com/results?search_query=plank+hip+dips" target="_blank">▶ YouTube</a></div></div></div>
+    </div></div>
+  </div>
+</div>
+<div id="tab-F" class="tab-content">
+  <div class="workout-title">
+    <div class="icon icon-purple">✨</div>
+    <div><h2>Treino F — Full-Body Leve</h2><div class="meta">Ex: Sábado · ~30 min (sem cardio)</div></div>
+  </div>
+  <div class="exercise" onclick="toggleEx(this)">
+    <div class="exercise-header">
+      <div class="exercise-num">1</div>
+      <div class="exercise-info">
+        <h3>Leg Press 45°</h3>
+        <div class="tags">
+          <span class="tag tag-sets">📊 1 séries</span>
+          <span class="tag tag-reps">12 reps</span>
+          <span class="tag tag-rest">⏱ 90s</span>
+          <span class="tag tag-load">🏋️ 80% do habitual</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-body"><div class="exercise-body-inner">
+      <div class="exercise-detail"><h4>🎯 Músculo alvo</h4><p>Quadríceps + Glúteos</p></div>
+      <div class="exercise-detail"><h4>📋 Execução</h4><p>Mesma execução do habitual, mas carga a 80%. Foco em técnica.</p></div>
+      <div class="exercise-detail"><h4>💡 Dicas da personal</h4><p>Dia leve — não vá até a falha. RIR 2-3.</p></div>
+      <div class="exercise-detail"><h4>🎬 Como fazer</h4><a class="yt-link" href="https://www.youtube.com/results?search_query=leg+press+45+execucao" target="_blank">▶ Ver no YouTube</a></div>
+      <div class="exercise-detail"><h4>🔄 Alternativas (se a máquina estiver ocupada)</h4><div class="alternatives"><div class="alt-card"><div class="alt-label">Alternativa</div><div class="alt-name">Agachamento no Smith</div><div class="alt-desc">Substituto na mesma função.</div><a class="yt-link" href="https://www.youtube.com/results?search_query=agachamento+smith" target="_blank">▶ YouTube</a></div><div class="alt-card"><div class="alt-label">Alternativa</div><div class="alt-name">Hack Squat</div><div class="alt-desc">Mais suporte de coluna.</div><a class="yt-link" href="https://www.youtube.com/results?search_query=hack+squat" target="_blank">▶ YouTube</a></div></div></div>
+    </div></div>
+  </div>
+  <div class="exercise" onclick="toggleEx(this)">
+    <div class="exercise-header">
+      <div class="exercise-num">2</div>
+      <div class="exercise-info">
+        <h3>Supino Reto na Máquina</h3>
+        <div class="tags">
+          <span class="tag tag-sets">📊 1 séries</span>
+          <span class="tag tag-reps">12 reps</span>
+          <span class="tag tag-rest">⏱ 90s</span>
+          <span class="tag tag-load">🏋️ 80% do habitual</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-body"><div class="exercise-body-inner">
+      <div class="exercise-detail"><h4>🎯 Músculo alvo</h4><p>Peitoral</p></div>
+      <div class="exercise-detail"><h4>📋 Execução</h4><p>Carga a 80%, foco em técnica.</p></div>
+      <div class="exercise-detail"><h4>💡 Dicas da personal</h4><p>RIR 2-3.</p></div>
+      <div class="exercise-detail"><h4>🎬 Como fazer</h4><a class="yt-link" href="https://www.youtube.com/results?search_query=supino+reto+maquina" target="_blank">▶ Ver no YouTube</a></div>
+      <div class="exercise-detail"><h4>🔄 Alternativas (se a máquina estiver ocupada)</h4><div class="alternatives"><div class="alt-card"><div class="alt-label">Alternativa</div><div class="alt-name">Supino c/ Halteres</div><div class="alt-desc">Amplitude maior.</div><a class="yt-link" href="https://www.youtube.com/results?search_query=supino+halteres" target="_blank">▶ YouTube</a></div><div class="alt-card"><div class="alt-label">Alternativa</div><div class="alt-name">Flexão de Braço</div><div class="alt-desc">Peso corporal se preferir.</div><a class="yt-link" href="https://www.youtube.com/results?search_query=flexao+braco+execucao" target="_blank">▶ YouTube</a></div></div></div>
+    </div></div>
+  </div>
+  <div class="exercise" onclick="toggleEx(this)">
+    <div class="exercise-header">
+      <div class="exercise-num">3</div>
+      <div class="exercise-info">
+        <h3>Puxada Frente (Pulley)</h3>
+        <div class="tags">
+          <span class="tag tag-sets">📊 1 séries</span>
+          <span class="tag tag-reps">12 reps</span>
+          <span class="tag tag-rest">⏱ 90s</span>
+          <span class="tag tag-load">🏋️ 80% do habitual</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-body"><div class="exercise-body-inner">
+      <div class="exercise-detail"><h4>🎯 Músculo alvo</h4><p>Costas</p></div>
+      <div class="exercise-detail"><h4>📋 Execução</h4><p>Carga a 80%, foco em técnica.</p></div>
+      <div class="exercise-detail"><h4>💡 Dicas da personal</h4><p>RIR 2-3.</p></div>
+      <div class="exercise-detail"><h4>🎬 Como fazer</h4><a class="yt-link" href="https://www.youtube.com/results?search_query=puxada+frente+pulley" target="_blank">▶ Ver no YouTube</a></div>
+      <div class="exercise-detail"><h4>🔄 Alternativas (se a máquina estiver ocupada)</h4><div class="alternatives"><div class="alt-card"><div class="alt-label">Alternativa</div><div class="alt-name">Remada Sentada</div><div class="alt-desc">Substituto para costas.</div><a class="yt-link" href="https://www.youtube.com/results?search_query=remada+sentada" target="_blank">▶ YouTube</a></div><div class="alt-card"><div class="alt-label">Alternativa</div><div class="alt-name">Barra Fixa Assistida</div><div class="alt-desc">Se disponível.</div><a class="yt-link" href="https://www.youtube.com/results?search_query=barra+fixa+assistida" target="_blank">▶ YouTube</a></div></div></div>
+    </div></div>
+  </div>
+  <div class="exercise" onclick="toggleEx(this)">
+    <div class="exercise-header">
+      <div class="exercise-num">4</div>
+      <div class="exercise-info">
+        <h3>Cadeira Flexora</h3>
+        <div class="tags">
+          <span class="tag tag-sets">📊 1 séries</span>
+          <span class="tag tag-reps">12 reps</span>
+          <span class="tag tag-rest">⏱ 60s</span>
+          <span class="tag tag-load">🏋️ 80% do habitual</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-body"><div class="exercise-body-inner">
+      <div class="exercise-detail"><h4>🎯 Músculo alvo</h4><p>Posterior</p></div>
+      <div class="exercise-detail"><h4>📋 Execução</h4><p>Carga a 80%.</p></div>
+      <div class="exercise-detail"><h4>💡 Dicas da personal</h4><p>RIR 2-3.</p></div>
+      <div class="exercise-detail"><h4>🎬 Como fazer</h4><a class="yt-link" href="https://www.youtube.com/results?search_query=cadeira+flexora" target="_blank">▶ Ver no YouTube</a></div>
+      <div class="exercise-detail"><h4>🔄 Alternativas (se a máquina estiver ocupada)</h4><div class="alternatives"><div class="alt-card"><div class="alt-label">Alternativa</div><div class="alt-name">Mesa Flexora</div><div class="alt-desc">Mesma função.</div><a class="yt-link" href="https://www.youtube.com/results?search_query=mesa+flexora" target="_blank">▶ YouTube</a></div><div class="alt-card"><div class="alt-label">Alternativa</div><div class="alt-name">Stiff c/ Halteres</div><div class="alt-desc">Mais estabilização.</div><a class="yt-link" href="https://www.youtube.com/results?search_query=stiff+halteres" target="_blank">▶ YouTube</a></div></div></div>
+    </div></div>
+  </div>
+  <div class="exercise" onclick="toggleEx(this)">
+    <div class="exercise-header">
+      <div class="exercise-num">5</div>
+      <div class="exercise-info">
+        <h3>Desenvolvimento na Máquina</h3>
+        <div class="tags">
+          <span class="tag tag-sets">📊 1 séries</span>
+          <span class="tag tag-reps">12 reps</span>
+          <span class="tag tag-rest">⏱ 60s</span>
+          <span class="tag tag-load">🏋️ 80% do habitual</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-body"><div class="exercise-body-inner">
+      <div class="exercise-detail"><h4>🎯 Músculo alvo</h4><p>Ombros</p></div>
+      <div class="exercise-detail"><h4>📋 Execução</h4><p>Carga a 80%.</p></div>
+      <div class="exercise-detail"><h4>💡 Dicas da personal</h4><p>RIR 2-3.</p></div>
+      <div class="exercise-detail"><h4>🎬 Como fazer</h4><a class="yt-link" href="https://www.youtube.com/results?search_query=desenvolvimento+maquina" target="_blank">▶ Ver no YouTube</a></div>
+      <div class="exercise-detail"><h4>🔄 Alternativas (se a máquina estiver ocupada)</h4><div class="alternatives"><div class="alt-card"><div class="alt-label">Alternativa</div><div class="alt-name">Elevação Lateral</div><div class="alt-desc">Se dev não disponível.</div><a class="yt-link" href="https://www.youtube.com/results?search_query=elevacao+lateral" target="_blank">▶ YouTube</a></div><div class="alt-card"><div class="alt-label">Alternativa</div><div class="alt-name">Desenvolvimento c/ Halteres</div><div class="alt-desc">Mais estabilização.</div><a class="yt-link" href="https://www.youtube.com/results?search_query=desenvolvimento+halteres" target="_blank">▶ YouTube</a></div></div></div>
+    </div></div>
+  </div>
+  <div class="exercise" onclick="toggleEx(this)">
+    <div class="exercise-header">
+      <div class="exercise-num">6</div>
+      <div class="exercise-info">
+        <h3>Elevação Pélvica</h3>
+        <div class="tags">
+          <span class="tag tag-sets">📊 1 séries</span>
+          <span class="tag tag-reps">12 reps</span>
+          <span class="tag tag-rest">⏱ 60s</span>
+          <span class="tag tag-load">🏋️ 80% do habitual</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-body"><div class="exercise-body-inner">
+      <div class="exercise-detail"><h4>🎯 Músculo alvo</h4><p>Glúteo</p></div>
+      <div class="exercise-detail"><h4>📋 Execução</h4><p>Carga a 80%.</p></div>
+      <div class="exercise-detail"><h4>💡 Dicas da personal</h4><p>RIR 2-3.</p></div>
+      <div class="exercise-detail"><h4>🎬 Como fazer</h4><a class="yt-link" href="https://www.youtube.com/results?search_query=elevacao+pelvica" target="_blank">▶ Ver no YouTube</a></div>
+      <div class="exercise-detail"><h4>🔄 Alternativas (se a máquina estiver ocupada)</h4><div class="alternatives"><div class="alt-card"><div class="alt-label">Alternativa</div><div class="alt-name">Cadeira Abdutora</div><div class="alt-desc">Se elevação não disponível.</div><a class="yt-link" href="https://www.youtube.com/results?search_query=cadeira+abdutora" target="_blank">▶ YouTube</a></div><div class="alt-card"><div class="alt-label">Alternativa</div><div class="alt-name">Kickback</div><div class="alt-desc">Substituto para glúteo.</div><a class="yt-link" href="https://www.youtube.com/results?search_query=kickback+gluteo" target="_blank">▶ YouTube</a></div></div></div>
+    </div></div>
+  </div>
+  <div class="exercise" onclick="toggleEx(this)">
+    <div class="exercise-header">
+      <div class="exercise-num">7</div>
+      <div class="exercise-info">
+        <h3>Rosca Direta na Máquina</h3>
+        <div class="tags">
+          <span class="tag tag-sets">📊 1 séries</span>
+          <span class="tag tag-reps">12 reps</span>
+          <span class="tag tag-rest">⏱ 60s</span>
+          <span class="tag tag-load">🏋️ 80% do habitual</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-body"><div class="exercise-body-inner">
+      <div class="exercise-detail"><h4>🎯 Músculo alvo</h4><p>Bíceps</p></div>
+      <div class="exercise-detail"><h4>📋 Execução</h4><p>Carga a 80%.</p></div>
+      <div class="exercise-detail"><h4>💡 Dicas da personal</h4><p>RIR 2-3.</p></div>
+      <div class="exercise-detail"><h4>🎬 Como fazer</h4><a class="yt-link" href="https://www.youtube.com/results?search_query=rosca+direta+maquina" target="_blank">▶ Ver no YouTube</a></div>
+      <div class="exercise-detail"><h4>🔄 Alternativas (se a máquina estiver ocupada)</h4><div class="alternatives"><div class="alt-card"><div class="alt-label">Alternativa</div><div class="alt-name">Rosca c/ Halteres</div><div class="alt-desc">Substituto.</div><a class="yt-link" href="https://www.youtube.com/results?search_query=rosca+halteres" target="_blank">▶ YouTube</a></div><div class="alt-card"><div class="alt-label">Alternativa</div><div class="alt-name">Rosca na Polia</div><div class="alt-desc">Polia baixa.</div><a class="yt-link" href="https://www.youtube.com/results?search_query=rosca+polia" target="_blank">▶ YouTube</a></div></div></div>
+    </div></div>
+  </div>
+  <div class="exercise" onclick="toggleEx(this)">
+    <div class="exercise-header">
+      <div class="exercise-num">8</div>
+      <div class="exercise-info">
+        <h3>Tríceps Corda</h3>
+        <div class="tags">
+          <span class="tag tag-sets">📊 1 séries</span>
+          <span class="tag tag-reps">12 reps</span>
+          <span class="tag tag-rest">⏱ 60s</span>
+          <span class="tag tag-load">🏋️ 80% do habitual</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-body"><div class="exercise-body-inner">
+      <div class="exercise-detail"><h4>🎯 Músculo alvo</h4><p>Tríceps</p></div>
+      <div class="exercise-detail"><h4>📋 Execução</h4><p>Carga a 80%.</p></div>
+      <div class="exercise-detail"><h4>💡 Dicas da personal</h4><p>RIR 2-3.</p></div>
+      <div class="exercise-detail"><h4>🎬 Como fazer</h4><a class="yt-link" href="https://www.youtube.com/results?search_query=triceps+corda" target="_blank">▶ Ver no YouTube</a></div>
+      <div class="exercise-detail"><h4>🔄 Alternativas (se a máquina estiver ocupada)</h4><div class="alternatives"><div class="alt-card"><div class="alt-label">Alternativa</div><div class="alt-name">Tríceps Pulley c/ Barra</div><div class="alt-desc">Substituto.</div><a class="yt-link" href="https://www.youtube.com/results?search_query=triceps+pulley" target="_blank">▶ YouTube</a></div><div class="alt-card"><div class="alt-label">Alternativa</div><div class="alt-name">Tríceps no Banco</div><div class="alt-desc">Peso corporal.</div><a class="yt-link" href="https://www.youtube.com/results?search_query=triceps+banco" target="_blank">▶ YouTube</a></div></div></div>
+    </div></div>
+  </div>
+  <div class="exercise" onclick="toggleEx(this)">
+    <div class="exercise-header">
+      <div class="exercise-num">9</div>
+      <div class="exercise-info">
+        <h3>Abdominal na Máquina</h3>
+        <div class="tags">
+          <span class="tag tag-sets">📊 1 séries</span>
+          <span class="tag tag-reps">15 reps</span>
+          <span class="tag tag-rest">⏱ 45s</span>
+          <span class="tag tag-load">🏋️ 80% do habitual</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-body"><div class="exercise-body-inner">
+      <div class="exercise-detail"><h4>🎯 Músculo alvo</h4><p>Core</p></div>
+      <div class="exercise-detail"><h4>📋 Execução</h4><p>Carga a 80%.</p></div>
+      <div class="exercise-detail"><h4>💡 Dicas da personal</h4><p>RIR 2-3.</p></div>
+      <div class="exercise-detail"><h4>🎬 Como fazer</h4><a class="yt-link" href="https://www.youtube.com/results?search_query=abdominal+maquina" target="_blank">▶ Ver no YouTube</a></div>
+      <div class="exercise-detail"><h4>🔄 Alternativas (se a máquina estiver ocupada)</h4><div class="alternatives"><div class="alt-card"><div class="alt-label">Alternativa</div><div class="alt-name">Prancha</div><div class="alt-desc">Substituto com peso corporal.</div><a class="yt-link" href="https://www.youtube.com/results?search_query=prancha" target="_blank">▶ YouTube</a></div><div class="alt-card"><div class="alt-label">Alternativa</div><div class="alt-name">Crunch no Solo</div><div class="alt-desc">Sem peso.</div><a class="yt-link" href="https://www.youtube.com/results?search_query=crunch+solo" target="_blank">▶ YouTube</a></div></div></div>
+    </div></div>
+  </div>
+</div>
+<div class="section-title"><span class="dot"></span>Orientações de Execução</div>
+<div class="guidelines-grid">
+<div class="guideline-card"><div class="gl-icon">🎯</div><h4>RIR 1</h4><p>Para quando sentir que faria só mais 1 rep com técnica perfeita. No último exercício de cada grupo, pode ir até a falha (RIR 0).</p></div>
+<div class="guideline-card"><div class="gl-icon">⏱️</div><h4>Pausas</h4><p>90s exercícios compostos, 60s isolados e core. Indicadas ao lado de cada exercício.</p></div>
+<div class="guideline-card"><div class="gl-icon">💨</div><h4>Respiração</h4><p>Expire na concêntrica (esforço). Inspire na excêntrica (retorno). Não prenda a respiração.</p></div>
+<div class="guideline-card"><div class="gl-icon">🔄</div><h4>Cadência</h4><p>1s subida → 1s pausa topo → 2s descida → sem pausa no bottom. Controle total.</p></div>
+<div class="guideline-card"><div class="gl-icon">💧</div><h4>Hidratação</h4><p>Meta: 2,5L/dia. Beba ao longo do dia. Durante o jejum: apenas água.</p></div>
+<div class="guideline-card"><div class="gl-icon">📈</div><h4>Progressão</h4><p>Semana 1-2: focar em técnica. Semana 3-4: +5-10% carga se completar com facilidade. Semana 5+: progressão linear.</p></div>
+<div class="guideline-card"><div class="gl-icon">🚶‍♀️</div><h4>Cardio</h4><p>15 min caminhada leve (4-5 km/h) após cada treino A-E. Dia F sem cardio. Dia 7: opcional.</p></div>
+<div class="guideline-card"><div class="gl-icon">📝</div><h4>Registro</h4><p>Anote carga e reps de cada série. Sem registro não há progressão.</p></div>
+</div>
+<div class="section-title"><span class="dot"></span>Plano Alimentar — Jejum 16:8</div>
+<div class="alert-card">
+<h3>⏰ Jejum Intermitente 16:8</h3>
+<p>Janela alimentar: <strong>11:30h às 20:00h</strong>. Fora da janela: apenas água. Sem café da manhã. 3 refeições por dia.</p>
+</div>
+<div class="meal-card">
+<h3>🥗 Almoço (11:30-12:30)</h3>
+<div class="meal-time">~570 kcal | 50g prot | 42g carb | 18g gord</div>
+<div class="meal-options">
+<p><strong>Proteína (escolher 1):</strong> Carne magra 180g / Peixe 180g</p>
+<p><strong>Carboidrato (escolher 1):</strong> Mandioquinha 150g / Arroz 70g / Batata doce 150g</p>
+<p><strong>Legumes/Salada:</strong> Pepino, alface, tomate, cenoura, abobrinha (à vontade)</p>
+<p><strong>Gordura:</strong> Azeite 1 colher (10g)</p>
+</div>
+</div>
+<div class="meal-card">
+<h3>🍎 Lanche (~15h — no trabalho, 15 min, sem cozinhar)</h3>
+<div class="meal-time">~190 kcal | 24g prot | 16g carb | 3g gord</div>
+<div class="meal-options">
+<p><strong>Opção 1:</strong> Whey 1 scoop + água + kiwi</p>
+<p><strong>Opção 2:</strong> 4 claras + 1 gema cozidas + kiwi</p>
+<p><strong>Opção 3:</strong> Barra de proteína + kiwi</p>
+<p><strong>Opção 4:</strong> Iogurte grego sem lactose + kiwi</p>
+<p><strong>Opção 5:</strong> Whey + 1 fatia pão c/ pasta de amendoim</p>
+</div>
+</div>
+<div class="meal-card">
+<h3>🍽️ Jantar (19:00-21:00)</h3>
+<div class="meal-time">~590 kcal | 54g prot | 50g carb | 24g gord</div>
+<div class="meal-options">
+<p><strong>Proteína (escolher 1):</strong> Carne magra 180g / Peixe 180g / Hambúrguer caseiro 150g / 4 ovos mexidos</p>
+<p><strong>Carboidrato (escolher 1):</strong> Mandioquinha 120g / Arroz 55g / Batata palito air fryer 130g</p>
+<p><strong>Legumes:</strong> Abobrinha, brócolis, cenoura, vagem refogados</p>
+<p><strong>Gordura:</strong> Azeite 1 colher (10g)</p>
+</div>
+</div>
+<div class="alert-card">
+<h3>⚠️ Sinais de Alerta — Subir para 1.400 kcal se ocorrer</h3>
+<p>Cansaço extremo · Queda de cabelo · Irregularidade menstrual · Performance caindo · Dificuldade de concentração · Irritabilidade</p>
+</div>
+<div class="section-title"><span class="dot"></span>Suplementos</div>
+<div class="guidelines-grid">
+<div class="guideline-card"><div class="gl-icon">💊</div><h4>Creatina</h4><p>5g todos os dias (preferencialmente pós-treino).</p></div>
+<div class="guideline-card"><div class="gl-icon">🥤</div><h4>Whey</h4><p>Dias que tolerar, no lanche da tarde. Lactose em investigação — usar pouca quantidade.</p></div>
+</div>
+<div class="footer">
+<p>FitLuh v1.0 · Plano de Treino & Nutrição — Luana Marino</p>
+<p>Criado em 01/10/2026 · Recomposição corporal · Jejum 16:8</p>
+<p style="margin-top:8px;font-size:0.7rem;color:var(--text-muted)">Schoenfeld (10-20 sets/músculo/sem) · Mifflin-St Jeor (TMB feminino) · ACSM 2026</p>
+</div>
+</div>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+
+  // normalize legacy inline onclick -> data-tab
+  document.querySelectorAll('.tab-btn').forEach(function (btn) {
+    var m = btn.getAttribute('onclick') && btn.getAttribute('onclick').match(/'([^']+)'/);
+    if (m) { btn.setAttribute('data-tab', m[1]); btn.removeAttribute('onclick'); }
+  });
+  document.querySelectorAll('.exercise').forEach(function (ex) { ex.removeAttribute('onclick'); });
+
+  // ---- tab switching ----
+  function activate(tabId) {
+    document.querySelectorAll('.tab-content').forEach(function (t) { t.classList.remove('active'); });
+    document.querySelectorAll('.tab-btn, .nav-tabs button').forEach(function (b) { b.classList.remove('active'); });
+    var target = document.getElementById(tabId);
+    if (target) target.classList.add('active');
+    document.querySelectorAll('[data-tab="' + tabId + '"]').forEach(function (b) { b.classList.add('active'); });
+  }
+  document.querySelectorAll('[data-tab]').forEach(function (btn) {
+    btn.addEventListener('click', function (e) {
+      e.preventDefault();
+      activate(btn.getAttribute('data-tab'));
+    });
+  });
+
+  // ---- exercise accordion ----
+  document.querySelectorAll('.exercise').forEach(function (ex) {
+    var header = ex.querySelector('.exercise-header');
+    if (header) header.addEventListener('click', function (e) { e.preventDefault(); ex.classList.toggle('open'); });
+  });
+
+  // ---- inject volume bars ----
+  var vHead = document.querySelector('.volume-table thead tr');
+  if (vHead) { var th = document.createElement('th'); th.textContent = 'Volume'; vHead.appendChild(th); }
+  document.querySelectorAll('.volume-table tbody tr').forEach(function (tr) {
+    var td = document.createElement('td'); td.className = 'bar-cell';
+    var hl = tr.querySelector('.highlight');
+    var sets = hl ? parseInt(hl.textContent, 10) || 0 : 0;
+    var pct = Math.min(100, Math.round((sets / 20) * 100));
+    td.innerHTML = '<div class="bar-track"><div class="bar-fill" data-w="' + pct + '"></div></div>';
+    tr.appendChild(td);
+  });
+  var bars = document.querySelectorAll('.bar-fill');
+  if ('IntersectionObserver' in window) {
+    var bio = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) { en.target.style.width = en.target.getAttribute('data-w') + '%'; bio.unobserve(en.target); }
+      });
+    }, { threshold: 0.4 });
+    bars.forEach(function (b) { bio.observe(b); });
+  } else {
+    bars.forEach(function (b) { b.style.width = b.getAttribute('data-w') + '%'; });
+  }
+});
+</script>
+
+<script>
+(function () {
+  'use strict';
+
+  // ---------- scroll progress + parallax ----------
+  var progress = document.getElementById('scrollProgress');
+  function onScroll() {
+    var st = window.scrollY || document.documentElement.scrollTop;
+    var max = document.documentElement.scrollHeight - window.innerHeight;
+    if (progress) progress.style.width = (max > 0 ? (st / max) * 100 : 0) + '%';
+    document.querySelectorAll('[data-parallax]').forEach(function (el) {
+      var speed = parseFloat(el.getAttribute('data-parallax')) || 0;
+      var shift = Math.min(st * speed, 48);
+      el.style.transform = 'translateY(' + shift.toFixed(1) + 'px)';
+    });
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // ---------- mouse tracking ----------
+  var mx = window.innerWidth / 2, my = window.innerHeight / 2, tx = mx, ty = my;
+  var glow = document.getElementById('cursorGlow');
+  window.addEventListener('mousemove', function (e) {
+    mx = e.clientX; my = e.clientY;
+    if (glow) { glow.classList.add('on'); glow.style.left = mx + 'px'; glow.style.top = my + 'px'; }
+  });
+  document.body.addEventListener('mouseleave', function () { if (glow) glow.classList.remove('on'); });
+
+  // ---------- particle field ----------
+  var canvas = document.getElementById('particles');
+  var ctx = canvas.getContext('2d');
+  var W, H, parts = [];
+  var COLORS = ['255,46,196', '180,85,255', '233,30,140', '255,107,157'];
+  function resize() {
+    W = canvas.width = window.innerWidth;
+    H = canvas.height = window.innerHeight;
+    var n = Math.min(70, Math.floor(window.innerWidth / 18));
+    parts = [];
+    for (var i = 0; i < n; i++) parts.push({
+      x: Math.random() * W, y: Math.random() * H,
+      r: Math.random() * 1.8 + 0.4, s: Math.random() * 0.3 + 0.07,
+      c: COLORS[(Math.random() * COLORS.length) | 0],
+      a: Math.random() * 0.4 + 0.25, d: (Math.random() * 2 - 1) * 0.25
+    });
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  var t = 0;
+  var orbs = { g: document.querySelector('.orb.g'), c: document.querySelector('.orb.c'), p: document.querySelector('.orb.p') };
+  function loop() {
+    t += 0.008;
+    tx += (mx - tx) * 0.06; ty += (my - ty) * 0.06;
+    ctx.clearRect(0, 0, W, H);
+    for (var i = 0; i < parts.length; i++) {
+      var p = parts[i];
+      p.y -= p.s;
+      if (p.y < -10) { p.y = H + 10; p.x = Math.random() * W; }
+      var px = p.x + (tx - W / 2) * (p.d * 0.02);
+      ctx.beginPath(); ctx.arc(px, p.y, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(' + p.c + ',' + (p.a + Math.sin(t + i) * 0.1) + ')';
+      ctx.fill();
+    }
+    if (orbs.g) orbs.g.style.transform = 'translate(' + ((tx - W / 2) * 0.03).toFixed(1) + 'px,' + ((ty - H / 2) * 0.03).toFixed(1) + 'px)';
+    if (orbs.c) orbs.c.style.transform = 'translate(' + ((tx - W / 2) * -0.05).toFixed(1) + 'px,' + ((ty - H / 2) * -0.05).toFixed(1) + 'px)';
+    if (orbs.p) orbs.p.style.transform = 'translate(' + ((tx - W / 2) * 0.04).toFixed(1) + 'px,' + ((ty - H / 2) * -0.03).toFixed(1) + 'px)';
+    requestAnimationFrame(loop);
+  }
+  loop();
+
+  // ---------- reveal on scroll ----------
+  var revealSel = '.info-card, .section-title, .day-card, .volume-table, .guideline-card, .meal-card, .alert-card, .footer';
+  var revealEls = document.querySelectorAll(revealSel);
+  revealEls.forEach(function (el) { el.classList.add('reveal'); });
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) { en.target.classList.add('visible'); io.unobserve(en.target); }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    revealEls.forEach(function (el) { io.observe(el); });
+  } else {
+    revealEls.forEach(function (el) { el.classList.add('visible'); });
+  }
+  function stagger(sel, step) {
+    document.querySelectorAll(sel).forEach(function (grid) {
+      Array.prototype.forEach.call(grid.children, function (c, i) { c.style.transitionDelay = (i * step) + 'ms'; });
+    });
+  }
+  stagger('.info-bar', 55);
+  stagger('.schedule-grid', 50);
+  stagger('.guidelines-grid', 70);
+
+  // ---------- 3D tilt ----------
+  document.querySelectorAll('.info-card, .day-card, .guideline-card').forEach(function (card) {
+    card.classList.add('tilt');
+    card.addEventListener('mouseenter', function () { card.style.transition = 'transform .15s ease-out'; card.style.transitionDelay = '0ms'; });
+    card.addEventListener('mousemove', function (e) {
+      var r = card.getBoundingClientRect();
+      var px = (e.clientX - r.left) / r.width - 0.5;
+      var py = (e.clientY - r.top) / r.height - 0.5;
+      card.style.transform = 'perspective(700px) rotateX(' + (-py * 6).toFixed(2) + 'deg) rotateY(' + (px * 8).toFixed(2) + 'deg) translateY(-4px)';
+    });
+    card.addEventListener('mouseleave', function () { card.style.transition = 'transform .4s ease-out'; card.style.transform = ''; setTimeout(function () { card.style.transition = ''; }, 400); });
+  });
+})();
+</script>
+</body>
+</html>
