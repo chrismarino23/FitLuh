@@ -4,116 +4,26 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>FitLuh — Plano de Treino | Luana</title>
+<meta name="description" content="FitLuh — plano de treino e nutrição da Luana. Recomposição corporal, ABCDEF 6x/semana, jejum 16:8, 1.350 kcal.">
+<meta name="theme-color" content="#fdf3f8">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💗</text></svg>">
+<meta property="og:title" content="FitLuh — Plano de Treino & Nutrição | Luana">
+<meta property="og:description" content="Recomposição corporal · ABCDEF 6x/semana · jejum 16:8 · 1.350 kcal.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://chrismarino23.github.io/FitLuh/">
+<meta property="og:site_name" content="FitLuh">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:image" content="https://chrismarino23.github.io/FitLuh/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="FitLuh — Plano de Treino & Nutrição da Luana">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="FitLuh — Plano de Treino & Nutrição | Luana">
+<meta name="twitter:description" content="Recomposição corporal · ABCDEF 6x/semana · jejum 16:8 · 1.350 kcal.">
+<meta name="twitter:image" content="https://chrismarino23.github.io/FitLuh/og-image.png">
+<script>(function(){try{var t=localStorage.getItem('theme');var th=t||(window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',th);var m=document.querySelector('meta[name="theme-color"]');if(m)m.setAttribute('content',th==='dark'?'#170a12':'#fdf3f8');}catch(e){}})();</script>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800;900&display=swap');
-:root {
-  --bg-dark:#fdf0f5;--bg-card:#ffffff;--bg-card-hover:#fff5f9;
-  --primary:#e91e8c;--primary-dim:#c2185b;--secondary:#9c27b0;--accent:#ff6b9d;
-  --text:#3a2a35;--text-dim:#7a6a75;--text-muted:#b0a0aa;
-  --border:#f0d8e5;--glow:rgba(233,30,140,0.08);--glow-purple:rgba(156,39,176,0.08);--glow-pink:rgba(255,107,157,0.08);
-}
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Inter',sans-serif;background:var(--bg-dark);color:var(--text);line-height:1.6;background-image:radial-gradient(circle at 20% 0%,rgba(233,30,140,0.04) 0%,transparent 50%),radial-gradient(circle at 80% 50%,rgba(156,39,176,0.03) 0%,transparent 50%),radial-gradient(circle at 50% 100%,rgba(255,107,157,0.03) 0%,transparent 50%);min-height:100vh}
-.container{max-width:1200px;margin:0 auto;padding:20px}
-.header{text-align:center;padding:60px 20px 40px;position:relative;overflow:hidden}
-.header::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:conic-gradient(from 0deg,transparent 0%,var(--glow) 15%,transparent 30%,var(--glow-purple) 50%,transparent 70%);animation:rotate 20s linear infinite;opacity:0.6;z-index:-1}
-@keyframes rotate{to{transform:rotate(360deg)}}
-.header h1{font-size:3rem;font-weight:900;letter-spacing:-2px;background:linear-gradient(135deg,var(--primary),var(--secondary));-webkit-background-clip:text;-webkit-text-fill-color:transparent;text-transform:uppercase;margin-bottom:10px}
-.header .subtitle{font-size:1.1rem;color:var(--text-dim);font-weight:400;letter-spacing:1px}
-.header .badge{display:inline-block;margin-top:15px;padding:6px 20px;background:linear-gradient(135deg,var(--primary),var(--primary-dim));color:white;font-weight:700;font-size:0.8rem;border-radius:20px;text-transform:uppercase;letter-spacing:1px}
-.info-bar{display:flex;flex-wrap:wrap;gap:15px;justify-content:center;margin:30px 0}
-.info-card{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:16px 24px;text-align:center;min-width:140px;transition:all 0.3s;box-shadow:0 2px 8px rgba(233,30,140,0.05)}
-.info-card:hover{background:var(--bg-card-hover);border-color:var(--primary);transform:translateY(-2px);box-shadow:0 4px 16px rgba(233,30,140,0.12)}
-.info-card .label{font-size:0.7rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:5px}
-.info-card .value{font-size:1.3rem;font-weight:700;color:var(--primary)}
-.info-card .value.purple{color:var(--secondary)}
-.info-card .value.pink{color:var(--accent)}
-.tabs{display:flex;gap:8px;margin:40px 0 20px;flex-wrap:wrap;justify-content:center}
-.tab-btn{padding:12px 24px;background:var(--bg-card);border:1px solid var(--border);border-radius:12px;color:var(--text-dim);font-family:'Inter',sans-serif;font-weight:600;font-size:0.9rem;cursor:pointer;transition:all 0.3s;display:flex;align-items:center;gap:8px;box-shadow:0 2px 6px rgba(233,30,140,0.04)}
-.tab-btn:hover{background:var(--bg-card-hover);color:var(--text);box-shadow:0 4px 12px rgba(233,30,140,0.08)}
-.tab-btn.active{background:linear-gradient(135deg,var(--primary),var(--primary-dim));color:white;border-color:var(--primary);box-shadow:0 4px 20px rgba(233,30,140,0.25)}
-.tab-btn .day-tag{font-size:0.7rem;opacity:0.7}
-.tab-content{display:none;animation:fadeIn 0.4s}
-.tab-content.active{display:block}
-@keyframes fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
-.workout-title{display:flex;align-items:center;gap:15px;margin-bottom:30px}
-.workout-title .icon{width:50px;height:50px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;flex-shrink:0}
-.workout-title h2{font-size:1.8rem;font-weight:800}
-.workout-title .meta{font-size:0.85rem;color:var(--text-muted);margin-top:3px}
-.icon-pink{background:var(--glow);border:1px solid var(--primary)}
-.icon-purple{background:var(--glow-purple);border:1px solid var(--secondary)}
-.exercise{background:var(--bg-card);border:1px solid var(--border);border-radius:16px;margin-bottom:16px;overflow:hidden;transition:all 0.3s;box-shadow:0 2px 8px rgba(233,30,140,0.04)}
-.exercise:hover{border-color:var(--primary);box-shadow:0 4px 16px rgba(233,30,140,0.08)}
-.exercise-header{display:flex;align-items:center;gap:15px;padding:18px 22px;cursor:pointer}
-.exercise-num{width:36px;height:36px;border-radius:10px;background:var(--bg-dark);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:1rem;color:var(--primary);flex-shrink:0}
-.exercise-info{flex:1}
-.exercise-info h3{font-size:1.1rem;font-weight:700}
-.exercise-info .tags{display:flex;gap:8px;margin-top:4px;flex-wrap:wrap}
-.tag{display:inline-flex;align-items:center;gap:3px;font-size:0.7rem;padding:3px 10px;border-radius:6px;font-weight:600}
-.tag-sets{background:var(--glow);color:var(--primary)}
-.tag-reps{background:var(--glow-purple);color:var(--secondary)}
-.tag-rest{background:var(--glow-pink);color:var(--accent)}
-.tag-load{background:rgba(176,160,170,0.15);color:var(--text-dim)}
-.exercise-body{max-height:0;overflow:hidden;transition:max-height 0.4s ease}
-.exercise.open .exercise-body{max-height:1200px}
-.exercise-body-inner{padding:0 22px 22px 73px}
-.exercise-detail{background:var(--bg-dark);border-radius:10px;padding:14px 18px;margin-bottom:10px;border-left:3px solid var(--primary)}
-.exercise-detail h4{font-size:0.8rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px}
-.exercise-detail p{font-size:0.9rem;color:var(--text);line-height:1.7}
-.yt-link{display:inline-flex;align-items:center;gap:6px;margin-top:8px;padding:6px 14px;background:#e91e8c;color:white!important;border-radius:8px;font-size:0.8rem;font-weight:600;text-decoration:none;transition:all 0.2s}
-.yt-link:hover{background:#c2185b;transform:translateY(-1px);box-shadow:0 4px 12px rgba(233,30,140,0.3)}
-.alternatives{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}
-.alt-card{background:var(--bg-dark);border:1px solid var(--border);border-radius:10px;padding:12px 16px;transition:all 0.2s}
-.alt-card:hover{border-color:var(--secondary);background:var(--bg-card-hover)}
-.alt-card .alt-label{font-size:0.65rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:3px}
-.alt-card .alt-name{font-size:0.9rem;font-weight:600;color:var(--secondary)}
-.alt-card .alt-desc{font-size:0.75rem;color:var(--text-dim);margin-top:2px}
-.alt-card .yt-link{font-size:0.7rem;padding:4px 10px}
-.section-title{font-size:1.4rem;font-weight:800;margin:50px 0 20px;padding-bottom:10px;border-bottom:2px solid var(--border);display:flex;align-items:center;gap:10px;color:var(--primary)}
-.section-title .dot{width:10px;height:10px;border-radius:50%;background:var(--primary)}
-.guidelines-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;margin-bottom:30px}
-.guideline-card{background:var(--bg-card);border:1px solid var(--border);border-radius:14px;padding:20px;transition:all 0.3s;box-shadow:0 2px 8px rgba(233,30,140,0.04)}
-.guideline-card:hover{border-color:var(--primary);transform:translateY(-2px);box-shadow:0 4px 16px rgba(233,30,140,0.08)}
-.guideline-card .gl-icon{font-size:1.5rem;margin-bottom:10px}
-.guideline-card h4{font-size:0.95rem;font-weight:700;margin-bottom:8px;color:var(--primary)}
-.guideline-card p{font-size:0.85rem;color:var(--text-dim);line-height:1.6}
-.schedule-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin-bottom:30px}
-.day-card{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:16px;text-align:center;transition:all 0.3s;box-shadow:0 2px 6px rgba(233,30,140,0.04)}
-.day-card:hover{transform:translateY(-3px);border-color:var(--primary);box-shadow:0 4px 12px rgba(233,30,140,0.08)}
-.day-card.rest{opacity:0.6}
-.day-card .day-name{font-size:0.75rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px}
-.day-card .day-workout{font-size:0.85rem;font-weight:600;color:var(--text)}
-.day-card .day-cardio{font-size:0.7rem;color:var(--text-dim);margin-top:4px}
-.day-card.rest .day-workout{color:var(--accent)}
-.volume-table{width:100%;border-collapse:collapse;margin-bottom:30px;background:var(--bg-card);border-radius:12px;overflow:hidden;box-shadow:0 2px 8px rgba(233,30,140,0.04)}
-.volume-table th{background:var(--bg-dark);padding:14px 16px;text-align:left;font-size:0.75rem;text-transform:uppercase;letter-spacing:1px;color:var(--primary);border-bottom:1px solid var(--border)}
-.volume-table td{padding:12px 16px;font-size:0.9rem;border-bottom:1px solid var(--border)}
-.volume-table tr:last-child td{border-bottom:none}
-.volume-table tr:hover{background:var(--bg-card-hover)}
-.volume-table .highlight{color:var(--primary);font-weight:700}
-.meal-card{background:var(--bg-card);border:1px solid var(--border);border-radius:14px;padding:20px;margin-bottom:16px;box-shadow:0 2px 8px rgba(233,30,140,0.04)}
-.meal-card h3{font-size:1rem;color:var(--primary);margin-bottom:8px}
-.meal-card .meal-time{font-size:0.8rem;color:var(--text-muted);margin-bottom:10px}
-.meal-card p{font-size:0.85rem;color:var(--text-dim);line-height:1.7}
-.meal-card .meal-options{background:var(--bg-dark);border-radius:10px;padding:12px 16px;margin-top:10px;border-left:3px solid var(--primary)}
-.meal-card .meal-options strong{color:var(--secondary)}
-.alert-card{background:linear-gradient(135deg,rgba(233,30,140,0.08),rgba(156,39,176,0.05));border:1px solid var(--primary);border-radius:14px;padding:20px;margin:20px 0}
-.alert-card h3{color:var(--primary);font-size:1rem;margin-bottom:10px}
-.alert-card p{color:var(--text-dim);font-size:0.85rem;line-height:1.7}
-.footer{text-align:center;padding:40px 20px;color:var(--text-muted);font-size:0.8rem;border-top:1px solid var(--border);margin-top:40px}
-@media print{body{background:white;color:black}.tab-content{display:block!important}.tabs{display:none}.header::before{display:none}.exercise-body{max-height:none!important}}
-@media (max-width:768px){.header h1{font-size:2rem}.alternatives{grid-template-columns:1fr}.info-card{min-width:100px;padding:12px}.exercise-body-inner{padding:0 16px 16px}.tabs{gap:4px}.tab-btn{padding:10px 14px;font-size:0.75rem}}
-
-/* MOBILE FIXES */
-*{-webkit-tap-highlight-color:transparent}
-.exercise-header,.tab-btn{touch-action:manipulation;cursor:pointer;-webkit-user-select:none;user-select:none}
-.exercise-body{-webkit-overflow-scrolling:touch}
-@media (max-width:768px){
-.header::before{display:none!important}
-.tab-btn{white-space:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch}
-.tabs{overflow-x:auto;-webkit-overflow-scrolling:touch;flex-wrap:nowrap;scroll-snap-type:x mandatory}
-.tab-btn{scroll-snap-align:start;flex-shrink:0}
-}
 
 /* ================= FITLUH MODERN REDESIGN (neon + fixes) ================= */
 :root{
@@ -126,7 +36,7 @@ body{font-family:'Inter',sans-serif;background:var(--bg-dark);color:var(--text);
   --border:#f6d9eb;
   --glow:rgba(255,46,196,.1);--glow-purple:rgba(180,85,255,.1);--glow-pink:rgba(255,107,157,.1);
 }
-*{-webkit-tap-highlight-color:transparent}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 html{overflow-x:hidden;overflow-x:clip;background:var(--bg)}
 body{font-family:'Inter',sans-serif;background:transparent;color:var(--text);line-height:1.6;min-height:100vh;overflow-x:hidden;overflow-x:clip}
 .container{max-width:1180px;margin:0 auto;padding:0 22px}
@@ -150,8 +60,9 @@ body{font-family:'Inter',sans-serif;background:transparent;color:var(--text);lin
   background:linear-gradient(90deg,var(--neon),var(--purple),var(--rose));box-shadow:0 0 14px rgba(255,46,196,.5)}
 
 /* nav */
-.nav{position:sticky;top:0;z-index:50;background:rgba(253,243,248,.82);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-bottom:1px solid var(--border)}
-.nav-inner{max-width:1180px;margin:0 auto;padding:12px 22px;display:flex;align-items:center;justify-content:space-between;gap:14px}
+.nav{position:sticky;top:0;z-index:50;background:rgba(253,243,248,.82);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-bottom:1px solid var(--border);transition:transform .45s cubic-bezier(.4,0,.2,1),opacity .45s cubic-bezier(.4,0,.2,1)}
+.nav.nav-hidden{transform:translateY(-130%);opacity:0;pointer-events:none}
+.nav-inner{max-width:1180px;margin:0 auto;padding:12px 22px 12px 64px;display:flex;align-items:center;justify-content:space-between;gap:14px}
 .brand{display:flex;align-items:center;gap:10px;font-family:'Poppins',sans-serif;font-weight:700;letter-spacing:1px;font-size:1.05rem;white-space:nowrap}
 .brand .bolt{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;font-size:1rem;background:linear-gradient(135deg,var(--neon),var(--purple));box-shadow:0 0 18px rgba(255,46,196,.45)}
 .brand span.grad{background:linear-gradient(90deg,var(--magenta),var(--purple));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
@@ -301,8 +212,10 @@ body{font-family:'Inter',sans-serif;background:transparent;color:var(--text);lin
   .header h1{font-size:2.2rem}
   .alternatives{grid-template-columns:1fr}
   .exercise-body-inner{padding:2px 14px 16px 16px}
-  .nav-inner{flex-direction:column;align-items:stretch}
-  .nav-tabs{display:flex;width:100%;gap:4px;overflow-x:visible}
+  .nav-inner{flex-wrap:wrap;align-items:center;padding:10px 12px 10px 56px;gap:8px}
+  .brand{font-size:.95rem}
+  .theme-toggle{margin-left:auto;width:36px;height:36px;font-size:1rem}
+  .nav-tabs{order:2;flex:1 1 100%;width:100%;gap:4px;overflow-x:visible}
   .nav-tabs button{flex:1;min-width:0;padding:8px 4px;font-size:.78rem}
   .nav-tabs button.active{box-shadow:0 0 10px rgba(255,46,196,.28)}
   .tabs{flex-wrap:wrap;justify-content:center;overflow-x:visible;-webkit-overflow-scrolling:auto;scroll-snap-type:none}
@@ -325,7 +238,7 @@ body{font-family:'Inter',sans-serif;background:transparent;color:var(--text);lin
 /* print */
 @media print{
   body{background:#fff;color:#000}
-  .nav,.bg-layer,#particles,.cursor-glow,.scroll-progress,.tabs{display:none}
+  .nav,.bg-layer,#particles,.cursor-glow,.scroll-progress,.tabs,.hamburger,.menu-backdrop,.sidebar,.to-top,.skip-link{display:none}
   .tab-content{display:block!important}
   .exercise-body{max-height:none!important}
   .header h1{-webkit-text-fill-color:#e91e8c}
@@ -337,9 +250,140 @@ body{font-family:'Inter',sans-serif;background:transparent;color:var(--text);lin
   .header h1{animation:none!important}
   .orb{animation:none!important}
 }
+/* ---------- hamburger menu (drawer) ---------- */
+html{scroll-behavior:smooth}
+[id]{scroll-margin-top:90px}
+.skip-link{position:absolute;left:-9999px;top:12px;z-index:100;background:var(--neon);color:#3a2a35;padding:10px 16px;border-radius:8px;font-weight:700;text-decoration:none;font-family:'Poppins',sans-serif;letter-spacing:1px}
+.skip-link:focus{left:12px}
+.to-top{position:fixed;right:20px;bottom:20px;z-index:60;width:46px;height:46px;border-radius:12px;border:1px solid var(--border-strong);background:var(--panel-2);color:var(--magenta);font-size:1.3rem;cursor:pointer;opacity:0;pointer-events:none;transition:opacity .3s,transform .3s;backdrop-filter:blur(8px);box-shadow:0 8px 24px rgba(255,46,196,.18)}
+.to-top.show{opacity:1;pointer-events:auto}
+.to-top:hover{transform:translateY(-3px);border-color:var(--neon)}
+.hamburger{position:fixed;top:14px;left:14px;z-index:95;width:40px;height:40px;border-radius:11px;border:1px solid var(--border-strong);background:var(--panel-2);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;transition:.25s;box-shadow:0 8px 24px rgba(255,46,196,.16)}
+.hamburger span{display:block;width:18px;height:2px;border-radius:2px;background:var(--neon);transition:.3s cubic-bezier(.2,.8,.2,1)}
+.hamburger:hover{border-color:var(--neon);transform:translateY(-1px)}
+.hamburger.open{opacity:0;pointer-events:none;transform:translateY(-6px)}
+.menu-backdrop{position:fixed;inset:0;z-index:80;background:rgba(58,42,53,.42);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);opacity:0;pointer-events:none;transition:opacity .35s ease}
+.menu-backdrop.open{opacity:1;pointer-events:auto}
+.sidebar{position:fixed;top:0;left:0;bottom:0;z-index:90;width:min(320px,86vw);background:var(--bg-2);border-right:1px solid var(--border-strong);box-shadow:24px 0 60px rgba(233,30,140,.18);transform:translateX(-105%);transition:transform .38s cubic-bezier(.2,.8,.2,1);display:flex;flex-direction:column;overflow-y:auto}
+.sidebar::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--neon),var(--purple),transparent)}
+.sidebar.open{transform:translateX(0)}
+.sidebar-head{display:flex;align-items:center;justify-content:space-between;padding:18px 20px;border-bottom:1px solid var(--border)}
+.sidebar-title{font-family:'Poppins',sans-serif;font-weight:700;font-size:1.05rem;letter-spacing:2px;text-transform:uppercase;color:var(--text)}
+.sidebar-close{width:34px;height:34px;border-radius:9px;border:1px solid var(--border-strong);background:var(--panel-2);color:var(--text-dim);font-size:1rem;cursor:pointer;display:grid;place-items:center;transition:.25s}
+.sidebar-close:hover{color:var(--neon);border-color:var(--neon)}
+.sidebar-nav{display:flex;flex-direction:column;padding:12px}
+.side-link{display:flex;align-items:center;gap:12px;padding:13px 14px;border-radius:12px;text-decoration:none;color:var(--text-dim);font-size:.92rem;font-weight:500;border:1px solid transparent;transition:.22s}
+.side-link .side-emoji{font-size:1.1rem;line-height:1;min-width:24px;text-align:center;transition:.22s}
+.side-link .side-txt{flex:1}
+.side-link .side-arrow{color:var(--neon);opacity:0;transform:translateX(-6px);transition:.22s;font-size:1.1rem;line-height:1}
+.side-link:hover{color:var(--text);background:var(--panel);border-color:var(--border)}
+.side-link:hover .side-emoji{transform:scale(1.18)}
+.side-link:hover .side-arrow{opacity:1;transform:translateX(0)}
+@keyframes sideIn{from{opacity:0;transform:translateX(-16px)}to{opacity:1;transform:translateX(0)}}
+.sidebar.open .side-link{animation:sideIn .42s cubic-bezier(.2,.8,.2,1) both}
+.sidebar.open .side-link:nth-child(1){animation-delay:.04s}
+.sidebar.open .side-link:nth-child(2){animation-delay:.08s}
+.sidebar.open .side-link:nth-child(3){animation-delay:.12s}
+.sidebar.open .side-link:nth-child(4){animation-delay:.16s}
+.sidebar.open .side-link:nth-child(5){animation-delay:.20s}
+.sidebar.open .side-link:nth-child(6){animation-delay:.24s}
+.sidebar.open .side-link:nth-child(7){animation-delay:.28s}
+.sidebar.open .side-link:nth-child(8){animation-delay:.32s}
+.sidebar.open .side-link:nth-child(9){animation-delay:.36s}
+.sidebar.open .side-link:nth-child(10){animation-delay:.40s}
+.sidebar.open .side-link:nth-child(11){animation-delay:.44s}
+.sidebar.open .side-link:nth-child(12){animation-delay:.48s}
+@media (prefers-reduced-motion:reduce){
+  .sidebar,.menu-backdrop,.hamburger span{transition:none}
+  .sidebar.open .side-link{animation:none}
+}
+
+/* generic data tables (perfil, cálculos, macros, fontes, glossário) */
+.data-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.data-table{width:100%;border-collapse:collapse;margin-bottom:30px;background:var(--panel-2);border-radius:16px;overflow:hidden;border:1px solid var(--border);box-shadow:0 6px 20px rgba(255,46,196,.06)}
+.data-table th{font-family:'Poppins',sans-serif;background:rgba(255,46,196,.05);padding:14px 18px;text-align:left;font-size:.7rem;text-transform:uppercase;letter-spacing:1.5px;color:var(--magenta);border-bottom:1px solid var(--border)}
+.data-table td{padding:13px 18px;font-size:.9rem;border-bottom:1px solid var(--border);vertical-align:top}
+.data-table tr:last-child td{border-bottom:none}
+.data-table tbody tr{transition:.2s}
+.data-table tbody tr:hover{background:rgba(255,46,196,.04)}
+.data-table .highlight{color:var(--neon);font-weight:800;font-family:'Poppins',sans-serif}
+.macro-table{width:100%;border-collapse:collapse;margin-bottom:30px;background:var(--panel-2);border-radius:16px;overflow:hidden;border:1px solid var(--border);box-shadow:0 6px 20px rgba(255,46,196,.06)}
+.macro-table th{font-family:'Poppins',sans-serif;background:rgba(255,46,196,.05);padding:14px 18px;text-align:left;font-size:.7rem;text-transform:uppercase;letter-spacing:1.5px;color:var(--magenta);border-bottom:1px solid var(--border)}
+.macro-table td{padding:13px 18px;font-size:.9rem;border-bottom:1px solid var(--border);vertical-align:middle}
+.macro-table tr:last-child td{border-bottom:none}
+.macro-table tbody tr{transition:.2s}
+.macro-table tbody tr:hover{background:rgba(255,46,196,.04)}
+.macro-table .highlight{color:var(--neon);font-weight:800;font-family:'Poppins',sans-serif}
+.macro-table tfoot td{font-family:'Poppins',sans-serif;font-weight:800;color:var(--magenta);background:rgba(255,46,196,.04);border-top:1px solid var(--border)}
+
+/* ---------- dark theme (feminina) ---------- */
+:root[data-theme="dark"]{
+  --bg:#170a12;
+  --bg-2:#1f0d16;
+  --panel:rgba(255,255,255,.055);
+  --panel-2:rgba(37,18,25,.94);
+  --border-strong:rgba(255,46,196,.35);
+  --neon:#ff2ec4;
+  --magenta:#ff6db4;
+  --purple:#c784ff;
+  --violet:#c784ff;
+  --rose:#ff86b6;
+  --amber:#ffc14d;
+  --bg-dark:#170a12;
+  --bg-card:#251219;
+  --bg-card-hover:#301722;
+  --primary:#ff6db4;
+  --primary-dim:#ff4fa6;
+  --secondary:#c784ff;
+  --accent:#ff86b6;
+  --text:#f6e8f0;
+  --text-dim:#c9aec1;
+  --text-muted:#9c8093;
+  --border:rgba(255,46,196,.16);
+  --glow:rgba(255,46,196,.17);
+  --glow-purple:rgba(180,85,255,.17);
+  --glow-pink:rgba(255,107,157,.17);
+  color-scheme:dark;
+}
+:root[data-theme="dark"] .nav{background:rgba(23,10,18,.85)}
+:root[data-theme="dark"] .header .badge{background:rgba(37,18,25,.85)}
+:root[data-theme="dark"] .exercise-detail{background:rgba(37,18,25,.62)}
+:root[data-theme="dark"] .alt-card{background:rgba(37,18,25,.62)}
+:root[data-theme="dark"] .alt-card:hover{background:var(--bg-card)}
+:root[data-theme="dark"] .meal-card .meal-options{background:rgba(37,18,25,.7)}
+.theme-toggle{width:38px;height:38px;border-radius:10px;border:1px solid var(--border-strong);background:var(--panel-2);color:var(--text);font-size:1.05rem;cursor:pointer;display:grid;place-items:center;transition:.25s;flex-shrink:0}
+.theme-toggle:hover{border-color:var(--neon);transform:translateY(-1px)}
 </style>
 </head>
 <body>
+
+<a class="skip-link" href="#main">Pular para o conteúdo</a>
+
+<button class="hamburger" id="hamburger" aria-label="Abrir menu de seções" aria-expanded="false" aria-controls="sidebar">
+  <span></span><span></span><span></span>
+</button>
+<div class="menu-backdrop" id="menuBackdrop" aria-hidden="true"></div>
+<aside class="sidebar" id="sidebar" aria-hidden="true" aria-label="Sumário de seções">
+  <div class="sidebar-head">
+    <span class="sidebar-title">📑 Sumário</span>
+    <button class="sidebar-close" id="sidebarClose" aria-label="Fechar menu">✕</button>
+  </div>
+  <nav class="sidebar-nav">
+    <a href="#perfil" class="side-link"><span class="side-emoji">👤</span><span class="side-txt">Perfil &amp; Análise</span><span class="side-arrow">›</span></a>
+    <a href="#calculos" class="side-link"><span class="side-emoji">🧮</span><span class="side-txt">Cálculos Metabólicos</span><span class="side-arrow">›</span></a>
+    <a href="#semana" class="side-link"><span class="side-emoji">📅</span><span class="side-txt">Distribuição Semanal</span><span class="side-arrow">›</span></a>
+    <a href="#volume" class="side-link"><span class="side-emoji">📊</span><span class="side-txt">Volume Semanal</span><span class="side-arrow">›</span></a>
+    <a href="#treinos" class="side-link"><span class="side-emoji">🏋️</span><span class="side-txt">Treinos</span><span class="side-arrow">›</span></a>
+    <a href="#orientacoes" class="side-link"><span class="side-emoji">📋</span><span class="side-txt">Orientações de Execução</span><span class="side-arrow">›</span></a>
+    <a href="#cardio" class="side-link"><span class="side-emoji">🏃</span><span class="side-txt">Cardio &amp; Progressão</span><span class="side-arrow">›</span></a>
+    <a href="#alimentar" class="side-link"><span class="side-emoji">🍽️</span><span class="side-txt">Plano Alimentar</span><span class="side-arrow">›</span></a>
+    <a href="#macros" class="side-link"><span class="side-emoji">🥗</span><span class="side-txt">Distribuição de Macros</span><span class="side-arrow">›</span></a>
+    <a href="#suplementos" class="side-link"><span class="side-emoji">💊</span><span class="side-txt">Suplementos</span><span class="side-arrow">›</span></a>
+    <a href="#fontes" class="side-link"><span class="side-emoji">📚</span><span class="side-txt">Fontes Científicas</span><span class="side-arrow">›</span></a>
+    <a href="#glossario" class="side-link"><span class="side-emoji">📖</span><span class="side-txt">Glossário</span><span class="side-arrow">›</span></a>
+  </nav>
+</aside>
+
 <canvas id="particles"></canvas>
 <div class="cursor-glow" id="cursorGlow"></div>
 <div class="scroll-progress" id="scrollProgress"></div>
@@ -356,10 +400,11 @@ body{font-family:'Inter',sans-serif;background:transparent;color:var(--text);lin
       <button data-tab="tab-E">🍑 E</button>
       <button data-tab="tab-F">✨ F</button>
     </div>
+    <button class="theme-toggle" id="themeToggle" aria-label="Alternar tema claro/escuro">🌙</button>
   </div>
 </nav>
 
-<div class="container">
+<div class="container" id="main" tabindex="-1">
 <header class="header">
 <h1 data-parallax="0.22">FitLuh</h1>
 <div class="subtitle" data-parallax="0.30">Plano de Treino & Nutrição · Luana Marino</div>
@@ -374,7 +419,44 @@ body{font-family:'Inter',sans-serif;background:transparent;color:var(--text);lin
 <div class="info-card"><div class="label">Meta prot</div><div class="value">128g</div></div>
 <div class="info-card"><div class="label">Cruzeiro</div><div class="value pink">20/11</div></div>
 </div>
-<div class="section-title"><span class="dot"></span>Distribuição Semanal (Rotação ABCDEF)</div>
+<div class="section-title" id="perfil"><span class="dot"></span>Perfil & Análise</div>
+<div class="data-wrap">
+<table class="data-table">
+<thead><tr><th>Dado</th><th>Valor</th><th>Observação</th></tr></thead>
+<tbody>
+<tr><td>Idade</td><td>29 anos</td><td>Nasc: 03/04/1997</td></tr>
+<tr><td>Altura</td><td>1,55m</td><td>—</td></tr>
+<tr><td>Peso atual</td><td>64 kg</td><td>—</td></tr>
+<tr><td>IMC</td><td>26,6</td><td>Sobrepeso</td></tr>
+<tr><td>Peso alvo</td><td>58 kg (realista ~61kg)</td><td>-6 kg (3 kg realista em 7,5 semanas)</td></tr>
+<tr><td>Prazo</td><td>20/11/2026</td><td>Cruzeiro (com Crystopher)</td></tr>
+<tr><td>Sono</td><td>00h às 7:15/8:00</td><td>Trabalho intercalado 8h/9h</td></tr>
+<tr><td>Lesões</td><td>Nenhuma</td><td>—</td></tr>
+<tr><td>Medicamento</td><td>Anticoncepcional</td><td>Seg a sex</td></tr>
+<tr><td>Balança</td><td>Não tem em casa</td><td>Pesa aos domingos</td></tr>
+<tr><td>Comprometimento</td><td>Alto</td><td>Retorno ao treino 14/09/2026</td></tr>
+<tr><td>Lactose</td><td>Em investigação</td><td>Desconforto GI com alguns derivados. Usar pouca quantidade</td></tr>
+<tr><td>Whey</td><td>Tolerado poucos dias</td><td>Dias que tolerar, no lanche</td></tr>
+<tr><td>Creatina</td><td>5g/dia</td><td>Todos os dias, pós-treino</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="section-title" id="calculos"><span class="dot"></span>Cálculos Metabólicos</div>
+<div class="data-wrap">
+<table class="data-table">
+<thead><tr><th>Métrica</th><th>Valor</th></tr></thead>
+<tbody>
+<tr><td>TMB (Mifflin-St Jeor)</td><td>1.303 kcal</td></tr>
+<tr><td>TDEE (fator 1,375)</td><td>1.792 kcal</td></tr>
+<tr><td>Déficit</td><td>~442 kcal/dia</td></tr>
+<tr><td>Meta calórica</td><td>1.350 kcal</td></tr>
+<tr><td>Perda estimada</td><td>~0,40 kg/semana (~61 kg no cruzeiro)</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="section-title" id="semana"><span class="dot"></span>Distribuição Semanal (Rotação ABCDEF)</div>
 <div class="schedule-grid">
 <div class="day-card"><div class="day-name">Dia 1</div><div class="day-workout">A — Quadríceps</div><div class="day-cardio">15 min caminhada</div></div>
 <div class="day-card"><div class="day-name">Dia 2</div><div class="day-workout">B — Peito + Tríceps</div><div class="day-cardio">15 min caminhada</div></div>
@@ -384,7 +466,7 @@ body{font-family:'Inter',sans-serif;background:transparent;color:var(--text);lin
 <div class="day-card"><div class="day-name">Dia 6</div><div class="day-workout">F — Full-Body Leve</div><div class="day-cardio">Sem cardio</div></div>
 <div class="day-card rest"><div class="day-name">Dia 7</div><div class="day-workout">Descanso</div><div class="day-cardio">Cardio opcional</div></div>
 </div>
-<div class="section-title"><span class="dot"></span>Volume Semanal</div>
+<div class="section-title" id="volume"><span class="dot"></span>Volume Semanal</div>
 <table class="volume-table">
 <thead><tr><th>Músculo</th><th>Exercícios</th><th>Sets/semana</th><th>Faixa ótima</th></tr></thead>
 <tbody>
@@ -395,20 +477,20 @@ body{font-family:'Inter',sans-serif;background:transparent;color:var(--text);lin
 <tr><td>Glúteo</td><td>5</td><td class="highlight">16</td><td>10-20</td></tr>
 </tbody>
 </table>
-<div class="tabs">
-<button class="tab-btn active" onclick="openTab(event,'tab-A')"><span>🦵 A — Quadríceps</span></button>
-<button class="tab-btn" onclick="openTab(event,'tab-B')"><span>💪 B — Peito + Tríceps</span></button>
-<button class="tab-btn" onclick="openTab(event,'tab-C')"><span>🍑 C — Posterior + Ombros</span></button>
-<button class="tab-btn" onclick="openTab(event,'tab-D')"><span>🔙 D — Costas + Bíceps</span></button>
-<button class="tab-btn" onclick="openTab(event,'tab-E')"><span>🍑 E — Glúteo</span></button>
-<button class="tab-btn" onclick="openTab(event,'tab-F')"><span>✨ F — Full-Body Leve</span></button>
+<div class="tabs" id="treinos">
+<button class="tab-btn active" data-tab="tab-A"><span>🦵 A — Quadríceps</span></button>
+<button class="tab-btn" data-tab="tab-B"><span>💪 B — Peito + Tríceps</span></button>
+<button class="tab-btn" data-tab="tab-C"><span>🍑 C — Posterior + Ombros</span></button>
+<button class="tab-btn" data-tab="tab-D"><span>🔙 D — Costas + Bíceps</span></button>
+<button class="tab-btn" data-tab="tab-E"><span>🍑 E — Glúteo</span></button>
+<button class="tab-btn" data-tab="tab-F"><span>✨ F — Full-Body Leve</span></button>
 </div>
 <div id="tab-A" class="tab-content active">
   <div class="workout-title">
     <div class="icon icon-pink">🦵</div>
     <div><h2>Treino A — Quadríceps</h2><div class="meta">Ex: Segunda · ~40 min + 15 min cardio</div></div>
   </div>
-  <div class="exercise" onclick="toggleEx(this)">
+  <div class="exercise">
     <div class="exercise-header">
       <div class="exercise-num">1</div>
       <div class="exercise-info">
@@ -429,7 +511,7 @@ body{font-family:'Inter',sans-serif;background:transparent;color:var(--text);lin
       <div class="exercise-detail"><h4>🔄 Alternativas (se a máquina estiver ocupada)</h4><div class="alternatives"><div class="alt-card"><div class="alt-label">Alternativa</div><div class="alt-name">Leg Press 45°</div><div class="alt-desc">Mesma função, mais suporte de coluna.</div><a class="yt-link" href="https://www.youtube.com/results?search_query=leg+press+45+execucao" target="_blank">▶ YouTube</a></div><div class="alt-card"><div class="alt-label">Alternativa</div><div class="alt-name">Agachamento Livre (barra)</div><div class="alt-desc">Mais estabilização, exige técnica.</div><a class="yt-link" href="https://www.youtube.com/results?search_query=agachamento+livre+barra+execucao" target="_blank">▶ YouTube</a></div></div></div>
     </div></div>
   </div>
-  <div class="exercise" onclick="toggleEx(this)">
+  <div class="exercise">
     <div class="exercise-header">
       <div class="exercise-num">2</div>
       <div class="exercise-info">
@@ -450,7 +532,7 @@ body{font-family:'Inter',sans-serif;background:transparent;color:var(--text);lin
       <div class="exercise-detail"><h4>🔄 Alternativas (se a máquina estiver ocupada)</h4><div class="alternatives"><div class="alt-card"><div class="alt-label">Alternativa</div><div class="alt-name">Hack Squat</div><div class="alt-desc">Suporte de coluna, mais estável.</div><a class="yt-link" href="https://www.youtube.com/results?search_query=hack+squat+execucao" target="_blank">▶ YouTube</a></div><div class="alt-card"><div class="alt-label">Alternativa</div><div class="alt-name">Agachamento no Smith (já é o ex 1)</div><div class="alt-desc">Se preferir, repete o Smith com mais carga.</div><a class="yt-link" href="https://www.youtube.com/results?search_query=agachamento+smith+execucao" target="_blank">▶ YouTube</a></div></div></div>
     </div></div>
   </div>
-  <div class="exercise" onclick="toggleEx(this)">
+  <div class="exercise">
     <div class="exercise-header">
       <div class="exercise-num">3</div>
       <div class="exercise-info">
@@ -471,7 +553,7 @@ body{font-family:'Inter',sans-serif;background:transparent;color:var(--text);lin
       <div class="exercise-detail"><h4>🔄 Alternativas (se a máquina estiver ocupada)</h4><div class="alternatives"><div class="alt-card"><div class="alt-label">Alternativa</div><div class="alt-name">Extensão na Polia c/ Tornozeleira</div><div class="alt-desc">Polia baixa.</div><a class="yt-link" href="https://www.youtube.com/results?search_query=extensao+perna+polia" target="_blank">▶ YouTube</a></div><div class="alt-card"><div class="alt-label">Alternativa</div><div class="alt-name">Cadeira Extensora Unilateral</div><div class="alt-desc">Uma perna por vez.</div><a class="yt-link" href="https://www.youtube.com/results?search_query=cadeira+extensora+unilateral" target="_blank">▶ YouTube</a></div></div></div>
     </div></div>
   </div>
-  <div class="exercise" onclick="toggleEx(this)">
+  <div class="exercise">
     <div class="exercise-header">
       <div class="exercise-num">4</div>
       <div class="exercise-info">
@@ -492,7 +574,7 @@ body{font-family:'Inter',sans-serif;background:transparent;color:var(--text);lin
       <div class="exercise-detail"><h4>🔄 Alternativas (se a máquina estiver ocupada)</h4><div class="alternatives"><div class="alt-card"><div class="alt-label">Alternativa</div><div class="alt-name">Avanço c/ Halteres</div><div class="alt-desc">Halteres nas mãos, mais estabilização.</div><a class="yt-link" href="https://www.youtube.com/results?search_query=avanco+halteres+lunge" target="_blank">▶ YouTube</a></div><div class="alt-card"><div class="alt-label">Alternativa</div><div class="alt-name">Avanço na Polia</div><div class="alt-desc">Polia baixa com tornozeleira.</div><a class="yt-link" href="https://www.youtube.com/results?search_query=cable+lunge+avanco+polia" target="_blank">▶ YouTube</a></div></div></div>
     </div></div>
   </div>
-  <div class="exercise" onclick="toggleEx(this)">
+  <div class="exercise">
     <div class="exercise-header">
       <div class="exercise-num">5</div>
       <div class="exercise-info">
@@ -513,7 +595,7 @@ body{font-family:'Inter',sans-serif;background:transparent;color:var(--text);lin
       <div class="exercise-detail"><h4>🔄 Alternativas (se a máquina estiver ocupada)</h4><div class="alternatives"><div class="alt-card"><div class="alt-label">Alternativa</div><div class="alt-name">Extensão Unilateral na Polia</div><div class="alt-desc">Polia com tornozeleira, uma perna.</div><a class="yt-link" href="https://www.youtube.com/results?search_query=extensao+unilateral+polia" target="_blank">▶ YouTube</a></div><div class="alt-card"><div class="alt-label">Alternativa</div><div class="alt-name">Cadeira Extensora Bilateral (mais carga)</div><div class="alt-desc">Se a máquina não permitir unilateral.</div><a class="yt-link" href="https://www.youtube.com/results?search_query=cadeira+extensora+execucao" target="_blank">▶ YouTube</a></div></div></div>
     </div></div>
   </div>
-  <div class="exercise" onclick="toggleEx(this)">
+  <div class="exercise">
     <div class="exercise-header">
       <div class="exercise-num">6</div>
       <div class="exercise-info">
@@ -540,7 +622,7 @@ body{font-family:'Inter',sans-serif;background:transparent;color:var(--text);lin
     <div class="icon icon-purple">💪</div>
     <div><h2>Treino B — Peito + Tríceps</h2><div class="meta">Ex: Terça · ~35 min + 15 min cardio</div></div>
   </div>
-  <div class="exercise" onclick="toggleEx(this)">
+  <div class="exercise">
     <div class="exercise-header">
       <div class="exercise-num">1</div>
       <div class="exercise-info">
@@ -561,7 +643,7 @@ body{font-family:'Inter',sans-serif;background:transparent;color:var(--text);lin
       <div class="exercise-detail"><h4>🔄 Alternativas (se a máquina estiver ocupada)</h4><div class="alternatives"><div class="alt-card"><div class="alt-label">Alternativa</div><div class="alt-name">Supino c/ Halteres (banco plano)</div><div class="alt-desc">Amplitude maior.</div><a class="yt-link" href="https://www.youtube.com/results?search_query=supino+halteres+banco+plano" target="_blank">▶ YouTube</a></div><div class="alt-card"><div class="alt-label">Alternativa</div><div class="alt-name">Supino no Smith</div><div class="alt-desc">Barra guiada, mais seguro.</div><a class="yt-link" href="https://www.youtube.com/results?search_query=supino+smith+execucao" target="_blank">▶ YouTube</a></div></div></div>
     </div></div>
   </div>
-  <div class="exercise" onclick="toggleEx(this)">
+  <div class="exercise">
     <div class="exercise-header">
       <div class="exercise-num">2</div>
       <div class="exercise-info">
@@ -582,7 +664,7 @@ body{font-family:'Inter',sans-serif;background:transparent;color:var(--text);lin
       <div class="exercise-detail"><h4>🔄 Alternativas (se a máquina estiver ocupada)</h4><div class="alternatives"><div class="alt-card"><div class="alt-label">Alternativa</div><div class="alt-name">Supino Inclinado c/ Halteres</div><div class="alt-desc">Amplitude maior no inclinado.</div><a class="yt-link" href="https://www.youtube.com/results?search_query=supino+inclinado+halteres" target="_blank">▶ YouTube</a></div><div class="alt-card"><div class="alt-label">Alternativa</div><div class="alt-name">Cross Over na Polia Alta</div><div class="alt-desc">Polia alta, cruzando à frente.</div><a class="yt-link" href="https://www.youtube.com/results?search_query=crossover+polia+alta+execucao" target="_blank">▶ YouTube</a></div></div></div>
     </div></div>
   </div>
-  <div class="exercise" onclick="toggleEx(this)">
+  <div class="exercise">
     <div class="exercise-header">
       <div class="exercise-num">3</div>
       <div class="exercise-info">
@@ -603,7 +685,7 @@ body{font-family:'Inter',sans-serif;background:transparent;color:var(--text);lin
       <div class="exercise-detail"><h4>🔄 Alternativas (se a máquina estiver ocupada)</h4><div class="alternatives"><div class="alt-card"><div class="alt-label">Alternativa</div><div class="alt-name">Crucifixo c/ Halteres</div><div class="alt-desc">Mais amplitude e alongamento.</div><a class="yt-link" href="https://www.youtube.com/results?search_query=crucifixo+halteres+execucao" target="_blank">▶ YouTube</a></div><div class="alt-card"><div class="alt-label">Alternativa</div><div class="alt-name">Crossover na Polia</div><div class="alt-desc">Polia alta cruzando à frente.</div><a class="yt-link" href="https://www.youtube.com/results?search_query=crossover+polia+execucao" target="_blank">▶ YouTube</a></div></div></div>
     </div></div>
   </div>
-  <div class="exercise" onclick="toggleEx(this)">
+  <div class="exercise">
     <div class="exercise-header">
       <div class="exercise-num">4</div>
       <div class="exercise-info">
@@ -624,7 +706,7 @@ body{font-family:'Inter',sans-serif;background:transparent;color:var(--text);lin
       <div class="exercise-detail"><h4>🔄 Alternativas (se a máquina estiver ocupada)</h4><div class="alternatives"><div class="alt-card"><div class="alt-label">Alternativa</div><div class="alt-name">Tríceps Pulley c/ Barra</div><div class="alt-desc">Barra reta ou W, mesma função.</div><a class="yt-link" href="https://www.youtube.com/results?search_query=triceps+pulley+barra" target="_blank">▶ YouTube</a></div><div class="alt-card"><div class="alt-label">Alternativa</div><div class="alt-name">Tríceps no Banco (dips)</div><div class="alt-desc">Peso corporal no banco.</div><a class="yt-link" href="https://www.youtube.com/results?search_query=triceps+banco+dips" target="_blank">▶ YouTube</a></div></div></div>
     </div></div>
   </div>
-  <div class="exercise" onclick="toggleEx(this)">
+  <div class="exercise">
     <div class="exercise-header">
       <div class="exercise-num">5</div>
       <div class="exercise-info">
@@ -645,7 +727,7 @@ body{font-family:'Inter',sans-serif;background:transparent;color:var(--text);lin
       <div class="exercise-detail"><h4>🔄 Alternativas (se a máquina estiver ocupada)</h4><div class="alternatives"><div class="alt-card"><div class="alt-label">Alternativa</div><div class="alt-name">Tríceps Testa c/ Barra W (deitado)</div><div class="alt-desc">Barra W no banco.</div><a class="yt-link" href="https://www.youtube.com/results?search_query=triceps+testa+barra+W" target="_blank">▶ YouTube</a></div><div class="alt-card"><div class="alt-label">Alternativa</div><div class="alt-name">Tríceps Francês c/ Halter</div><div class="alt-desc">Halter deitado, desce atrás da cabeça.</div><a class="yt-link" href="https://www.youtube.com/results?search_query=triceps+frances+halter" target="_blank">▶ YouTube</a></div></div></div>
     </div></div>
   </div>
-  <div class="exercise" onclick="toggleEx(this)">
+  <div class="exercise">
     <div class="exercise-header">
       <div class="exercise-num">6</div>
       <div class="exercise-info">
@@ -672,7 +754,7 @@ body{font-family:'Inter',sans-serif;background:transparent;color:var(--text);lin
     <div class="icon icon-pink">🍑</div>
     <div><h2>Treino C — Posterior + Ombros</h2><div class="meta">Ex: Quarta · ~40 min + 15 min cardio</div></div>
   </div>
-  <div class="exercise" onclick="toggleEx(this)">
+  <div class="exercise">
     <div class="exercise-header">
       <div class="exercise-num">1</div>
       <div class="exercise-info">
@@ -693,7 +775,7 @@ body{font-family:'Inter',sans-serif;background:transparent;color:var(--text);lin
       <div class="exercise-detail"><h4>🔄 Alternativas (se a máquina estiver ocupada)</h4><div class="alternatives"><div class="alt-card"><div class="alt-label">Alternativa</div><div class="alt-name">Cadeira Flexora Sentada</div><div class="alt-desc">Mesma função, sentada.</div><a class="yt-link" href="https://www.youtube.com/results?search_query=cadeira+flexora+sentada" target="_blank">▶ YouTube</a></div><div class="alt-card"><div class="alt-label">Alternativa</div><div class="alt-name">Flexão de Perna na Polia</div><div class="alt-desc">Polia baixa com tornozeleira.</div><a class="yt-link" href="https://www.youtube.com/results?search_query=leg+curl+cable+polia" target="_blank">▶ YouTube</a></div></div></div>
     </div></div>
   </div>
-  <div class="exercise" onclick="toggleEx(this)">
+  <div class="exercise">
     <div class="exercise-header">
       <div class="exercise-num">2</div>
       <div class="exercise-info">
@@ -714,7 +796,7 @@ body{font-family:'Inter',sans-serif;background:transparent;color:var(--text);lin
       <div class="exercise-detail"><h4>🔄 Alternativas (se a máquina estiver ocupada)</h4><div class="alternatives"><div class="alt-card"><div class="alt-label">Alternativa</div><div class="alt-name">Mesa Flexora (já é o ex 1)</div><div class="alt-desc">Se preferir, repete com mais carga.</div><a class="yt-link" href="https://www.youtube.com/results?search_query=mesa+flexora" target="_blank">▶ YouTube</a></div><div class="alt-card"><div class="alt-label">Alternativa</div><div class="alt-name">Stiff c/ Halteres</div><div class="alt-desc">Em pé, desce com halteres. Exige técnica.</div><a class="yt-link" href="https://www.youtube.com/results?search_query=stiff+halteres+execucao" target="_blank">▶ YouTube</a></div></div></div>
     </div></div>
   </div>
-  <div class="exercise" onclick="toggleEx(this)">
+  <div class="exercise">
     <div class="exercise-header">
       <div class="exercise-num">3</div>
       <div class="exercise-info">
@@ -735,7 +817,7 @@ body{font-family:'Inter',sans-serif;background:transparent;color:var(--text);lin
       <div class="exercise-detail"><h4>🔄 Alternativas (se a máquina estiver ocupada)</h4><div class="alternatives"><div class="alt-card"><div class="alt-label">Alternativa</div><div class="alt-name">Stiff c/ Halteres</div><div class="alt-desc">Halteres, mais estabilização.</div><a class="yt-link" href="https://www.youtube.com/results?search_query=stiff+halteres" target="_blank">▶ YouTube</a></div><div class="alt-card"><div class="alt-label">Alternativa</div><div class="alt-name">Levantamento Terra Romeno c/ Barra</div><div class="alt-desc">Barra livre, mais técnico.</div><a class="yt-link" href="https://www.youtube.com/results?search_query=romanian+deadlift+execucao" target="_blank">▶ YouTube</a></div></div></div>
     </div></div>
   </div>
-  <div class="exercise" onclick="toggleEx(this)">
+  <div class="exercise">
     <div class="exercise-header">
       <div class="exercise-num">4</div>
       <div class="exercise-info">
@@ -756,7 +838,7 @@ body{font-family:'Inter',sans-serif;background:transparent;color:var(--text);lin
       <div class="exercise-detail"><h4>🔄 Alternativas (se a máquina estiver ocupada)</h4><div class="alternatives"><div class="alt-card"><div class="alt-label">Alternativa</div><div class="alt-name">Desenvolvimento c/ Halteres Sentado</div><div class="alt-desc">Mais estabilização.</div><a class="yt-link" href="https://www.youtube.com/results?search_query=desenvolvimento+halteres+sentado" target="_blank">▶ YouTube</a></div><div class="alt-card"><div class="alt-label">Alternativa</div><div class="alt-name">Desenvolvimento Arnold</div><div class="alt-desc">Rotação do punho, maior amplitude.</div><a class="yt-link" href="https://www.youtube.com/results?search_query=desenvolvimento+arnold" target="_blank">▶ YouTube</a></div></div></div>
     </div></div>
   </div>
-  <div class="exercise" onclick="toggleEx(this)">
+  <div class="exercise">
     <div class="exercise-header">
       <div class="exercise-num">5</div>
       <div class="exercise-info">
@@ -777,7 +859,7 @@ body{font-family:'Inter',sans-serif;background:transparent;color:var(--text);lin
       <div class="exercise-detail"><h4>🔄 Alternativas (se a máquina estiver ocupada)</h4><div class="alternatives"><div class="alt-card"><div class="alt-label">Alternativa</div><div class="alt-name">Elevação Lateral c/ Halteres</div><div class="alt-desc">Em pé com halteres.</div><a class="yt-link" href="https://www.youtube.com/results?search_query=elevacao+lateral+halteres" target="_blank">▶ YouTube</a></div><div class="alt-card"><div class="alt-label">Alternativa</div><div class="alt-name">Elevação Lateral na Polia</div><div class="alt-desc">Polia cruzada, tensão constante.</div><a class="yt-link" href="https://www.youtube.com/results?search_query=elevacao+lateral+polia" target="_blank">▶ YouTube</a></div></div></div>
     </div></div>
   </div>
-  <div class="exercise" onclick="toggleEx(this)">
+  <div class="exercise">
     <div class="exercise-header">
       <div class="exercise-num">6</div>
       <div class="exercise-info">
@@ -804,7 +886,7 @@ body{font-family:'Inter',sans-serif;background:transparent;color:var(--text);lin
     <div class="icon icon-purple">🔙</div>
     <div><h2>Treino D — Costas + Bíceps</h2><div class="meta">Ex: Quinta · ~35 min + 15 min cardio</div></div>
   </div>
-  <div class="exercise" onclick="toggleEx(this)">
+  <div class="exercise">
     <div class="exercise-header">
       <div class="exercise-num">1</div>
       <div class="exercise-info">
@@ -825,7 +907,7 @@ body{font-family:'Inter',sans-serif;background:transparent;color:var(--text);lin
       <div class="exercise-detail"><h4>🔄 Alternativas (se a máquina estiver ocupada)</h4><div class="alternatives"><div class="alt-card"><div class="alt-label">Alternativa</div><div class="alt-name">Barra Fixa (assistida)</div><div class="alt-desc">Se conseguir, ou com assistência.</div><a class="yt-link" href="https://www.youtube.com/results?search_query=barra+fixa+assistida" target="_blank">▶ YouTube</a></div><div class="alt-card"><div class="alt-label">Alternativa</div><div class="alt-name">Puxada c/ Pegada Neutra</div><div class="alt-desc">Menos estresse no cotovelo.</div><a class="yt-link" href="https://www.youtube.com/results?search_query=lat+pulldown+neutral+grip" target="_blank">▶ YouTube</a></div></div></div>
     </div></div>
   </div>
-  <div class="exercise" onclick="toggleEx(this)">
+  <div class="exercise">
     <div class="exercise-header">
       <div class="exercise-num">2</div>
       <div class="exercise-info">
@@ -846,7 +928,7 @@ body{font-family:'Inter',sans-serif;background:transparent;color:var(--text);lin
       <div class="exercise-detail"><h4>🔄 Alternativas (se a máquina estiver ocupada)</h4><div class="alternatives"><div class="alt-card"><div class="alt-label">Alternativa</div><div class="alt-name">Remada Baixa c/ Triângulo</div><div class="alt-desc">Polia baixa com triângulo.</div><a class="yt-link" href="https://www.youtube.com/results?search_query=remada+baixa+triangulo" target="_blank">▶ YouTube</a></div><div class="alt-card"><div class="alt-label">Alternativa</div><div class="alt-name">Remada c/ Halter (banco)</div><div class="alt-desc">Unilateral com halter.</div><a class="yt-link" href="https://www.youtube.com/results?search_query=remada+halter+banco" target="_blank">▶ YouTube</a></div></div></div>
     </div></div>
   </div>
-  <div class="exercise" onclick="toggleEx(this)">
+  <div class="exercise">
     <div class="exercise-header">
       <div class="exercise-num">3</div>
       <div class="exercise-info">
@@ -867,7 +949,7 @@ body{font-family:'Inter',sans-serif;background:transparent;color:var(--text);lin
       <div class="exercise-detail"><h4>🔄 Alternativas (se a máquina estiver ocupada)</h4><div class="alternatives"><div class="alt-card"><div class="alt-label">Alternativa</div><div class="alt-name">Remada na Polia c/ Triângulo</div><div class="alt-desc">Polia baixa, triângulo.</div><a class="yt-link" href="https://www.youtube.com/results?search_query=remada+polia+triangulo" target="_blank">▶ YouTube</a></div><div class="alt-card"><div class="alt-label">Alternativa</div><div class="alt-name">Remada Curvada c/ Barra</div><div class="alt-desc">Barra livre, tronco 45°.</div><a class="yt-link" href="https://www.youtube.com/results?search_query=remada+curvada+barra" target="_blank">▶ YouTube</a></div></div></div>
     </div></div>
   </div>
-  <div class="exercise" onclick="toggleEx(this)">
+  <div class="exercise">
     <div class="exercise-header">
       <div class="exercise-num">4</div>
       <div class="exercise-info">
@@ -888,7 +970,7 @@ body{font-family:'Inter',sans-serif;background:transparent;color:var(--text);lin
       <div class="exercise-detail"><h4>🔄 Alternativas (se a máquina estiver ocupada)</h4><div class="alternatives"><div class="alt-card"><div class="alt-label">Alternativa</div><div class="alt-name">Rosca Direta c/ Halteres</div><div class="alt-desc">Em pé com halteres.</div><a class="yt-link" href="https://www.youtube.com/results?search_query=rosca+direta+halteres" target="_blank">▶ YouTube</a></div><div class="alt-card"><div class="alt-label">Alternativa</div><div class="alt-name">Rosca Direta na Polia</div><div class="alt-desc">Polia baixa com barra.</div><a class="yt-link" href="https://www.youtube.com/results?search_query=rosca+direta+polia" target="_blank">▶ YouTube</a></div></div></div>
     </div></div>
   </div>
-  <div class="exercise" onclick="toggleEx(this)">
+  <div class="exercise">
     <div class="exercise-header">
       <div class="exercise-num">5</div>
       <div class="exercise-info">
@@ -909,7 +991,7 @@ body{font-family:'Inter',sans-serif;background:transparent;color:var(--text);lin
       <div class="exercise-detail"><h4>🔄 Alternativas (se a máquina estiver ocupada)</h4><div class="alternatives"><div class="alt-card"><div class="alt-label">Alternativa</div><div class="alt-name">Rosca Martelo c/ Halteres</div><div class="alt-desc">Em pé com halteres, pegada neutra.</div><a class="yt-link" href="https://www.youtube.com/results?search_query=rosca+martelo+halteres" target="_blank">▶ YouTube</a></div><div class="alt-card"><div class="alt-label">Alternativa</div><div class="alt-name">Rosca Martelo na Polia c/ Corda</div><div class="alt-desc">Polia baixa com corda.</div><a class="yt-link" href="https://www.youtube.com/results?search_query=rosca+martelo+polia+corda" target="_blank">▶ YouTube</a></div></div></div>
     </div></div>
   </div>
-  <div class="exercise" onclick="toggleEx(this)">
+  <div class="exercise">
     <div class="exercise-header">
       <div class="exercise-num">6</div>
       <div class="exercise-info">
@@ -936,7 +1018,7 @@ body{font-family:'Inter',sans-serif;background:transparent;color:var(--text);lin
     <div class="icon icon-pink">🍑</div>
     <div><h2>Treino E — Glúteo</h2><div class="meta">Ex: Sexta · ~35 min + 15 min cardio</div></div>
   </div>
-  <div class="exercise" onclick="toggleEx(this)">
+  <div class="exercise">
     <div class="exercise-header">
       <div class="exercise-num">1</div>
       <div class="exercise-info">
@@ -957,7 +1039,7 @@ body{font-family:'Inter',sans-serif;background:transparent;color:var(--text);lin
       <div class="exercise-detail"><h4>🔄 Alternativas (se a máquina estiver ocupada)</h4><div class="alternatives"><div class="alt-card"><div class="alt-label">Alternativa</div><div class="alt-name">Elevação Pélvica c/ Barra Livre</div><div class="alt-desc">Barra sobre o quadril.</div><a class="yt-link" href="https://www.youtube.com/results?search_query=hip+thrust+barra" target="_blank">▶ YouTube</a></div><div class="alt-card"><div class="alt-label">Alternativa</div><div class="alt-name">Glute Bridge no Solo (peso corporal)</div><div class="alt-desc">Sem peso, mais reps.</div><a class="yt-link" href="https://www.youtube.com/results?search_query=glute+bridge+execucao" target="_blank">▶ YouTube</a></div></div></div>
     </div></div>
   </div>
-  <div class="exercise" onclick="toggleEx(this)">
+  <div class="exercise">
     <div class="exercise-header">
       <div class="exercise-num">2</div>
       <div class="exercise-info">
@@ -978,7 +1060,7 @@ body{font-family:'Inter',sans-serif;background:transparent;color:var(--text);lin
       <div class="exercise-detail"><h4>🔄 Alternativas (se a máquina estiver ocupada)</h4><div class="alternatives"><div class="alt-card"><div class="alt-label">Alternativa</div><div class="alt-name">Abdução de Perna na Polia</div><div class="alt-desc">Polia baixa com tornozeleira.</div><a class="yt-link" href="https://www.youtube.com/results?search_query=abducao+perna+polia" target="_blank">▶ YouTube</a></div><div class="alt-card"><div class="alt-label">Alternativa</div><div class="alt-name">Abdução em Pé c/ Halter</div><div class="alt-desc">Em pé, eleva a perna lateralmente.</div><a class="yt-link" href="https://www.youtube.com/results?search_query=abducao+perna+halter" target="_blank">▶ YouTube</a></div></div></div>
     </div></div>
   </div>
-  <div class="exercise" onclick="toggleEx(this)">
+  <div class="exercise">
     <div class="exercise-header">
       <div class="exercise-num">3</div>
       <div class="exercise-info">
@@ -999,7 +1081,7 @@ body{font-family:'Inter',sans-serif;background:transparent;color:var(--text);lin
       <div class="exercise-detail"><h4>🔄 Alternativas (se a máquina estiver ocupada)</h4><div class="alternatives"><div class="alt-card"><div class="alt-label">Alternativa</div><div class="alt-name">Avanço c/ Halteres (foco glúteo)</div><div class="alt-desc">Passo largo com halteres.</div><a class="yt-link" href="https://www.youtube.com/results?search_query=lunge+halteres+glute" target="_blank">▶ YouTube</a></div><div class="alt-card"><div class="alt-label">Alternativa</div><div class="alt-name">Búlgaro no Smith</div><div class="alt-desc">Pé de trás no banco, foca glúteo.</div><a class="yt-link" href="https://www.youtube.com/results?search_query=bulgarian+split+squat+smith" target="_blank">▶ YouTube</a></div></div></div>
     </div></div>
   </div>
-  <div class="exercise" onclick="toggleEx(this)">
+  <div class="exercise">
     <div class="exercise-header">
       <div class="exercise-num">4</div>
       <div class="exercise-info">
@@ -1020,7 +1102,7 @@ body{font-family:'Inter',sans-serif;background:transparent;color:var(--text);lin
       <div class="exercise-detail"><h4>🔄 Alternativas (se a máquina estiver ocupada)</h4><div class="alternatives"><div class="alt-card"><div class="alt-label">Alternativa</div><div class="alt-name">Kickback na Polia c/ Tornozeleira</div><div class="alt-desc">Polia baixa, empurra pra trás.</div><a class="yt-link" href="https://www.youtube.com/results?search_query=cable+kickback+glute" target="_blank">▶ YouTube</a></div><div class="alt-card"><div class="alt-label">Alternativa</div><div class="alt-name">Elevação Pélvica Unilateral</div><div class="alt-desc">Uma perna no chão, sobe.</div><a class="yt-link" href="https://www.youtube.com/results?search_query=single+leg+glute+bridge" target="_blank">▶ YouTube</a></div></div></div>
     </div></div>
   </div>
-  <div class="exercise" onclick="toggleEx(this)">
+  <div class="exercise">
     <div class="exercise-header">
       <div class="exercise-num">5</div>
       <div class="exercise-info">
@@ -1041,7 +1123,7 @@ body{font-family:'Inter',sans-serif;background:transparent;color:var(--text);lin
       <div class="exercise-detail"><h4>🔄 Alternativas (se a máquina estiver ocupada)</h4><div class="alternatives"><div class="alt-card"><div class="alt-label">Alternativa</div><div class="alt-name">Abdução na Polia (unilateral)</div><div class="alt-desc">Polia com tornozeleira, uma perna.</div><a class="yt-link" href="https://www.youtube.com/results?search_query=cable+hip+abduction" target="_blank">▶ YouTube</a></div><div class="alt-card"><div class="alt-label">Alternativa</div><div class="alt-name">Cadeira Abdutora Bilateral</div><div class="alt-desc">Se a máquina não permitir unilateral.</div><a class="yt-link" href="https://www.youtube.com/results?search_query=cadeira+abdutora+execucao" target="_blank">▶ YouTube</a></div></div></div>
     </div></div>
   </div>
-  <div class="exercise" onclick="toggleEx(this)">
+  <div class="exercise">
     <div class="exercise-header">
       <div class="exercise-num">6</div>
       <div class="exercise-info">
@@ -1068,7 +1150,7 @@ body{font-family:'Inter',sans-serif;background:transparent;color:var(--text);lin
     <div class="icon icon-purple">✨</div>
     <div><h2>Treino F — Full-Body Leve</h2><div class="meta">Ex: Sábado · ~30 min (sem cardio)</div></div>
   </div>
-  <div class="exercise" onclick="toggleEx(this)">
+  <div class="exercise">
     <div class="exercise-header">
       <div class="exercise-num">1</div>
       <div class="exercise-info">
@@ -1089,7 +1171,7 @@ body{font-family:'Inter',sans-serif;background:transparent;color:var(--text);lin
       <div class="exercise-detail"><h4>🔄 Alternativas (se a máquina estiver ocupada)</h4><div class="alternatives"><div class="alt-card"><div class="alt-label">Alternativa</div><div class="alt-name">Agachamento no Smith</div><div class="alt-desc">Substituto na mesma função.</div><a class="yt-link" href="https://www.youtube.com/results?search_query=agachamento+smith" target="_blank">▶ YouTube</a></div><div class="alt-card"><div class="alt-label">Alternativa</div><div class="alt-name">Hack Squat</div><div class="alt-desc">Mais suporte de coluna.</div><a class="yt-link" href="https://www.youtube.com/results?search_query=hack+squat" target="_blank">▶ YouTube</a></div></div></div>
     </div></div>
   </div>
-  <div class="exercise" onclick="toggleEx(this)">
+  <div class="exercise">
     <div class="exercise-header">
       <div class="exercise-num">2</div>
       <div class="exercise-info">
@@ -1110,7 +1192,7 @@ body{font-family:'Inter',sans-serif;background:transparent;color:var(--text);lin
       <div class="exercise-detail"><h4>🔄 Alternativas (se a máquina estiver ocupada)</h4><div class="alternatives"><div class="alt-card"><div class="alt-label">Alternativa</div><div class="alt-name">Supino c/ Halteres</div><div class="alt-desc">Amplitude maior.</div><a class="yt-link" href="https://www.youtube.com/results?search_query=supino+halteres" target="_blank">▶ YouTube</a></div><div class="alt-card"><div class="alt-label">Alternativa</div><div class="alt-name">Flexão de Braço</div><div class="alt-desc">Peso corporal se preferir.</div><a class="yt-link" href="https://www.youtube.com/results?search_query=flexao+braco+execucao" target="_blank">▶ YouTube</a></div></div></div>
     </div></div>
   </div>
-  <div class="exercise" onclick="toggleEx(this)">
+  <div class="exercise">
     <div class="exercise-header">
       <div class="exercise-num">3</div>
       <div class="exercise-info">
@@ -1131,7 +1213,7 @@ body{font-family:'Inter',sans-serif;background:transparent;color:var(--text);lin
       <div class="exercise-detail"><h4>🔄 Alternativas (se a máquina estiver ocupada)</h4><div class="alternatives"><div class="alt-card"><div class="alt-label">Alternativa</div><div class="alt-name">Remada Sentada</div><div class="alt-desc">Substituto para costas.</div><a class="yt-link" href="https://www.youtube.com/results?search_query=remada+sentada" target="_blank">▶ YouTube</a></div><div class="alt-card"><div class="alt-label">Alternativa</div><div class="alt-name">Barra Fixa Assistida</div><div class="alt-desc">Se disponível.</div><a class="yt-link" href="https://www.youtube.com/results?search_query=barra+fixa+assistida" target="_blank">▶ YouTube</a></div></div></div>
     </div></div>
   </div>
-  <div class="exercise" onclick="toggleEx(this)">
+  <div class="exercise">
     <div class="exercise-header">
       <div class="exercise-num">4</div>
       <div class="exercise-info">
@@ -1152,7 +1234,7 @@ body{font-family:'Inter',sans-serif;background:transparent;color:var(--text);lin
       <div class="exercise-detail"><h4>🔄 Alternativas (se a máquina estiver ocupada)</h4><div class="alternatives"><div class="alt-card"><div class="alt-label">Alternativa</div><div class="alt-name">Mesa Flexora</div><div class="alt-desc">Mesma função.</div><a class="yt-link" href="https://www.youtube.com/results?search_query=mesa+flexora" target="_blank">▶ YouTube</a></div><div class="alt-card"><div class="alt-label">Alternativa</div><div class="alt-name">Stiff c/ Halteres</div><div class="alt-desc">Mais estabilização.</div><a class="yt-link" href="https://www.youtube.com/results?search_query=stiff+halteres" target="_blank">▶ YouTube</a></div></div></div>
     </div></div>
   </div>
-  <div class="exercise" onclick="toggleEx(this)">
+  <div class="exercise">
     <div class="exercise-header">
       <div class="exercise-num">5</div>
       <div class="exercise-info">
@@ -1173,7 +1255,7 @@ body{font-family:'Inter',sans-serif;background:transparent;color:var(--text);lin
       <div class="exercise-detail"><h4>🔄 Alternativas (se a máquina estiver ocupada)</h4><div class="alternatives"><div class="alt-card"><div class="alt-label">Alternativa</div><div class="alt-name">Elevação Lateral</div><div class="alt-desc">Se dev não disponível.</div><a class="yt-link" href="https://www.youtube.com/results?search_query=elevacao+lateral" target="_blank">▶ YouTube</a></div><div class="alt-card"><div class="alt-label">Alternativa</div><div class="alt-name">Desenvolvimento c/ Halteres</div><div class="alt-desc">Mais estabilização.</div><a class="yt-link" href="https://www.youtube.com/results?search_query=desenvolvimento+halteres" target="_blank">▶ YouTube</a></div></div></div>
     </div></div>
   </div>
-  <div class="exercise" onclick="toggleEx(this)">
+  <div class="exercise">
     <div class="exercise-header">
       <div class="exercise-num">6</div>
       <div class="exercise-info">
@@ -1194,7 +1276,7 @@ body{font-family:'Inter',sans-serif;background:transparent;color:var(--text);lin
       <div class="exercise-detail"><h4>🔄 Alternativas (se a máquina estiver ocupada)</h4><div class="alternatives"><div class="alt-card"><div class="alt-label">Alternativa</div><div class="alt-name">Cadeira Abdutora</div><div class="alt-desc">Se elevação não disponível.</div><a class="yt-link" href="https://www.youtube.com/results?search_query=cadeira+abdutora" target="_blank">▶ YouTube</a></div><div class="alt-card"><div class="alt-label">Alternativa</div><div class="alt-name">Kickback</div><div class="alt-desc">Substituto para glúteo.</div><a class="yt-link" href="https://www.youtube.com/results?search_query=kickback+gluteo" target="_blank">▶ YouTube</a></div></div></div>
     </div></div>
   </div>
-  <div class="exercise" onclick="toggleEx(this)">
+  <div class="exercise">
     <div class="exercise-header">
       <div class="exercise-num">7</div>
       <div class="exercise-info">
@@ -1215,7 +1297,7 @@ body{font-family:'Inter',sans-serif;background:transparent;color:var(--text);lin
       <div class="exercise-detail"><h4>🔄 Alternativas (se a máquina estiver ocupada)</h4><div class="alternatives"><div class="alt-card"><div class="alt-label">Alternativa</div><div class="alt-name">Rosca c/ Halteres</div><div class="alt-desc">Substituto.</div><a class="yt-link" href="https://www.youtube.com/results?search_query=rosca+halteres" target="_blank">▶ YouTube</a></div><div class="alt-card"><div class="alt-label">Alternativa</div><div class="alt-name">Rosca na Polia</div><div class="alt-desc">Polia baixa.</div><a class="yt-link" href="https://www.youtube.com/results?search_query=rosca+polia" target="_blank">▶ YouTube</a></div></div></div>
     </div></div>
   </div>
-  <div class="exercise" onclick="toggleEx(this)">
+  <div class="exercise">
     <div class="exercise-header">
       <div class="exercise-num">8</div>
       <div class="exercise-info">
@@ -1236,7 +1318,7 @@ body{font-family:'Inter',sans-serif;background:transparent;color:var(--text);lin
       <div class="exercise-detail"><h4>🔄 Alternativas (se a máquina estiver ocupada)</h4><div class="alternatives"><div class="alt-card"><div class="alt-label">Alternativa</div><div class="alt-name">Tríceps Pulley c/ Barra</div><div class="alt-desc">Substituto.</div><a class="yt-link" href="https://www.youtube.com/results?search_query=triceps+pulley" target="_blank">▶ YouTube</a></div><div class="alt-card"><div class="alt-label">Alternativa</div><div class="alt-name">Tríceps no Banco</div><div class="alt-desc">Peso corporal.</div><a class="yt-link" href="https://www.youtube.com/results?search_query=triceps+banco" target="_blank">▶ YouTube</a></div></div></div>
     </div></div>
   </div>
-  <div class="exercise" onclick="toggleEx(this)">
+  <div class="exercise">
     <div class="exercise-header">
       <div class="exercise-num">9</div>
       <div class="exercise-info">
@@ -1258,7 +1340,7 @@ body{font-family:'Inter',sans-serif;background:transparent;color:var(--text);lin
     </div></div>
   </div>
 </div>
-<div class="section-title"><span class="dot"></span>Orientações de Execução</div>
+<div class="section-title" id="orientacoes"><span class="dot"></span>Orientações de Execução</div>
 <div class="guidelines-grid">
 <div class="guideline-card"><div class="gl-icon">🎯</div><h4>RIR 1</h4><p>Para quando sentir que faria só mais 1 rep com técnica perfeita. No último exercício de cada grupo, pode ir até a falha (RIR 0).</p></div>
 <div class="guideline-card"><div class="gl-icon">⏱️</div><h4>Pausas</h4><p>90s exercícios compostos, 60s isolados e core. Indicadas ao lado de cada exercício.</p></div>
@@ -1269,7 +1351,34 @@ body{font-family:'Inter',sans-serif;background:transparent;color:var(--text);lin
 <div class="guideline-card"><div class="gl-icon">🚶‍♀️</div><h4>Cardio</h4><p>15 min caminhada leve (4-5 km/h) após cada treino A-E. Dia F sem cardio. Dia 7: opcional.</p></div>
 <div class="guideline-card"><div class="gl-icon">📝</div><h4>Registro</h4><p>Anote carga e reps de cada série. Sem registro não há progressão.</p></div>
 </div>
-<div class="section-title"><span class="dot"></span>Plano Alimentar — Jejum 16:8</div>
+<div class="section-title" id="cardio"><span class="dot"></span>Cardio & Progressão</div>
+<div class="guidelines-grid">
+<div class="guideline-card"><div class="gl-icon">🚶‍♀️</div><h4>Caminhada pós-treino (dias A-E)</h4><p>15 min leve, 4-5 km/h.</p></div>
+<div class="guideline-card"><div class="gl-icon">💤</div><h4>Dia F</h4><p>Sem cardio — foco em técnica e recuperação ativa.</p></div>
+<div class="guideline-card"><div class="gl-icon">🚶‍♀️</div><h4>Dia de descanso</h4><p>Caminhada opcional de 15-30 min leve.</p></div>
+<div class="guideline-card"><div class="gl-icon">🎯</div><h4>Meta de longo prazo</h4><p>150-300 min/semana. Total atual: ~75 min (5 dias × 15 min) + opcional.</p></div>
+<div class="guideline-card"><div class="gl-icon">🌱</div><h4>Adaptação (Sem 1-2)</h4><p>Manter 3x12, focar em execução e técnica.</p></div>
+<div class="guideline-card"><div class="gl-icon">📈</div><h4>Carga (Sem 3-4)</h4><p>Aumentar carga 5-10% se completar com facilidade.</p></div>
+<div class="guideline-card"><div class="gl-icon">🚀</div><h4>Linear (Sem 5+)</h4><p>Progressão linear semanal; avaliar 4 séries nos compostos.</p></div>
+</div>
+<div class="data-wrap">
+<table class="data-table">
+<thead><tr><th>Grupo</th><th>Séries (dia específico)</th><th>Séries (dia F)</th><th>Total</th></tr></thead>
+<tbody>
+<tr><td>Quadríceps</td><td>15</td><td>1</td><td class="highlight">16</td></tr>
+<tr><td>Peito</td><td>9</td><td>1</td><td class="highlight">10</td></tr>
+<tr><td>Tríceps</td><td>9</td><td>1</td><td class="highlight">10</td></tr>
+<tr><td>Posterior</td><td>9</td><td>1</td><td class="highlight">10</td></tr>
+<tr><td>Ombros</td><td>9</td><td>1</td><td class="highlight">10</td></tr>
+<tr><td>Costas</td><td>9</td><td>1</td><td class="highlight">10</td></tr>
+<tr><td>Bíceps</td><td>9</td><td>1</td><td class="highlight">10</td></tr>
+<tr><td>Glúteo</td><td>15</td><td>1</td><td class="highlight">16</td></tr>
+</tbody>
+</table>
+</div>
+<p style="font-size:.82rem;color:var(--text-muted);margin:-18px 0 30px">Faixa recomendada (Schoenfeld): 10-20 séries/semana por grupo. Cada grupo recebe 2 estímulos semanais (dia específico + full-body F).</p>
+
+<div class="section-title" id="alimentar"><span class="dot"></span>Plano Alimentar — Jejum 16:8</div>
 <div class="alert-card">
 <h3>⏰ Jejum Intermitente 16:8</h3>
 <p>Janela alimentar: <strong>11:30h às 20:00h</strong>. Fora da janela: apenas água. Sem café da manhã. 3 refeições por dia.</p>
@@ -1306,20 +1415,131 @@ body{font-family:'Inter',sans-serif;background:transparent;color:var(--text);lin
 </div>
 </div>
 <div class="alert-card">
+<h3>📋 Regras e observações</h3>
+<p>🚫 Não tomar café da manhã (jejum 16:8 — janela 11:30h às 20:00h) · Durante o jejum: apenas água</p>
+<p>🍗 Variar a proteína — não repetir o mesmo tipo 2 dias seguidos · Frango apenas ocasionalmente, sem repetir</p>
+<p>🥛 Derivados de lactose em pouca quantidade (em investigação médica)</p>
+<p>🍟 Batata frita: preferir air fryer; reservar frita para 1x/semana</p>
+<p>🍌 Banana: não como fruta, mas vitamina de banana pode · Não gosta: banana (fruta), beterraba, café</p>
+<p>💧 Subir hidratação: 1,5L (sem 1) → 2L (sem 2) → 2,5L (sem 3+)</p>
+</div>
+<div class="alert-card">
 <h3>⚠️ Sinais de Alerta — Subir para 1.400 kcal se ocorrer</h3>
 <p>Cansaço extremo · Queda de cabelo · Irregularidade menstrual · Performance caindo · Dificuldade de concentração · Irritabilidade</p>
 </div>
-<div class="section-title"><span class="dot"></span>Suplementos</div>
+<div class="section-title" id="macros"><span class="dot"></span>Distribuição de Macros por Refeição</div>
+<div class="data-wrap">
+<table class="macro-table">
+<thead><tr><th>Refeição</th><th>Horário</th><th>Kcal</th><th>Prot</th><th>Carb</th><th>Gord</th></tr></thead>
+<tbody>
+<tr><td>Almoço</td><td>11:30-12:30</td><td>~570</td><td>50g</td><td>42g</td><td>18g</td></tr>
+<tr><td>Lanche</td><td>~15h (no trab.)</td><td>~190</td><td>24g</td><td>16g</td><td>3g</td></tr>
+<tr><td>Jantar</td><td>19:00-21:00</td><td>~590</td><td>54g</td><td>50g</td><td>24g</td></tr>
+</tbody>
+<tfoot><tr><td>TOTAL</td><td>3 refeições</td><td>1.350</td><td>128g</td><td>108g</td><td>45g</td></tr></tfoot>
+</table>
+</div>
+
+<div class="section-title" id="suplementos"><span class="dot"></span>Suplementos</div>
 <div class="guidelines-grid">
 <div class="guideline-card"><div class="gl-icon">💊</div><h4>Creatina</h4><p>5g todos os dias (preferencialmente pós-treino).</p></div>
 <div class="guideline-card"><div class="gl-icon">🥤</div><h4>Whey</h4><p>Dias que tolerar, no lanche da tarde. Lactose em investigação — usar pouca quantidade.</p></div>
 </div>
+<div class="section-title" id="fontes"><span class="dot"></span>Fontes Científicas</div>
+<div class="alert-card">
+<h3>🔬 Plano validado</h3>
+<p>Validado com estudos científicos e meta-análises (2024-2026). Meta-análises em mulheres (612+ participantes).</p>
+</div>
+<div class="data-wrap">
+<table class="data-table">
+<thead><tr><th>Tópico</th><th>Fonte</th></tr></thead>
+<tbody>
+<tr><td>Creatina 5g</td><td>PMC7998865 — Creatine in women health (lifespan)</td></tr>
+<tr><td>Creatina 5g</td><td>PMC12086928 — Creatine in women health (bridging gap)</td></tr>
+<tr><td>Creatina 5g</td><td>MDPI Nutrients 12(6):1780 — Meta-análise 29 estudos femininos</td></tr>
+<tr><td>Creatina 5g</td><td>ClinicalTrials NCT05745870 — Creatine + resistance training</td></tr>
+<tr><td>Proteína 128g</td><td>ISSN Position Stand — Sports Nutrition</td></tr>
+<tr><td>Proteína 128g</td><td>NSU Works — Female athlete nutrition</td></tr>
+<tr><td>Proteína 128g</td><td>Pubmed 36714318 — Protein + hypocaloric diet female athletes</td></tr>
+<tr><td>Proteína 128g</td><td>PMC4617900 — High protein + heavy resistance training</td></tr>
+<tr><td>Jejum 16:8</td><td>Frontiers in Nutrition 2025.1664412 — Meta-análise 13 RCTs</td></tr>
+<tr><td>Jejum 16:8</td><td>Nature Comms 2025 s41467-025-65678-z — TRE + exercise women</td></tr>
+<tr><td>Jejum 16:8</td><td>PMC12479299 — TRE body composition overweight women</td></tr>
+<tr><td>Déficit 1350</td><td>Cleveland Clinic — 1200 calorie diet safety</td></tr>
+<tr><td>Déficit 1350</td><td>Precision Nutrition — 1200 calorie diet review</td></tr>
+<tr><td>Déficit 1350</td><td>NIDDK Body Weight Planner</td></tr>
+<tr><td>Déficit 1350</td><td>NCBI NBK2004 — Clinical guidelines obesity treatment</td></tr>
+<tr><td>Cardio</td><td>Nature s41598-021-90526-7 — Endurance + strength women</td></tr>
+<tr><td>Cardio</td><td>ACSM 2026 — Resistance Training Position Stand</td></tr>
+<tr><td>Cardio</td><td>IOC RED-S 2023 — Relative Energy Deficiency in Sport</td></tr>
+<tr><td>Cardio</td><td>BMJ Open Sport Exerc Med 2025 — Resistance exercise + weight loss</td></tr>
+<tr><td>Split ABCDE+F</td><td>Pubmed 27102172 — Schoenfeld 2016 frequency meta-análise</td></tr>
+<tr><td>Split ABCDE+F</td><td>Frontiers 2022.949021 — Resistance training variables review</td></tr>
+<tr><td>Split ABCDE+F</td><td>BMC Sports Sci Med Rehab 2022 — Split vs full body women</td></tr>
+<tr><td>Split ABCDE+F</td><td>JSCR 2024 — Split vs full body meta-análise</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="section-title" id="glossario"><span class="dot"></span>Glossário — Termos & Abreviaturas</div>
+<div class="data-wrap">
+<table class="data-table">
+<thead><tr><th>Termo</th><th>Significado</th></tr></thead>
+<tbody>
+<tr><td>TMB</td><td>Taxa Metabólica Basal — energia mínima que o corpo gasta para manter funções vitais em repouso total.</td></tr>
+<tr><td>TDEE</td><td>Total Daily Energy Expenditure — gasto calórico total diário: TMB × fator de atividade.</td></tr>
+<tr><td>IMC</td><td>Índice de Massa Corporal — relação peso/altura. &lt;18,5 baixo | 18,5–24,9 normal | 25–29,9 sobrepeso | 30+ obesidade.</td></tr>
+<tr><td>CV</td><td>Cardiovascular — relativo ao coração e vasos sanguíneos. Risco CV = risco de doenças do coração.</td></tr>
+<tr><td>RDA</td><td>Recommended Dietary Allowance — dose dietética recomendada oficial (EUA). Proteína: 0,8g/kg.</td></tr>
+<tr><td>RCT</td><td>Randomized Controlled Trial — Ensaio Clínico Randomizado. Estudo com grupo controle. Padrão-ouro de evidência.</td></tr>
+<tr><td>RM</td><td>Repetition Maximum — carga máxima para N repetições. 10RM = carga que levanta no máximo 10 vezes.</td></tr>
+<tr><td>ACSM</td><td>American College of Sports Medicine — define diretrizes de exercício e treinamento.</td></tr>
+<tr><td>ISSN</td><td>International Society of Sports Nutrition — nutrição esportiva. Posicionamentos sobre suplementos.</td></tr>
+<tr><td>IOC</td><td>International Olympic Committee — Comitê Olímpico Internacional. Define consensos sobre saúde no esporte.</td></tr>
+<tr><td>PMC</td><td>PubMed Central — banco de dados do NIH com artigos científicos gratuitos.</td></tr>
+<tr><td>BMD</td><td>Bone Mineral Density — Densidade Mineral Óssea. Baixa = osteopenia/osteoporose.</td></tr>
+<tr><td>1RM</td><td>One Repetition Maximum — carga máxima que a pessoa levanta uma única vez. Mede força máxima.</td></tr>
+<tr><td>IF</td><td>Intermittent Fasting — Jejum Intermitente. Alternar períodos de comer e não comer (ex: 16h jejum / 8h comer).</td></tr>
+<tr><td>TRE</td><td>Time-Restricted Eating — alimentação restrita a janela de tempo. Mesma coisa que jejum intermitente 16:8.</td></tr>
+<tr><td>VLCD</td><td>Very Low Calorie Diet — Dieta de Muito Baixa Caloria (&lt;800 kcal/dia). Apenas com supervisão médica.</td></tr>
+<tr><td>RED-S</td><td>Relative Energy Deficiency in Sport — baixa energia disponível. Causa perda de massa e fadiga.</td></tr>
+<tr><td>TACO</td><td>Tabela Brasileira de Composição de Alimentos — referência nacional de valores nutricionais.</td></tr>
+<tr><td>USDA</td><td>United States Department of Agriculture — base de dados nutricional americana.</td></tr>
+<tr><td>Schoenfeld</td><td>Pesquisador referência mundial em hipertrofia. Meta-análises sobre volume e frequência de treino.</td></tr>
+<tr><td>Mifflin-St Jeor</td><td>Fórmula matemática para calcular TMB. Mais precisa para idade, peso e sexo.</td></tr>
+<tr><td>Whey protein</td><td>Proteína do soro do leite. Suplemento proteico comum. Luana tolera poucos dias na semana.</td></tr>
+<tr><td>Creatina</td><td>Suplemento mais estudado do mundo. 5g/dia melhora força e massa magra. Sem eventos adversos em mulheres.</td></tr>
+<tr><td>Colágeno</td><td>Proteína incompleta (falta aminoácidos). Bom para articulações e pele. Não substitui proteína completa.</td></tr>
+<tr><td>Clara de ovo</td><td>Proteína completa sem lactose. Alternativa ao whey para intolerância gástrica.</td></tr>
+<tr><td>Fibra dietética</td><td>Componente de alimentos vegetais não digerido. Aumenta saciedade e melhora intestino.</td></tr>
+<tr><td>Saciedade</td><td>Sensação de não sentir fome após comer. Proteína + fibra juntas são mais eficazes.</td></tr>
+<tr><td>Déficit calórico</td><td>Comer menos calorias do que o corpo gasta. 300-500 kcal/dia = déficit seguro.</td></tr>
+<tr><td>Recomposição</td><td>Perder gordura e ganhar massa magra ao mesmo tempo. Treino + proteína + déficit moderado.</td></tr>
+<tr><td>Cutting</td><td>Fase de perda de gordura com preservação de massa magra. Déficit calórico + treino de resistência + alta proteína.</td></tr>
+<tr><td>Overhead</td><td>Movimento acima da linha do ombro (ex: desenvolvimento). Pode causar dor com lesão no ombro.</td></tr>
+<tr><td>Amplitude</td><td>Distância percorrida pelo movimento articular. Curta = movimento menor, mais seguro para lesões.</td></tr>
+<tr><td>Composto</td><td>Exercício que envolve 2+ articulações (ex: leg press, supino). Maior recrutamento muscular.</td></tr>
+<tr><td>Isolado</td><td>Exercício que envolve 1 articulação (ex: rosca, cadeira extensora). Mais focado em músculo específico.</td></tr>
+<tr><td>Pulley</td><td>Sistema de roldanas na academia. Treina costas e braços com carga ajustável e controlada.</td></tr>
+<tr><td>Smith</td><td>Aparelho com barra guiada em trilhos verticais. Mais seguro que barra livre.</td></tr>
+<tr><td>Peck Deck</td><td>Máquina para treinar peito (crucifixo). Movimento controlado, seguro para iniciantes.</td></tr>
+<tr><td>Leg Press</td><td>Máquina para treinar pernas empurrando peso. Mais seguro que agachamento livre.</td></tr>
+<tr><td>Full-body</td><td>Treino que trabalha todos os grupos musculares em uma sessão. Usado no dia F (leve).</td></tr>
+<tr><td>Split</td><td>Divisão do treino por grupo muscular em dias diferentes. ABCDE = 1 grupo por dia.</td></tr>
+<tr><td>Kickback</td><td>Exercício para glúteo onde a perna é estendida para trás. Pode ser em máquina ou polia.</td></tr>
+</tbody>
+</table>
+</div>
+
 <div class="footer">
-<p>FitLuh v1.0 · Plano de Treino & Nutrição — Luana Marino</p>
-<p>Criado em 01/10/2026 · Recomposição corporal · Jejum 16:8</p>
-<p style="margin-top:8px;font-size:0.7rem;color:var(--text-muted)">Schoenfeld (10-20 sets/músculo/sem) · Mifflin-St Jeor (TMB feminino) · ACSM 2026</p>
+<p>FitLuh v2.2.0 · Plano de Treino & Nutrição — Luana Marino</p>
+<p>Gerado em 28/09/2026 · Recomposição corporal · Jejum 16:8</p>
+<p style="margin-top:8px;font-size:0.7rem;color:var(--text-muted)">Schoenfeld (10-20 sets/músculo/sem) · Mifflin-St Jeor (TMB feminino) · ACSM 2026 · ISSN · IOC RED-S</p>
 </div>
 </div>
+
+<button class="to-top" id="toTop" aria-label="Voltar ao topo">↑</button>
+
 <script>
 document.addEventListener('DOMContentLoaded', function () {
 
@@ -1348,7 +1568,19 @@ document.addEventListener('DOMContentLoaded', function () {
   // ---- exercise accordion ----
   document.querySelectorAll('.exercise').forEach(function (ex) {
     var header = ex.querySelector('.exercise-header');
-    if (header) header.addEventListener('click', function (e) { e.preventDefault(); ex.classList.toggle('open'); });
+    if (header) {
+      header.setAttribute('role', 'button');
+      header.setAttribute('tabindex', '0');
+      header.setAttribute('aria-expanded', 'false');
+      function toggleEx() {
+        var isOpen = ex.classList.toggle('open');
+        header.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      }
+      header.addEventListener('click', function (e) { e.preventDefault(); toggleEx(); });
+      header.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar') { e.preventDefault(); toggleEx(); }
+      });
+    }
   });
 
   // ---- wrap volume table for mobile horizontal scroll ----
@@ -1391,6 +1623,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // ---------- scroll progress + parallax ----------
   var progress = document.getElementById('scrollProgress');
+  var nav = document.querySelector('.nav');
+  var lastY = window.scrollY || document.documentElement.scrollTop;
+  var HIDE_OFFSET = 120;
   function onScroll() {
     var st = window.scrollY || document.documentElement.scrollTop;
     var max = document.documentElement.scrollHeight - window.innerHeight;
@@ -1400,6 +1635,14 @@ document.addEventListener('DOMContentLoaded', function () {
       var shift = Math.min(st * speed, 48);
       el.style.transform = 'translateY(' + shift.toFixed(1) + 'px)';
     });
+    if (nav) {
+      if (st < HIDE_OFFSET || st < lastY) {
+        nav.classList.remove('nav-hidden');
+      } else if (st > lastY) {
+        nav.classList.add('nav-hidden');
+      }
+      lastY = st;
+    }
   }
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
@@ -1436,6 +1679,7 @@ document.addEventListener('DOMContentLoaded', function () {
   var t = 0;
   var orbs = { g: document.querySelector('.orb.g'), c: document.querySelector('.orb.c'), p: document.querySelector('.orb.p') };
   function loop() {
+    if (!running) return;
     t += 0.008;
     tx += (mx - tx) * 0.06; ty += (my - ty) * 0.06;
     ctx.clearRect(0, 0, W, H);
@@ -1453,6 +1697,11 @@ document.addEventListener('DOMContentLoaded', function () {
     if (orbs.p) orbs.p.style.transform = 'translate(' + ((tx - W / 2) * 0.04).toFixed(1) + 'px,' + ((ty - H / 2) * -0.03).toFixed(1) + 'px)';
     requestAnimationFrame(loop);
   }
+  var running = true;
+  document.addEventListener('visibilitychange', function () {
+    if (document.hidden) { running = false; }
+    else if (!running) { running = true; loop(); }
+  });
   loop();
 
   // ---------- reveal on scroll ----------
@@ -1490,6 +1739,64 @@ document.addEventListener('DOMContentLoaded', function () {
     });
     card.addEventListener('mouseleave', function () { card.style.transition = 'transform .4s ease-out'; card.style.transform = ''; setTimeout(function () { card.style.transition = ''; }, 400); });
   });
+})();
+</script>
+
+<script>
+(function () {
+  'use strict';
+
+  const hamburger = document.getElementById('hamburger');
+  const sidebar = document.getElementById('sidebar');
+  const backdrop = document.getElementById('menuBackdrop');
+  const sidebarClose = document.getElementById('sidebarClose');
+  const toTop = document.getElementById('toTop');
+
+  function setMenu(open) {
+    if (!hamburger || !sidebar || !backdrop) return;
+    hamburger.classList.toggle('open', open);
+    sidebar.classList.toggle('open', open);
+    backdrop.classList.toggle('open', open);
+    hamburger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    sidebar.setAttribute('aria-hidden', open ? 'false' : 'true');
+    backdrop.setAttribute('aria-hidden', open ? 'false' : 'true');
+    document.documentElement.style.overflow = open ? 'hidden' : '';
+    document.body.style.overflow = open ? 'hidden' : '';
+  }
+  function closeMenu() { setMenu(false); }
+
+  if (hamburger) hamburger.addEventListener('click', function () { setMenu(!sidebar.classList.contains('open')); });
+  if (backdrop) backdrop.addEventListener('click', closeMenu);
+  if (sidebarClose) sidebarClose.addEventListener('click', closeMenu);
+  if (sidebar) sidebar.querySelectorAll('.side-link').forEach(function (link) { link.addEventListener('click', closeMenu); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && sidebar && sidebar.classList.contains('open')) closeMenu(); });
+
+  if (toTop) {
+    window.addEventListener('scroll', function () {
+      const y = window.scrollY || document.documentElement.scrollTop;
+      toTop.classList.toggle('show', y > 600);
+    }, { passive: true });
+    toTop.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+  }
+
+  // ---------- theme toggle ----------
+  const themeToggle = document.getElementById('themeToggle');
+  function currentTheme() { return document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light'; }
+  function syncThemeIcon() { if (themeToggle) themeToggle.textContent = currentTheme() === 'dark' ? '☀️' : '🌙'; }
+  function applyThemeMeta(theme) {
+    const meta = document.querySelector('meta[name="theme-color"]');
+    if (meta) meta.setAttribute('content', theme === 'dark' ? '#170a12' : '#fdf3f8');
+  }
+  syncThemeIcon();
+  if (themeToggle) {
+    themeToggle.addEventListener('click', function () {
+      const next = currentTheme() === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      try { localStorage.setItem('theme', next); } catch (e) {}
+      syncThemeIcon();
+      applyThemeMeta(next);
+    });
+  }
 })();
 </script>
 </body>
